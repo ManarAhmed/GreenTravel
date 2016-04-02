@@ -20,6 +20,11 @@ class IndexController extends Zend_Controller_Action
         $city_obj=new Application_Model_City();
         $city_rated=$city_obj->rateCity();
         $this->view->citys_rated = $city_rated;
+
+        //list countries
+        $country_obj=new Application_Model_Country();
+        $countries=$country_obj->listCountries();
+        $this->view->countries = $countries;
     }
 
 

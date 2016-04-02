@@ -8,4 +8,8 @@ class Application_Model_Country extends Zend_DB_Table_Abstract
 		return $this->fetchAll(null,"rate DESC",6)->toArray();
 	}
 
+	function listCountries(){
+		return $this->fetchAll(null,"name ASC")->toArray();
+	}
+
 }
