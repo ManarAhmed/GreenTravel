@@ -16,10 +16,27 @@
 		$sessionRead = $storage->read();
 		if (!empty($sessionRead)) {
 			$name = $sessionRead->username;
+			// $id = $sessionRead->id;
+			// var_dump($id);exit();
 			echo " * Welcome " . $name . " *";
 	?>
+	
+	
+    
 	<div class="pull-right">
 		<a class='btn btn-default' href='/user/logout'>Logout</a>
+	</div>
+	<br>
+<br>
+
+	<div class="pull-right">
+		<a class='btn btn-warning' href='update/name/ <?php echo $name ?>'> update </a>
+	</div>
+	 <div class="pull-right">
+		<a class='btn btn-warning' href='hotalinfo/name/ <?php echo $name ?>'> hotal reservation information </a>
+	</div>
+	 <div class="pull-right">
+		<a class='btn btn-warning' href='carinfo/name/ <?php echo $name ?>'> car reservation information </a>
 	</div>
 	<!--facebook-->
 	<?php

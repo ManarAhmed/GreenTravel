@@ -1,0 +1,40 @@
+<style type="text/css">
+
+center{
+color:lightgrey;
+ font-family: courier;
+    font-size: 160%;
+   /* border: 1px solid black;
+    padding: 10px;*/
+}
+#z
+{
+	 border: 1px solid #2980B9;
+}
+</style>
+<p id="a"><center>car rental request </center></p>
+<div class=>
+<table id="z"class="table table-striped  table-bordered table-hover table-responsive">
+<?php
+// var_dump($this->user);exit;
+// foreach($this->user as  $value)
+// {
+$value=$this->data;
+if($value!=null)
+{
+//var_dump($value);exit();
+echo 
+"<tr class='danger'>" ."<td>"."source : ". $value['source']."</td>"."</tr>" .
+"<tr class='active'>" ."<td>"."destination : ". $value['destination']."</td>"."</tr>" .
+"<tr class='warning'>" ."<td>". "date_from : ".$value['date_from'] ."</td>". "</tr>" .
+"<tr class='info'>" . "<td>"."date_to : ".$value['date_to']."</td>" . "</tr>" ;
+}
+else 
+{
+	echo "<tr class='info'>" . "<td>"."<center>"."no reservation"."</center>" ."</td>" . "</tr>" ;
+}
+
+// }
+?>
+</table>
+</div>
