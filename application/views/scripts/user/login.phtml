@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+</head>
+<body>
+<div class="container">
+<div class = "page-header" >
+   
+   <h1>Login Page</h1>
+   
+</div>
+<div class="container">
+	<?php
+		echo $this->login_form;
+		echo $this->error_message;
+		echo '<a class="btn btn-primary" href="' . $this->facebook_url . '"> Login with Facebook </a>';
+	?>
+
+	
+
+</div>
+</body>
+</html>

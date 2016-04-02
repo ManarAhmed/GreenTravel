@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home Page</title>
+</head>
+<body>
+<div class="container">
+<div class = "page-header" align="center">
+   
+   <h1>Home Page</h1>
+   <h3 style="color: green;">
+   	<?php
+   		$fbsession = new Zend_Session_Namespace('facebook');
+   		$auth = Zend_Auth::getInstance();
+		$storage = $auth->getStorage();
+		$sessionRead = $storage->read();
+		if (!empty($sessionRead)) {
+			$name = $sessionRead->username;
+			echo " * Welcome " . $name . " *";
+	?>
+	<div class="pull-right">
+		<a class='btn btn-default' href='/user/logout'>Logout</a>
+	</div>
+	<!--facebook-->
+	<?php
+
+		}
+
+		else if (isset($fbsession->username) && !empty (isset($fbsession->username))) {
+			$name = $fbsession->username;
+			echo " * Welcome " . $name . " *";
+	?>
+	<div class="pull-right">
+		<a class='btn btn-default' href="/user/fplogout">Logout</a>
+	</div>
+
+<?php
+}
+?>
+
+   </h3>
+    
+   
+</div>
+
+	
+</div>
+</body>
+</html>
