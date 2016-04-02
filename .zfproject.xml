@@ -19,6 +19,14 @@
           <actionMethod actionName="fpauth"/>
           <actionMethod actionName="fplogout"/>
         </controllerFile>
+        <controllerFile controllerName="Country">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="cities"/>
+          <actionMethod actionName="city"/>
+        </controllerFile>
+        <controllerFile controllerName="City">
+          <actionMethod actionName="index"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="User"/>
@@ -31,6 +39,8 @@
       </layoutsDirectory>
       <modelsDirectory>
         <modelFile modelName="User"/>
+        <modelFile modelName="Country"/>
+        <modelFile modelName="City"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <servicesDirectory enabled="false"/>
@@ -59,6 +69,18 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="User">
             <viewScriptFile forActionName="fplogout"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Country">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Country">
+            <viewScriptFile forActionName="cities"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Country">
+            <viewScriptFile forActionName="city"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="City">
+            <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
