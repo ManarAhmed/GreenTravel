@@ -22,6 +22,58 @@
 </head>
 
 <body id="page-top">
+<div class="container">
+
+<div = align="center">
+   <div style="margin-top: 60px;"></div>
+ 
+   <h3 style="color: green;">
+    <?php
+        $fbsession = new Zend_Session_Namespace('facebook');
+        $auth = Zend_Auth::getInstance();
+        $storage = $auth->getStorage();
+        $sessionRead = $storage->read();
+        if (!empty($sessionRead)) {
+            if($sessionRead->type == 0){ //user not admin
+                $name = $sessionRead->username;
+                echo " * Welcome " . $name . " *";
+                
+            }
+            else{ //admin not user
+                
+                header("Location: /user/adminHome");
+            ?>
+    <?php    
+            }
+            
+    ?>
+    <div class="pull-right">
+        <a class='btn btn-default' href='/user/logout'>Logout</a>
+    </div>
+    <!--facebook-->
+    <?php
+
+        }
+
+        else if (isset($fbsession->username) && !empty (isset($fbsession->username))) {
+            $name = $fbsession->username;
+            echo " * Welcome " . $name . " *";
+    ?>
+    <div class="pull-right">
+        <a class='btn btn-default' href="/user/fplogout">Logout</a>
+    </div>
+
+<?php
+}
+else{
+    echo " * Welcome * " ;
+}
+?>
+
+   </h3>
+    
+   
+</div>
 
     <nav id="mainNav" class="navbar navbar-info navbar-fixed-top">
         <div class="container-fluid">
@@ -54,7 +106,7 @@
                             <li> <a href="#">Hotel Reservation </a> </li>
 
                       </ul>
-                    </li>
+            
                     <!-- <li>
                         <a class="page-scroll" href="#destinations">Destinations</a>
                     </li>
@@ -181,6 +233,7 @@
 }
 
 </style>
+</div>
 </body>
 
 </html>

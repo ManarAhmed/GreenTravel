@@ -30,7 +30,7 @@ class Application_Model_User extends Zend_Db_Table_Abstract
  		$user_data['username']=$userData['username'];
  		// var_dump($user_data['username']);exit();
  		$user_data['password']=md5($userData['password']);
- 		//$user_data['gender']=$userData['gender'];
+ 		$user_data['gender']=$userData['gender'];
  		$user_data['email']=$userData['email'];
  		$this->update($user_data,"id='$id'");
 

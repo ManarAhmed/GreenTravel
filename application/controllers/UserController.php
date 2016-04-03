@@ -57,8 +57,8 @@ class UserController extends Zend_Controller_Action
                     //start session
                     $auth = Zend_Auth::getInstance( );
                     $storage = $auth->getStorage();
-                    // write in session email & username
-                    $storage->write($authAdapter->getResultRowObject(array('email','username','id')));
+                    // write in session email & username $ id $ type
+                    $storage->write($authAdapter->getResultRowObject(array('email','username','id','type')));
                     return $this->redirect("/user/index");
                 }else{
                     //if user not valid
