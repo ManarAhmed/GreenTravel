@@ -9,7 +9,19 @@ class Application_Model_Country extends Zend_DB_Table_Abstract
 	}
 
 	function listCountries(){
+
+		//returns all countries from db
 		return $this->fetchAll(null,"name ASC")->toArray();
+	}
+
+	function getCountry($id){
+		
+		return $this->find($id)->toArray()[0];
+	}
+
+	function countryDelete($id)
+	{
+		$this->delete("id=$id");
 	}
 
 }

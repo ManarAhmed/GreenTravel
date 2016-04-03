@@ -31,8 +31,29 @@ class CountryController extends Zend_Controller_Action
         $this->view->city=$city[0];
     }
 
+    public function listAction()
+    {
+        $country_obj = new Application_Model_Country();
+        $all_countries = $country_obj->listCountries();
+        $this->view->countries = $all_countries;
+    }
+
+    public function deleteAction()
+    {
+        $country_obj = new Application_Model_Country();
+        $country_id = $this->_request->getParam("eid");
+        $country_obj->countryDelete($country_id);
+        $this->redirect("/country/list");
+    }
+
 
 }
+
+
+
+
+
+
 
 
 

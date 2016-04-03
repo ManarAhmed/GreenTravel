@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hotels</title>
+</head>
+<body>
+<div class="container">
+
+<div class="page-header" align="center">
+	<h2>All Hotels </h2>
+</div>
+<div style="margin-top: 50px;"></div>
+<div >
+<table class="table">
+	<tr>
+		<th>ID</th>
+		<th>Name</th>
+		<th>City_ID</th>
+		<th colspan="3">Action</th>
+	</tr>
+
+		<?php
+		foreach ($this->hotels as $key => $value) {
+			echo "<tr>";
+			echo "<td>".$value['id']."</td>";
+			echo "<td>".$value['name']."</td>";
+			echo "<td>".$value['city_id']."</td>";
+			echo "<td><a class='btn btn-success' href='/hotel/add'>Add</a></td>";
+			echo "<td><a class='btn btn-danger' href='/hotel/delete/eid/".$value['id']."'>Delete</a></td>";
+			echo "<td><a class='btn btn-primary' href='/hotel/edit/eid/".$value['id']."'>Edit</a></td>";
+			echo "</tr>";
+
+		}
+		
+		?>
+
+</table>
+</div>
+</div>
+</body>
+</html>
