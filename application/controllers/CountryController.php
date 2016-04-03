@@ -67,8 +67,30 @@ class CountryController extends Zend_Controller_Action
         }
     }
 
+    public function editAction()
+    {
+        $form = new Application_Form_Country();
+        $country_obj = new Application_Model_Country();
+        $country_id = $this->_request->getParam("eid");
+        $country_data = $country_obj->getCountry($country_id);
+
+        $form->populate($country_data);
+        $this->view->form_c = $form;
+
+        $request = $this->getRequest();
+        if($request->isPost()){
+            if($form->isValid($_POST)){
+
+                $country_obj->countryEdit($_POST);
+                $this->redirect('/country/list');
+            }
+        }
+    }
+
 
 }
+
+
 
 
 

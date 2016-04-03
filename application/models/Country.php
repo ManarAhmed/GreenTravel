@@ -35,4 +35,15 @@ class Application_Model_Country extends Zend_DB_Table_Abstract
 		$row->save();
 	}
 
+	function countryEdit($countryData){
+		//a3ml array gdeda bel data bas mn 8er el btns
+		$customData['name'] = $countryData['name'];
+		$customData['rate'] = $countryData['rate'];
+		$customData['image_path'] = $countryData['image_path'];
+
+		$id = $countryData['id'];
+
+		$this->update($customData,"id= $id");
+	}
+
 }

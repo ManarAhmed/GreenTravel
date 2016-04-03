@@ -53,8 +53,30 @@ class CityController extends Zend_Controller_Action
         }
     }
 
+    public function editAction()
+    {
+        $form = new Application_Form_City();
+        $city_obj = new Application_Model_City();
+        $city_id = $this->_request->getParam("eid");
+        $city_data = $city_obj->citydetails($city_id);
+
+        $form->populate($city_data);
+        $this->view->form_c = $form;
+
+        $request = $this->getRequest();
+        if($request->isPost()){
+            if($form->isValid($_POST)){
+
+                $city_obj->cityEdit($_POST);
+                $this->redirect('/city/list');
+            }
+        }
+    }
+
 
 }
+
+
 
 
 

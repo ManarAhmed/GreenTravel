@@ -45,8 +45,30 @@ class HotelController extends Zend_Controller_Action
         }
     }
 
+    public function editAction()
+    {
+        $form = new Application_Form_Hotel();
+        $hotel_obj = new Application_Model_Hotel();
+        $hotel_id = $this->_request->getParam("eid");
+        $hotel_data = $hotel_obj->hotelDetails($hotel_id);
+
+        $form->populate($hotel_data);
+        $this->view->form_c = $form;
+
+        $request = $this->getRequest();
+        if($request->isPost()){
+            if($form->isValid($_POST)){
+
+                $hotel_obj->hotelEdit($_POST);
+                $this->redirect('/hotel/list');
+            }
+        }
+    }
+
 
 }
+
+
 
 
 
