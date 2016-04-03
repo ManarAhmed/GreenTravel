@@ -28,8 +28,27 @@ class LocationController extends Zend_Controller_Action
         $this->redirect("/location/list");
     }
 
+    public function addAction()
+    {
+        $form = new Application_Form_Location();
+        $this->view->location_form = $form;
+        $location_obj = new Application_Model_Location();
+        $request = $this->getRequest();
+
+        if($request->isPost()){
+            if($form->isValid($_POST)){
+
+                //2ab3at el data lel function ele f el model locationAdd()
+                $location_obj->locationAdd($_POST);
+                $this->redirect('/location/list');
+            }
+        }
+    }
+
 
 }
+
+
 
 
 

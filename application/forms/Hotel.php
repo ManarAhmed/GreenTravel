@@ -13,12 +13,12 @@ class Application_Form_Hotel extends Zend_Form
 
         //name
         $name = new Zend_Form_Element_Text('name');
-        $name->setLabel('City Name');
-        $name->setAttrib('placeholder','City Name');
+        $name->setLabel('Hotel Name');
+        $name->setAttrib('placeholder','Hotel Name');
         $name->setAttrib('class','form-control');
         $name->setRequired();
         $name->AddValidator('StringLength',false,array(3,20));
-        $name->AddValidator('db_NoRecordExists',true,array('city','name'));
+        $name->AddValidator('db_NoRecordExists',true,array('hotel','name'));
 
         //city
         $city = new Zend_Form_Element_Select('city_id');
@@ -26,7 +26,7 @@ class Application_Form_Hotel extends Zend_Form
         $city->setLabel('City');
         //create object from city model
         $city_obj = new Application_Model_City();
-        $all_cities = $city_obj->listCities();
+        $all_cities = $city_obj->listAllCities();
         foreach($all_cities as $key=>$value){
         	$city->addMultiOption($value['id'],$value['name']);
         }
@@ -45,8 +45,8 @@ class Application_Form_Hotel extends Zend_Form
 
         //to add these element to the form
         $this->addElements(array(
+            $name,
         	$id,
-        	$name,
         	$city,
         	$submit,
         	$reset

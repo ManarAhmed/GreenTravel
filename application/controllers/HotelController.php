@@ -38,7 +38,7 @@ class HotelController extends Zend_Controller_Action
         if($request->isPost()){
             if($form->isValid($_POST)){
 
-                //2ab3at el data lel function ele f el model cityAdd()
+                //2ab3at el data lel function ele f el model hotelAdd()
                 $hotel_obj->hotelAdd($_POST);
                 $this->redirect('/hotel/list');
             }

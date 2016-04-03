@@ -38,6 +38,7 @@
           <actionMethod actionName="index"/>
           <actionMethod actionName="list"/>
           <actionMethod actionName="delete"/>
+          <actionMethod actionName="add"/>
         </controllerFile>
         <controllerFile controllerName="Hotel">
           <actionMethod actionName="index"/>
@@ -146,6 +147,9 @@
             <viewScriptFile forActionName="add"/>
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Hotel">
+            <viewScriptFile forActionName="add"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Location">
             <viewScriptFile forActionName="add"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>

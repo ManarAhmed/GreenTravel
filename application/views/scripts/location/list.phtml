@@ -8,8 +8,11 @@
 
 <div class="page-header" align="center">
 	<h2>All Locations </h2>
+	<div class="pull-left">
+		<a class='btn btn-success btn-lg' href='/location/add'>Add</a>
+	</div>
 </div>
-<div style="margin-top: 50px;"></div>
+<div style="margin-top: 80px;"></div>
 <div >
 <table class="table">
 	<tr>
@@ -17,7 +20,7 @@
 		<th>Name</th>
 		<th>Description</th>
 		<th>City_id</th>
-		<th colspan="3">Action</th>
+		<th colspan="2">Action</th>
 	</tr>
 
 		<?php
@@ -27,7 +30,6 @@
 			echo "<td>".$value['name']."</td>";
 			echo "<td>".$value['description']."</td>";
 			echo "<td>".$value['city_id']."</td>";
-			echo "<td><a class='btn btn-success' href='/location/add'>Add</a></td>";
 			echo "<td><a class='btn btn-danger' href='/location/delete/eid/".$value['id']."'>Delete</a></td>";
 			echo "<td><a class='btn btn-primary' href='/location/edit/eid/".$value['id']."'>Edit</a></td>";
 			echo "</tr>";
