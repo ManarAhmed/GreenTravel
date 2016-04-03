@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 02, 2016 at 07:42 PM
+-- Generation Time: Apr 03, 2016 at 08:15 AM
 -- Server version: 5.5.47-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.14
 
@@ -62,7 +62,6 @@ CREATE TABLE IF NOT EXISTS `city` (
 --
 
 INSERT INTO `city` (`id`, `name`, `description`, `image`, `rate`, `latitude`, `longitude`, `country_id`) VALUES
-(1, 'sohag', '', 'cat1.jpeg', 100, 0, 0, 1),
 (2, 'cairo', '', 'cat2.jpeg', 90, 0, 0, 1),
 (3, 'alex', '', 'cat3.jpeg', 80, 0, 0, 1);
 
@@ -120,8 +119,7 @@ INSERT INTO `country` (`id`, `name`, `rate`, `image`) VALUES
 (4, 'brazil', 40, 'nature4.jpeg'),
 (5, 'africa', 70, 'cat1.jpeg'),
 (6, 'frane', 80, 'cat2.jpeg'),
-(7, 'almania', 90, 'cat3.jpeg'),
-(8, 'nemsa', 55, 'nature8.jpeg');
+(7, 'almania', 90, 'cat3.jpeg');
 
 -- --------------------------------------------------------
 
@@ -163,7 +161,16 @@ CREATE TABLE IF NOT EXISTS `hotel` (
   `city_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `city_id` (`city_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `hotel`
+--
+
+INSERT INTO `hotel` (`id`, `name`, `city_id`) VALUES
+(2, 'helton', 2),
+(3, 'sheraton', 2),
+(4, 'four seasons', 3);
 
 -- --------------------------------------------------------
 
@@ -189,11 +196,21 @@ CREATE TABLE IF NOT EXISTS `hotelreserve` (
 --
 
 CREATE TABLE IF NOT EXISTS `location` (
-  `id` int(11) NOT NULL,
-  `name` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
   `description` varchar(200) NOT NULL,
-  `city_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `city_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `location`
+--
+
+INSERT INTO `location` (`id`, `name`, `description`, `city_id`) VALUES
+(1, 'camp shezar', 'description description description ', 1),
+(3, 'mhatet masr', 'description description description description description ', 3),
+(4, 'san stifano', 'description description description description description description ', 2);
 
 -- --------------------------------------------------------
 
@@ -222,12 +239,10 @@ CREATE TABLE IF NOT EXISTS `user` (
   `email` varchar(50) NOT NULL,
   `password` varchar(300) NOT NULL,
   `gender` varchar(50) NOT NULL,
-  `type` enum('1','0') NOT NULL,
+  `type` enum('1','0') NOT NULL DEFAULT '0',
   `is_active` enum('1','0') NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `username` (`username`),
-  UNIQUE KEY `username_2` (`username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `user`
@@ -236,7 +251,9 @@ CREATE TABLE IF NOT EXISTS `user` (
 INSERT INTO `user` (`id`, `username`, `email`, `password`, `gender`, `type`, `is_active`) VALUES
 (1, 'manar', 'manar@yahoo.com', '123', '', '1', '1'),
 (2, 'aya', 'aya@yahoo.com', '123', '', '0', '1'),
-(5, 'mema', 'manar@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'female', '1', '1');
+(5, 'mema', 'manar@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'female', '1', '1'),
+(7, 'aya', 'aya@mail.com', '81dc9bdb52d04dc20036dbd8313ed055', '', '0', '1'),
+(8, 'esraa', 'esraa@mail.com', '81dc9bdb52d04dc20036dbd8313ed055', '', '1', '1');
 
 --
 -- Constraints for dumped tables
