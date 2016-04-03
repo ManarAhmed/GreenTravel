@@ -26,5 +26,19 @@ class Application_Model_City extends Zend_DB_Table_Abstract
 		$this->delete("id=$id");
 	}
 
+	function cityAdd($cityData){
+		//2a3mel row gded
+		$row = $this->createRow();
+		$row->name = $cityData['name'];
+		$row->description = $cityData['description'];
+		$row->latitude = $cityData['latitude'];
+		$row->longitude = $cityData['longitude'];
+		$row->rate = $cityData['rate'];
+		$row->image = $cityData['image_path'];
+		$row->country_id = $cityData['country_id'];
+
+		//save in DB
+		$row->save();
+	}
 }
 

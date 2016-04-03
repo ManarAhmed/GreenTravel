@@ -26,11 +26,13 @@
           <actionMethod actionName="listContries"/>
           <actionMethod actionName="list"/>
           <actionMethod actionName="delete"/>
+          <actionMethod actionName="add"/>
         </controllerFile>
         <controllerFile controllerName="City">
           <actionMethod actionName="index"/>
           <actionMethod actionName="list"/>
           <actionMethod actionName="delete"/>
+          <actionMethod actionName="add"/>
         </controllerFile>
         <controllerFile controllerName="Location">
           <actionMethod actionName="index"/>
@@ -41,6 +43,7 @@
           <actionMethod actionName="index"/>
           <actionMethod actionName="list"/>
           <actionMethod actionName="delete"/>
+          <actionMethod actionName="add"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory>
@@ -135,6 +138,15 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Location">
             <viewScriptFile forActionName="delete"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="City">
+            <viewScriptFile forActionName="add"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Country">
+            <viewScriptFile forActionName="add"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Hotel">
+            <viewScriptFile forActionName="add"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

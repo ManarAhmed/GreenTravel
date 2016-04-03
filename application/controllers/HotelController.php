@@ -28,8 +28,27 @@ class HotelController extends Zend_Controller_Action
         $this->redirect("/hotel/list");
     }
 
+    public function addAction()
+    {
+        $form = new Application_Form_Hotel();
+        $this->view->hotel_form = $form;
+        $hotel_obj = new Application_Model_Hotel();
+        $request = $this->getRequest();
+
+        if($request->isPost()){
+            if($form->isValid($_POST)){
+
+                //2ab3at el data lel function ele f el model cityAdd()
+                $hotel_obj->hotelAdd($_POST);
+                $this->redirect('/hotel/list');
+            }
+        }
+    }
+
 
 }
+
+
 
 
 

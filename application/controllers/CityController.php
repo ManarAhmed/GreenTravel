@@ -32,8 +32,31 @@ class CityController extends Zend_Controller_Action
         $this->redirect("/city/list");
     }
 
+    public function addAction()
+    {
+        $form = new Application_Form_City();
+        $this->view->city_form = $form;
+        $city_obj = new Application_Model_City();
+        $request = $this->getRequest();
+
+        if($request->isPost()){
+            if($form->isValid($_POST)){
+
+                $upload = new Zend_File_Transfer_Adapter_Http();
+                $upload->addFilter('Rename',"/var/www/html/zend_project/public/uploads/countries/".$_POST['name'].".jpeg");
+                $upload->receive();
+                $_POST['image_path']="/uploads/countries/".$_POST['name'].".jpeg";
+                //2ab3at el data lel function ele f el model cityAdd()
+                $city_obj->cityAdd($_POST);
+                $this->redirect('/city/list');
+            }
+        }
+    }
+
 
 }
+
+
 
 
 

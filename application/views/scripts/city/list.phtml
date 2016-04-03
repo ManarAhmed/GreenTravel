@@ -8,16 +8,19 @@
 
 <div class="page-header" align="center">
 	<h2>All Cities </h2>
+	<div class="pull-left">
+	<a class='btn btn-success btn-lg' href='/city/add'>Add</a>
+	</div>
 </div>
-<div style="margin-top: 50px;"></div>
+<div style="margin-top: 80px;"></div>
 <div >
 <table class="table">
 	<tr>
+		<th>Image</th>
 		<th>ID</th>
 		<th>Name</th>
 		<th>Rate</th>
 		<th>Description</th>
-		<th>Image</th>
 		<th>Country_id</th>
 		<th colspan="3">Action</th>
 	</tr>
@@ -25,13 +28,12 @@
 		<?php
 		foreach ($this->cities as $key => $value) {
 			echo "<tr>";
+			echo "<td><img src='/var/www/html/zend_project/public".$value['image']."' height='80' width='80'></td>";
 			echo "<td>".$value['id']."</td>";
 			echo "<td>".$value['name']."</td>";
 			echo "<td>".$value['rate']."</td>";
 			echo "<td>".$value['description']."</td>";
 			echo "<td>".$value['country_id']."</td>";
-			echo "<td><img src='".$value['image']."' height='100' width='100'></td>";
-			echo "<td><a class='btn btn-success' href='/city/add'>Add</a></td>";
 			echo "<td><a class='btn btn-danger' href='/city/delete/eid/".$value['id']."'>Delete</a></td>";
 			echo "<td><a class='btn btn-primary' href='/city/edit/eid/".$value['id']."'>Edit</a></td>";
 			echo "</tr>";

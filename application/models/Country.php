@@ -24,4 +24,15 @@ class Application_Model_Country extends Zend_DB_Table_Abstract
 		$this->delete("id=$id");
 	}
 
+	function countryAdd($countryData){
+		//2a3mel row gded
+		$row = $this->createRow();
+		$row->name = $countryData['name'];
+		$row->rate = $countryData['rate'];
+		$row->image = $countryData['image_path'];
+
+		//save in DB
+		$row->save();
+	}
+
 }
