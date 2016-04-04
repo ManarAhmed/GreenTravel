@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Locations</title>
+</head>
+<body>
+<div class="container">
+
+<div class="page-header" align="center">
+	<h2>All Locations </h2>
+	<div class="pull-left">
+		<a class='btn btn-success btn-lg' href='/location/add'>Add</a>
+	</div>
+</div>
+<div style="margin-top: 80px;"></div>
+<div >
+<table class="table">
+	<tr>
+		<th>ID</th>
+		<th>Name</th>
+		<th>Description</th>
+		<th>City_id</th>
+		<th colspan="2">Action</th>
+	</tr>
+
+		<?php
+		foreach ($this->locations as $key => $value) {
+			echo "<tr>";
+			echo "<td>".$value['id']."</td>";
+			echo "<td>".$value['name']."</td>";
+			echo "<td>".$value['description']."</td>";
+			echo "<td>".$value['city_id']."</td>";
+			echo "<td><a class='btn btn-danger' href='/location/delete/eid/".$value['id']."'>Delete</a></td>";
+			echo "<td><a class='btn btn-primary' href='/location/edit/eid/".$value['id']."'>Edit</a></td>";
+			echo "</tr>";
+
+		}
+		
+		?>
+
+</table>
+</div>
+</div>
+</body>
+</html>

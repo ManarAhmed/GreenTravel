@@ -23,8 +23,7 @@ class Application_Form_Update extends Zend_Form
         $email->setLabel('Email');
         $email->setAttrib('placeholder','Email');
         $email->setAttrib('class','form-control');
-        //$email->AddValidator('EmailAddress');
-        //$email->AddValidator('db_NoRecordExists',true,array('user','email'));
+        $email->AddValidator('EmailAddress');
 
         //password
         $password = new Zend_Form_Element_Password('password');
