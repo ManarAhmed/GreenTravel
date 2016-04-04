@@ -10,7 +10,7 @@ class Application_Model_User extends Zend_Db_Table_Abstract
 		$row->username = $userData['username'];
 		$row->password = md5($userData['password']);
 		$row->email = $userData['email'];
-		//$row->gender = $userData['gender'];
+		$row->gender = $userData['gender'];
 
 		//save in DB
 		$row->save();
@@ -41,6 +41,23 @@ class Application_Model_User extends Zend_Db_Table_Abstract
 			$sessionRead->username = $userData['username'] ;
 		}
  	}
+
+ 	function listUsers()
+	{
+		return $this->fetchAll()->toArray();
+	}
+
+	function blockUser($id){
+
+		$active['is_active'] = 0;
+		$this->update($active , "id='$id'");
+	}
+
+	function unblockUser($id){
+
+		$active['is_active'] = 1;
+		$this->update($active , "id='$id'");
+	}
 
 }
 

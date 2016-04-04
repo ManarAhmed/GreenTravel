@@ -57,7 +57,7 @@ class CountryController extends Zend_Controller_Action
             if($form->isValid($_POST)){
 
                 $upload = new Zend_File_Transfer_Adapter_Http();
-                $upload->addFilter('Rename',"/var/www/html/zend_project/public/uploads/countries/".$_POST['name'].".jpeg");
+                $upload->addFilter('Rename',"/var/www/html/zend_project/public/uploads/countries/".$_POST['name'].time().".jpeg");
                 $upload->receive();
                 $_POST['image']="/uploads/countries/".$_POST['name'].".jpeg";
                 //2ab3at el data lel function ele f el model countryAdd()
@@ -82,7 +82,7 @@ class CountryController extends Zend_Controller_Action
             if($form->isValid($_POST)){
 
                 $upload = new Zend_File_Transfer_Adapter_Http();
-                $upload->addFilter('Rename',"/var/www/html/zend_project/public/uploads/countries/".$_POST['name'].".jpeg");
+                $upload->addFilter('Rename',"/var/www/html/zend_project/public/uploads/countries/".$_POST['name'].time().".jpeg");
                 $upload->receive();
                 $_POST['image']="/uploads/countries/".$_POST['name'].".jpeg";
 

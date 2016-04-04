@@ -74,9 +74,9 @@ class CityController extends Zend_Controller_Action
             if($form->isValid($_POST)){
 
                 $upload = new Zend_File_Transfer_Adapter_Http();
-                $upload->addFilter('Rename',"/var/www/html/zend_project/public/uploads/cities/".$_POST['name'].".jpeg");
+                $upload->addFilter('Rename',"/var/www/html/zend_project/public/uploads/cities/".$_POST['name'].time().".jpeg");
                 $upload->receive();
-                $_POST['image_path']="/uploads/cities/".$_POST['name'].".jpeg";
+                $_POST['image']="/uploads/cities/".$_POST['name'].".jpeg";
                 //2ab3at el data lel function ele f el model cityAdd()
                 $city_obj->cityAdd($_POST);
                 $this->redirect('/city/list');
@@ -99,7 +99,7 @@ class CityController extends Zend_Controller_Action
             if($form->isValid($_POST)){
 
                 $upload = new Zend_File_Transfer_Adapter_Http();
-                $upload->addFilter('Rename',"/var/www/html/zend_project/public/uploads/cities/".$_POST['name'].".jpeg");
+                $upload->addFilter('Rename',"/var/www/html/zend_project/public/uploads/cities/".$_POST['name'].time().".jpeg");
                 $upload->receive();
                 $_POST['image']="/uploads/cities/".$_POST['name'].".jpeg";
 
