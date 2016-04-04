@@ -83,7 +83,7 @@ class CityController extends Zend_Controller_Action
         $this->view->city_long= $city_row['longitude'];
         $this->view->city_rate= $city_row['rate'];
         $set=$city_post->cityPosts($city_id);
-        
+
         Zend_View_Helper_PaginationControl::setDefaultViewPartial('/city/paginate.phtml');
         $paginator = Zend_Paginator::factory($set);
         $paginator->setCurrentPageNumber($this->_getParam('page', 1));
