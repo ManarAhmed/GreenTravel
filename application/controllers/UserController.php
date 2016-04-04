@@ -241,8 +241,37 @@ class UserController extends Zend_Controller_Action
         // action body
     }
 
+    public function listAction()
+    {
+        $user_model = new Application_Model_User();
+        $this->view->users = $user_model->listUsers();
+    }
+
+    public function blockAction()
+    {
+        $user_model = new Application_Model_User();
+        $id = $this->_request->getParam('id');
+        $user_model->blockUser($id);
+        $this->redirect('/user/list');
+    }
+
+    public function unblockAction()
+    {
+        $user_model = new Application_Model_User();
+        $id = $this->_request->getParam('id');
+        $user_model->unblockUser($id);
+        $this->redirect('/user/list');
+        
+    }
+
 
 }
+
+
+
+
+
+
 
 
 

@@ -48,7 +48,7 @@ class Application_Model_City extends Zend_DB_Table_Abstract
 		$customData['latitude'] = $cityData['latitude'];
 		$customData['longitude'] = $cityData['longitude'];
 		$customData['rate'] = $cityData['rate'];
-		$customData['image'] = $cityData['image'];
+		$customData['image'] = $cityData['image'];		
 		$customData['country_id'] = $cityData['country_id'];
 
 		$id = $cityData['id'];
