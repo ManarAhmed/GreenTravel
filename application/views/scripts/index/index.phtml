@@ -27,7 +27,7 @@
 <div = align="center">
    <div style="margin-top: 60px;"></div>
  
-   <h3 style="color: green;">
+   <h3 class="text-danger">
     <?php
         $fbsession = new Zend_Session_Namespace('facebook');
         $auth = Zend_Auth::getInstance();
@@ -41,7 +41,7 @@
             }
             else{ //admin not user
                 
-                header("Location: /user/adminHome");
+                header("Location: /user/admin");
             ?>
     <?php    
             }

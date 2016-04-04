@@ -87,6 +87,7 @@ class UserController extends Zend_Controller_Action
         $auth->clearIdentity();
         $this->redirect();
     }
+
     public function fpauthAction()
     {
         //instance from FB
@@ -175,8 +176,6 @@ class UserController extends Zend_Controller_Action
         $this->redirect();
     }
 
-
-
     public function updateAction()
     {
         $form = new Application_Form_Update ();
@@ -237,8 +236,17 @@ class UserController extends Zend_Controller_Action
         $this->view->data = $data;
     }
 
+    public function adminAction()
+    {
+        // action body
+    }
+
 
 }
+
+
+
+
 
 
 
