@@ -1,0 +1,21 @@
+<br /><br />
+<div id="view-content">
+<p>
+    <?php
+    echo $this->city_desc;
+    echo "<br>";
+    foreach ($this->paginator as $key => $val)
+    {
+        echo $val['title'];
+        echo "<br>";
+        $subPost=substr($val['content'],0,50);
+        echo $subPost."...";
+        echo "<br>";
+//        echo $val['content'];
+        echo "<a href='/city/post/post_id/{$val["id"]}'>See more</a>";
+    }
+    echo $this->paginator;
+    ?>
+
+</p>
+</div>
