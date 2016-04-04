@@ -59,8 +59,6 @@ class Application_Form_User extends Zend_Form
         $reset->setValue('reset');
         $reset->setAttrib('class','btn btn-info');
 
-    
-
         //to add these element to the form
         $this->addElements(array(
         	$id,
