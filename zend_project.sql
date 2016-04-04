@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 04, 2016 at 07:41 PM
+-- Generation Time: Apr 04, 2016 at 08:16 PM
 -- Server version: 5.5.47-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.14
 
@@ -63,9 +63,8 @@ CREATE TABLE IF NOT EXISTS `city` (
 --
 
 INSERT INTO `city` (`id`, `name`, `description`, `image`, `rate`, `latitude`, `longitude`, `country_id`) VALUES
-(3, 'aalex', 'description description description description description description description description description description ', '/uploads/cities/aalex.jpeg', 80, 0, 0, 1),
-(7, 'damanhur', 'description description description description description description description description description description description description ', '/uploads/cities/damanhur.jpeg', 2, 11, 22, 6),
-(8, 'matrou7', 'description description description description description description description description ', '/uploads/cities/matrou7.jpeg', 4, 77, 678, 5),
+(3, 'alexx', 'description description description description description description description description description description ', '/uploads/cities/alexx.jpeg', 80, 22, 44, 1),
+(8, 'matrouh', 'description description description description description description description description ', '/uploads/cities/matrouh.jpeg', 4, 77, 678, 5),
 (10, 'cairo', 'description description description description description description description description description description description description description description description description description description description description ', '/uploads/cities/cairo.jpeg', 90, 21, 22, 5);
 
 -- --------------------------------------------------------
@@ -110,21 +109,19 @@ CREATE TABLE IF NOT EXISTS `country` (
   `image` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 --
 -- Dumping data for table `country`
 --
 
 INSERT INTO `country` (`id`, `name`, `rate`, `image`) VALUES
-(1, 'egyptt', 100, '/uploads/countries/egyptt.jpeg'),
-(4, 'brazel', 40, '/uploads/countries/brazel.jpeg'),
-(5, 'Africaa', 70, '/uploads/countries/Africaa.jpeg'),
-(6, 'france', 80, '/uploads/countries/france.jpeg'),
-(9, 'country', 80, '/uploads/cities/country.jpeg'),
-(11, 'london', 22, '/uploads/countries/london.jpeg'),
-(12, 'south america', 90, '/uploads/countries/south america.jpeg'),
-(13, 'almania', 90, '/uploads/countries/almania.jpeg');
+(1, 'egypt', 100, '/uploads/countries/egypt.jpeg'),
+(4, 'brazil', 40, '/uploads/countries/brazil.jpeg'),
+(5, 'Africa', 70, '/uploads/countries/Africa.jpeg'),
+(11, 'londonn', 22, '/uploads/countries/londonn.jpeg'),
+(12, 'southAmerica', 90, '/uploads/countries/southAmerica.jpeg'),
+(13, 'almaniaa', 90, '/uploads/countries/almaniaa.jpeg');
 
 -- --------------------------------------------------------
 
