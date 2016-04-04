@@ -56,5 +56,6 @@ class Application_Model_City extends Zend_DB_Table_Abstract
 		$this->update($customData,"id= $id");
 	}
 
+
 }
 

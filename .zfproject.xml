@@ -40,6 +40,8 @@
           <actionMethod actionName="delete"/>
           <actionMethod actionName="add"/>
           <actionMethod actionName="edit"/>
+          <actionMethod actionName="display"/>
+          <actionMethod actionName="post"/>
         </controllerFile>
         <controllerFile controllerName="Location">
           <actionMethod actionName="index"/>
@@ -79,6 +81,7 @@
         <modelFile modelName="City"/>
         <modelFile modelName="Location"/>
         <modelFile modelName="Hotel"/>
+        <modelFile modelName="Experience"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <servicesDirectory enabled="false"/>
@@ -177,11 +180,20 @@
           <viewControllerScriptsDirectory forControllerName="Country">
             <viewScriptFile forActionName="edit"/>
           </viewControllerScriptsDirectory>
+
+          <viewControllerScriptsDirectory forControllerName="City">
+            <viewScriptFile forActionName="display"/>
+            <viewScriptFile forActionName="post"/>
+          </viewControllerScriptsDirectory>
+
+
+
           <viewControllerScriptsDirectory forControllerName="User">
             <viewScriptFile forActionName="adminHome"/>
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="User">
             <viewScriptFile forActionName="admin"/>
+
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="User">
             <viewScriptFile forActionName="list"/>

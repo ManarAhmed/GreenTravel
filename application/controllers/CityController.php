@@ -18,10 +18,7 @@ class CityController extends Zend_Controller_Action
         $city_obj = new Application_Model_City();
         $all_cities = $city_obj->listAllCities();
         $this->view->cities = $all_cities;
-        //get country name by ID
-        // $country_obj = new Application_Model_Country();
-        // $country_name = $country_obj->getCountry($all_cities["country_id"]);
-        // $this->view->country_name = $country_name;
+
     }
 
     public function deleteAction()
@@ -78,8 +75,43 @@ class CityController extends Zend_Controller_Action
         }
     }
 
+    public function displayAction()
+    {
+        // action body
+        $city_obj = new Application_Model_City();
+        $city_post= new Application_Model_Experience();
+        $city_id = $this->_request->getParam("id");
+        $city_row=$city_obj->citydetails($city_id);
+        $this->view->city_desc= $city_row['description'];
+        $this->view->city_img= $city_row['image'];
+        $this->view->city_lat= $city_row['latitude'];
+        $this->view->city_long= $city_row['longitude'];
+        $this->view->city_rate= $city_row['rate'];
+        $set=$city_post->cityPosts($city_id);
+
+        Zend_View_Helper_PaginationControl::setDefaultViewPartial('/city/paginate.phtml');
+        $paginator = Zend_Paginator::factory($set);
+        $paginator->setCurrentPageNumber($this->_getParam('page', 1));
+        $paginator->setItemCountPerPage(2);
+
+        $this->view->paginator = $paginator;
+    }
+
+    public function postAction()
+    {
+        // action body
+        $city_post= new Application_Model_Experience();
+        $post_id= $this->_request->getParam("post_id");
+        $post_row=$city_post->cityPost($post_id);
+        $this->view->post=$post_row;
+    }
+
 
 }
+
+
+
+
 
 
 
