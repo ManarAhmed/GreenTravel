@@ -27,13 +27,13 @@ class Application_Form_Country extends Zend_Form
         $rate->setRequired();
         $rate->addValidator('Digits');
 
-        //image path
-        $image_path = new Zend_Form_Element_File('image');
-        $image_path->setLabel('Upload an image:');
-        $image_path->addValidator('Count', false, 1);
-        $image_path->addValidator('Extension',false, 'jpg,jpeg,png,gif');
-        $image_path->setAttrib('class','text-danger');
-        $image_path->setRequired();
+        //image
+        $image = new Zend_Form_Element_File('image');
+        $image->setLabel('Upload an image:');
+        $image->addValidator('Count', false, 1);
+        $image->addValidator('Extension',false, 'jpg,jpeg,png,gif');
+        $image->setAttrib('class','text-danger');
+        $image->setRequired();
 
         //submit btn
         $submit = new Zend_Form_Element_Submit('Submit');
@@ -50,7 +50,7 @@ class Application_Form_Country extends Zend_Form
         $this->addElements(array(
         	$id,
         	$name,
-        	$image_path,
+        	$image,
         	$rate,
         	$submit,
         	$reset
