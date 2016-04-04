@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 03, 2016 at 08:15 AM
+-- Generation Time: Apr 04, 2016 at 08:16 PM
 -- Server version: 5.5.47-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.14
 
@@ -54,16 +54,18 @@ CREATE TABLE IF NOT EXISTS `city` (
   `longitude` float NOT NULL,
   `country_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`),
   KEY `country_id` (`country_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `city`
 --
 
 INSERT INTO `city` (`id`, `name`, `description`, `image`, `rate`, `latitude`, `longitude`, `country_id`) VALUES
-(2, 'cairo', '', 'cat2.jpeg', 90, 0, 0, 1),
-(3, 'alex', '', 'cat3.jpeg', 80, 0, 0, 1);
+(3, 'alexx', 'description description description description description description description description description description ', '/uploads/cities/alexx.jpeg', 80, 22, 44, 1),
+(8, 'matrouh', 'description description description description description description description description ', '/uploads/cities/matrouh.jpeg', 4, 77, 678, 5),
+(10, 'cairo', 'description description description description description description description description description description description description description description description description description description description description ', '/uploads/cities/cairo.jpeg', 90, 21, 22, 5);
 
 -- --------------------------------------------------------
 
@@ -105,21 +107,21 @@ CREATE TABLE IF NOT EXISTS `country` (
   `name` varchar(200) NOT NULL,
   `rate` float NOT NULL,
   `image` varchar(500) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 --
 -- Dumping data for table `country`
 --
 
 INSERT INTO `country` (`id`, `name`, `rate`, `image`) VALUES
-(1, 'egypt', 100, 'nature1.jpeg'),
-(2, 'india', 50, 'nature3.jpeg'),
-(3, 'south america', 30, 'nature2.jpeg'),
-(4, 'brazil', 40, 'nature4.jpeg'),
-(5, 'africa', 70, 'cat1.jpeg'),
-(6, 'frane', 80, 'cat2.jpeg'),
-(7, 'almania', 90, 'cat3.jpeg');
+(1, 'egypt', 100, '/uploads/countries/egypt.jpeg'),
+(4, 'brazil', 40, '/uploads/countries/brazil.jpeg'),
+(5, 'Africa', 70, '/uploads/countries/Africa.jpeg'),
+(11, 'londonn', 22, '/uploads/countries/londonn.jpeg'),
+(12, 'southAmerica', 90, '/uploads/countries/southAmerica.jpeg'),
+(13, 'almaniaa', 90, '/uploads/countries/almaniaa.jpeg');
 
 -- --------------------------------------------------------
 
@@ -160,17 +162,17 @@ CREATE TABLE IF NOT EXISTS `hotel` (
   `name` varchar(200) NOT NULL,
   `city_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`),
   KEY `city_id` (`city_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `hotel`
 --
 
 INSERT INTO `hotel` (`id`, `name`, `city_id`) VALUES
-(2, 'helton', 2),
-(3, 'sheraton', 2),
-(4, 'four seasons', 3);
+(4, 'four seasons', 3),
+(5, 'makka', 3);
 
 -- --------------------------------------------------------
 
@@ -200,17 +202,18 @@ CREATE TABLE IF NOT EXISTS `location` (
   `name` varchar(50) NOT NULL,
   `description` varchar(200) NOT NULL,
   `city_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+  PRIMARY KEY (`id`),
+  KEY `city_id` (`city_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `location`
 --
 
 INSERT INTO `location` (`id`, `name`, `description`, `city_id`) VALUES
-(1, 'camp shezar', 'description description description ', 1),
+(1, 'camp shezarr', 'description description description ', 3),
 (3, 'mhatet masr', 'description description description description description ', 3),
-(4, 'san stifano', 'description description description description description description ', 2);
+(5, 'ibrahmya', 'beside my home', 3);
 
 -- --------------------------------------------------------
 
@@ -263,7 +266,19 @@ INSERT INTO `user` (`id`, `username`, `email`, `password`, `gender`, `type`, `is
 -- Constraints for table `city`
 --
 ALTER TABLE `city`
-  ADD CONSTRAINT `city_ibfk_1` FOREIGN KEY (`country_id`) REFERENCES `country` (`id`);
+  ADD CONSTRAINT `city_ibfk_1` FOREIGN KEY (`country_id`) REFERENCES `country` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `hotel`
+--
+ALTER TABLE `hotel`
+  ADD CONSTRAINT `hotel_ibfk_1` FOREIGN KEY (`city_id`) REFERENCES `city` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `location`
+--
+ALTER TABLE `location`
+  ADD CONSTRAINT `location_ibfk_1` FOREIGN KEY (`city_id`) REFERENCES `city` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

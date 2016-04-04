@@ -27,7 +27,7 @@
 <div = align="center">
    <div style="margin-top: 60px;"></div>
  
-   <h3 style="color: green;">
+   <h3 class="text-danger">
     <?php
         $fbsession = new Zend_Session_Namespace('facebook');
         $auth = Zend_Auth::getInstance();
@@ -41,7 +41,7 @@
             }
             else{ //admin not user
                 
-                header("Location: /user/adminHome");
+                header("Location: /user/admin");
             ?>
     <?php    
             }
@@ -99,12 +99,14 @@ else{
                         <?php endforeach;?>                        
                       </ul>
                     </li>
+                    <?php if(isset($name)): ?>
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bookings  <span class="caret"></span></a>
-                      <ul class="dropdown-menu">
-                            <li> <a href="#">Car Request </a> </li>
-                            <li> <a href="#">Hotel Reservation </a> </li>
 
+                      <ul class="dropdown-menu">
+                            <li> <a href="user/hotalinfo/name/<?=  $name ?>">Hotel Reservation</a> </li>                     
+                            <li> <a href="user/carinfo/name/ <?= $name ?>">Car Request</a> </li>
+                    <?php endif; ?>
                       </ul>
             
                     <!-- <li>
@@ -112,7 +114,8 @@ else{
                     </li>
                     <li>
                         <a class="page-scroll" href="#booking">Booking</a>
-                    </li> -->
+                        -->
+                    </li> 
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -138,7 +141,7 @@ else{
   <div class="carousel-inner" role="listbox">
     <div class="item active" >
                 <div class="img_container ">
-                    <img src="<?php echo $this->baseUrl();?>/uploads/<?= $this->countrys_rated[0]['image']?>" alt="" >
+                    <img src="<?= $this->countrys_rated[0]['image']?>" alt="" >
                     <a href="country/cities?cid=<?= $this->countrys_rated[0]['id']?>" class="btn btn-info btn-xl page-scroll"> Learn More > </a>
                 </div>
             </div>
@@ -147,7 +150,7 @@ else{
     if (!$i){?>
         <div class="item" >
             <div class="img_container ">
-                <img src="<?php echo $this->baseUrl();?>/uploads/<?= $value['image']?>" alt="" >
+                <img src="<?= $value['image']?>" alt="" >
                 <a href="country/cities?cid=<?= $value['id']?>" class="btn btn-info btn-xl page-scroll"> Learn More > </a>
             </div>
         </div>             
@@ -175,7 +178,7 @@ else{
                 <?php foreach($this->citys_rated as $key=>$value): ?>
                 <div class="col-lg-4 col-sm-6">
                     <a href="country/city?id=<?= $value['id']?>" class="portfolio-box">
-                        <img src="<?php echo $this->baseUrl();?>/uploads/<?= $value['image']?>" class="img-responsive" alt="">
+                        <img src="<?= $value['image']?>" class="img-responsive" alt="" width="200" height="200">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">

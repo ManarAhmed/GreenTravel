@@ -5,51 +5,50 @@ class Application_Form_Hotel extends Zend_Form
 
     public function init()
     {
-        /* Form Elements & Other Definitions Here ... */
-         $this->setMethod('POST');
-        $this->setAttribs(array(
-			'class'=>'container',
-			));
+        $this->setMethod('POST');
+        $this->setAttrib('class','form-horizontal');
+
+        //id
         $id = new Zend_Form_Element_Hidden('id');
 
+        //name
         $name = new Zend_Form_Element_Text('name');
-        $name->setAttribs(Array(
-        'placeholder'=>'search for hotel or hostel',
-        'class'=>'form-control',
-        'id'=>'name'
-        ));
         $name->setLabel('Hotel Name');
+        $name->setAttrib('placeholder','Hotel Name');
+        $name->setAttrib('class','form-control');
         $name->setRequired();
-        $name->addValidator('StringLength', false, Array(2,20));
-        $name->addFilter('StringTrim');
+        $name->AddValidator('StringLength',false,array(3,20));
+        $name->AddValidator('db_NoRecordExists',true,array('hotel','name'));
 
-        $number = new Zend_Form_Element_Select('number');
-        $number->setRequired();
-        $number->setLabel('Number of Guests');
-        $number->addMultiOption('1','1 Adult')->
-        addMultiOption('2','2 Adults')->
-        addMultiOption('3','3 Adults')->
-        addMultiOption('4','4 Adults');
-        $number->setAttribs(array(
-            'class'=>'form-control',
-            'id'=>'number'));
+        //city
+        $city = new Zend_Form_Element_Select('city_id');
+        $city->setAttrib('class','form-control');
+        $city->setLabel('City');
+        //create object from city model
+        $city_obj = new Application_Model_City();
+        $all_cities = $city_obj->listAllCities();
+        foreach($all_cities as $key=>$value){
+        	$city->addMultiOption($value['id'],$value['name']);
+        }
 
         //submit btn
         $submit = new Zend_Form_Element_Submit('Submit');
-        $submit->setValue('submit');
+        $submit->setValue('Add');
         $submit->setAttrib('class','btn btn-success');
 
         //reset btn
         $reset = new Zend_Form_Element_Reset('Reset');
-        $reset->setValue('reset');
-        $reset->setAttrib('class','btn btn-info');
-        
+        $reset->setValue('Reset');
+        $reset->setAttrib('class','btn btn-danger');
+
+        //to add these element to the form
         $this->addElements(array(
             $name,
-            $number,
-            $submit,
-            $reset
-        ));
+        	$id,
+        	$city,
+        	$submit,
+        	$reset
+        	));
     }
 
 
