@@ -28,7 +28,8 @@
 		<?php
 		foreach ($this->cities as $key => $value) {
 			echo "<tr>";
-			echo "<td><img src='/var/www/html/zend_project/public".$value['image']."' height='80' width='80'></td>";
+			//var_dump($value['image']);exit;
+			echo "<td><img src='".$value['image']."' height='100' width='100'></td>";
 			echo "<td>".$value['id']."</td>";
 			echo "<td>".$value['name']."</td>";
 			echo "<td>".$value['rate']."</td>";
@@ -41,6 +42,7 @@
 		}
 		
 		?>
+
 
 </table>
 </div>
