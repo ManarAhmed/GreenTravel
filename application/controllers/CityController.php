@@ -47,7 +47,7 @@ class CityController extends Zend_Controller_Action
         $storage = $auth->getStorage();
         $sessionRead = $storage->read();
         $uid = $sessionRead->id;
-        
+
         //add hotel reservation data and redirect for city page
         $hotel_form = new  Application_Form_HotelRequest();
         $request = $this->getRequest();
@@ -62,6 +62,7 @@ class CityController extends Zend_Controller_Action
         }
 
         $this->view->hotel_form = $hotel_form;
+    }
 
     public function addAction()
     {
