@@ -20,6 +20,9 @@
           <actionMethod actionName="fplogout"/>
           <actionMethod actionName="adminHome"/>
           <actionMethod actionName="admin"/>
+          <actionMethod actionName="list"/>
+          <actionMethod actionName="block"/>
+          <actionMethod actionName="unblock"/>
         </controllerFile>
         <controllerFile controllerName="Country">
           <actionMethod actionName="index"/>
@@ -37,6 +40,8 @@
           <actionMethod actionName="delete"/>
           <actionMethod actionName="add"/>
           <actionMethod actionName="edit"/>
+          <actionMethod actionName="display"/>
+          <actionMethod actionName="post"/>
         </controllerFile>
         <controllerFile controllerName="Location">
           <actionMethod actionName="index"/>
@@ -64,6 +69,8 @@
         <formFile formName="UCountry"/>
         <formFile formName="UHotel"/>
         <formFile formName="ULocation"/>
+        <formFile formName="Hotelreq"/>
+        <formFile formName="HotelRequest"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
@@ -76,6 +83,7 @@
         <modelFile modelName="City"/>
         <modelFile modelName="Location"/>
         <modelFile modelName="Hotel"/>
+        <modelFile modelName="Experience"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <servicesDirectory enabled="false"/>
@@ -174,11 +182,24 @@
           <viewControllerScriptsDirectory forControllerName="Country">
             <viewScriptFile forActionName="edit"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="City">
+            <viewScriptFile forActionName="display"/>
+            <viewScriptFile forActionName="post"/>
+          </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="User">
             <viewScriptFile forActionName="adminHome"/>
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="User">
             <viewScriptFile forActionName="admin"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="list"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="block"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="unblock"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Users</title>
+</head>
+<body>
+<div class="container">
+
+<div class="page-header" align="center">
+	<h2>All Users </h2>
+	<div class="pull-left">
+	<a class='btn btn-success btn-lg' href='/city/add'>Add</a>
+	</div>
+</div>
+<div style="margin-top: 80px;"></div>
+<div >
+<table class="table">
+	<tr>
+		<th>ID</th>
+		<th>UserName</th>
+		<th>Email</th>
+		<th>Gender</th>
+		<th>is-active</th>
+		<th>Action</th>
+	</tr>
+
+		<?php
+		foreach ($this->users as $key => $value) {
+
+			if($value['type'] == 0){ //if this record is user
+
+				echo "<tr>";
+				echo "<td>".$value['id']."</td>";
+				echo "<td>".$value['username']."</td>";
+				echo "<td>".$value['email']."</td>";
+				echo "<td>".$value['gender']."</td>";
+				
+				if($value['is_active'] == 1){
+					echo "<td>Yes</td>";
+					echo "<td><a class='btn btn-danger' href='/user/block/id/".$value['id']."'>Block</a></td>";
+				}else{
+					echo "<td class='text-danger'>No</td>";
+					echo "<td><a class='btn btn-info' href='/user/unblock/id/".$value['id']."'>UN-Block</a></td>";
+				}
+				
+				
+				echo "</tr>";
+			}
+		}
+		
+		?>
+
+
+</table>
+</div>
+</div>
+</body>
+</html>
