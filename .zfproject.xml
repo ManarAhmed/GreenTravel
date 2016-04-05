@@ -20,6 +20,9 @@
           <actionMethod actionName="fplogout"/>
           <actionMethod actionName="adminHome"/>
           <actionMethod actionName="admin"/>
+          <actionMethod actionName="list"/>
+          <actionMethod actionName="block"/>
+          <actionMethod actionName="unblock"/>
         </controllerFile>
         <controllerFile controllerName="Country">
           <actionMethod actionName="index"/>
@@ -66,6 +69,8 @@
         <formFile formName="UCountry"/>
         <formFile formName="UHotel"/>
         <formFile formName="ULocation"/>
+        <formFile formName="Hotelreq"/>
+        <formFile formName="HotelRequest"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
@@ -177,20 +182,24 @@
           <viewControllerScriptsDirectory forControllerName="Country">
             <viewScriptFile forActionName="edit"/>
           </viewControllerScriptsDirectory>
-
           <viewControllerScriptsDirectory forControllerName="City">
             <viewScriptFile forActionName="display"/>
             <viewScriptFile forActionName="post"/>
           </viewControllerScriptsDirectory>
-
-
-
           <viewControllerScriptsDirectory forControllerName="User">
             <viewScriptFile forActionName="adminHome"/>
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="User">
             <viewScriptFile forActionName="admin"/>
-
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="list"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="block"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="unblock"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

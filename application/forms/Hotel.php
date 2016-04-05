@@ -41,8 +41,6 @@ class Application_Form_Hotel extends Zend_Form
         $reset->setValue('Reset');
         $reset->setAttrib('class','btn btn-danger');
 
-    
-
         //to add these element to the form
         $this->addElements(array(
             $name,
@@ -55,4 +53,3 @@ class Application_Form_Hotel extends Zend_Form
 
 
 }
-

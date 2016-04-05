@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <head>
-
-<!--<!-- Latest compiled and minified CSS -->
+    <!--<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.
 min.css" integrity="sha384-
 1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -47,6 +46,64 @@ crossorigin="anonymous"></script>
 <body>
 <?php echo $this->layout()->content; ?>
 </body>
-<script src="js/jquery.easing.min.js"></script>
-<script src="js/jquery.fittext.js"></script>
-<script src="js/wow.min.js"></script>
+
+ 
+ <!-- jQuery -->
+<script src="/bootstrap/js/jquery.min.js"></script>
+<script src="/bootstrap/js/jquery.easing.min.js"></script>
+<script src="/bootstrap/js/jquery.fittext.js"></script>
+<!-- compiled and minified CSS -->
+<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+<!-- Optional theme -->
+<link rel="stylesheet" href="/bootstrap/css/bootstrap-theme.min.css">
+<!-- Custom Fonts -->
+<link rel="stylesheet" href="/bootstrap/css/animate.min.css" type="text/css">
+<!-- Custom CSS -->
+<link rel="stylesheet" href="/bootstrap/css/creative.css" type="text/css">
+<link rel="stylesheet" href="/bootstrap/css/datepicker.css">
+
+
+
+
+   <!--  <\?php 
+        echo $this->headLink();
+        echo $this->headScript();
+		$this->jQuery ()
+        ->setUiVersion ( '1.8.7' )
+        ->setVersion ( '1.4.4' );
+        echo $this->jQuery();
+        ?> -->
+</head>
+<?php
+$auth = Zend_Auth::getInstance();
+$storage = $auth->getStorage();
+$sessionRead = $storage->read();
+$fbsession = new Zend_Session_Namespace('facebook');
+if (!empty($sessionRead)) {
+  $name = $sessionRead->username;
+  $uid = $sessionRead->id;
+  echo '<li><a href="#"> Welcome'." ". $name.'</a>'.'</li>'; 
+  ?>
+  <li><a href="<?php echo $this->baseUrl() ?>/user/logout"><span class="glyphicon glyphicon-log-in"></span> Logout </a>
+  </li> 
+<?php
+}
+
+//elseif (isset($fbsession->first_name) && !empty (isset($fbsession->first_name))) {
+//$name = $fbsession->first_name;
+//echo '<li><a href="#"> Welcome'." ". $name.'</a>'.'</li>';
+?>
+<!--<li><a href="<\?php echo $this->baseUrl() ?>/user/fblogout"><span class="glyphicon glyphicon-log-in"></span> Logout </a>
+  </li> -->
+<!--<\?php }?> -->
+  
+<?php echo $this->layout()->content; ?>
+
+ <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<!-- compiled and minified JavaScript -->
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+
+<script src="/bootstrap/js/creative.js"></script>
+<script src="/bootstrap/js/wow.min.js"></script>
+
