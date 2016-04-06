@@ -2,7 +2,7 @@
 <html >
   <head>
     <meta charset="UTF-8">
-    <title>Hotel form</title>
+    <title>car form</title>
     <link rel="stylesheet" href="/bootstrap/css/reset.css">
     <link rel="stylesheet" href="/bootstrap/css/hotel.css">
     <script src="/bootstrap/js/prefixfree.min.js"></script>
@@ -11,28 +11,24 @@
   <body>
 
     <div id="bg"></div>
+<form action="<?= $this->car_form->getAction()?>" method="<?= $this->car_form->getMethod()?>">
+   enter location <?= $this->car_form->name ?>
+    date From <input   size="16" type="text" name="from" id="date_field1" readonly >
+    time from <?= $this->car_form->time_form_hour ?><?= $this->car_form->time_form_min ?>
+     <br>
+ date To <input   size="16" type="text" name="to" id="date_field2" readonly >
+time to <?= $this->car_form->time_to_hour ?><?= $this->car_form->time_to_min ?>
+  <br> <?= $this->car_form->submit?>
+  
 
-<form action="<?= $this->hotel_form->getAction()?>" method="<?= $this->hotel_form->getMethod()?>">
-    
-  <?= $this->hotel_form->name ?>
-  <?= $this->hotel_form->number ?>
-
-
-  <label for="from"></label>
-  <input size="16" type="text" name="from" id="date_field1" readonly >
-  <label for="to"></label>
-  <input size="16" type="text" name="to" id="date_field2" readonly >
-  <?= $this->hotel_form->Submit ?>
-  <?= $this->hotel_form->Reset ?> 
-    
-</form>
+</form> 
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
     <script src="/bootstrap/js/bootstrap-datepicker.js"></script>
 <script>
 	$('#date_field1').datepicker('show');
 	$('#date_field2').datepicker('show');
-</script> 
+</script>   
     
     
     
