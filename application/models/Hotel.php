@@ -13,10 +13,10 @@ class Application_Model_Hotel extends Zend_DB_Table_Abstract
 	{
 		$this->delete("id=$id");
 	}
-
+        
 	function getHotelByName($name) {
         return $this->fetchAll("name='".$name."'")->toArray();
-    }
+        }
 
 	function hotelDetails($id){
 		return $this->find($id)->toArray()[0];

@@ -12,5 +12,14 @@ class Application_Model_Experience extends Zend_DB_Table_Abstract
         return $this->fetchAll("id=$post_id");
     }
 
+    function addPost($city_id,$user_id,$title,$content){
+        $row=$this->createRow();
+        $row->city_id= $city_id;
+        $row->user_id=$user_id;
+        $row->title=$title;
+        $row->content=$content;
+        $row->save();
+    }
+
 }
 

@@ -76,7 +76,11 @@
         <formFile formName="ULocation"/>
         <formFile formName="Hotelreq"/>
         <formFile formName="HotelRequest"/>
+
+        <formFile formName="Addpost"/>
+
         <formFile formName="Carrequest"/>
+
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
