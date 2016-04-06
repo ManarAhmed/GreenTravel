@@ -91,16 +91,18 @@ else{
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
+                
                     <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Destinations  <span class="caret"></span></a>
-                      <ul class="dropdown-menu">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Destinations <span class="caret"></span></a>
+                       <ul class="dropdown-menu">
                         <?php $i=1; foreach($this->countries as $key=>$value): ?>
-                            <li> <a href="country/cities?cid=<?= $value['id']?>"><?= $value['name']?> </a> </li>
-                        <?php endforeach;?>                        
+                            <li> <a href="/country/cities?cid=<?= $value['id']?>"><?= $value['name']?> </a> </li>
+                        <?php endforeach; ?>                        
                       </ul>
                     </li>
+
                     <?php if(!(isset($name))): ?>
-                    <li><a href="user/login">Login</a></li>
+                    <li><a href="/user/login">Login</a></li>
                     <li><a href="user/add">Sign-Up</a></li>
                     <?php endif; ?>
 
