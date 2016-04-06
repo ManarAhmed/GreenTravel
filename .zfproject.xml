@@ -42,6 +42,11 @@
           <actionMethod actionName="edit"/>
           <actionMethod actionName="display"/>
           <actionMethod actionName="post"/>
+
+          <actionMethod actionName="carreservation"/>
+
+          <actionMethod actionName="addpost"/>
+
         </controllerFile>
         <controllerFile controllerName="Location">
           <actionMethod actionName="index"/>
@@ -71,6 +76,7 @@
         <formFile formName="ULocation"/>
         <formFile formName="Hotelreq"/>
         <formFile formName="HotelRequest"/>
+        <formFile formName="Carrequest"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
@@ -200,6 +206,13 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="User">
             <viewScriptFile forActionName="unblock"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="City">
+
+            <viewScriptFile forActionName="carreservation"/>
+
+            <viewScriptFile forActionName="addpost"/>
+
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

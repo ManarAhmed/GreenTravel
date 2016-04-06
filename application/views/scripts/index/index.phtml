@@ -109,8 +109,8 @@ else{
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bookings  <span class="caret"></span></a>
 
                       <ul class="dropdown-menu">
-                            <li> <a href="user/hotalinfo/name/<?=  $name ?>">Hotel Reservation</a> </li>                     
-                            <li> <a href="user/carinfo/name/ <?= $name ?>">Car Request</a> </li>
+                            <li> <a href="/user/hotalinfo/name/<?=  $name ?>">Hotel Reservation</a> </li>                     
+                            <li> <a href="/user/carinfo/name/<?= $name ?>">Car Request</a> </li>
                     
                       </ul>
             
@@ -122,7 +122,7 @@ else{
                         -->
                     </li> 
                     <?php if(!(isset($fbsession->username)))  : ?>
-                    <li><a  href='update/name/ <?php echo $name ?>'> update profile </a></li>
+                    <li><a  href='/user/update/name/ <?php echo $name ?>'> update profile </a></li>
                     <?php endif; ?>
                     
                     <?php endif; ?>
@@ -210,6 +210,7 @@ else{
 
 
     <section id="contact">
+
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">

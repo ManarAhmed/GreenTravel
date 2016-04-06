@@ -168,19 +168,26 @@ class UserController extends Zend_Controller_Action
             echo 'Facebook SDK returned an error: ' . $e->getMessage();
             Exit;
         }
-        //create new session
-        $fpsession = new Zend_Session_Namespace('facebook');
-        // write in session username & id 
-        $fpsession->username = $userNode->getName();
-        $fpsession->id = $userNode->getId();
         $user_model = new Application_Model_User ();
         $res = $user_model->findUser($userNode->getName());
+        //if user is not in database, save his data
         if(!$res){
 
             $user_model->fbRegister( $userNode->getName() , $userNode->getId() );
         }
+        if($res['is_active'] == 1){
+            //create new session
+            $fpsession = new Zend_Session_Namespace('facebook');
+            // write in session username & id 
+            $fpsession->username = $userNode->getName();
+            $fpsession->id = $userNode->getId();
+            $this->redirect();
+        }
+        else{
+            $this->redirect('/user/login');
+        }
         
-        $this->redirect();
+        
     }
 
     public function fplogoutAction()
