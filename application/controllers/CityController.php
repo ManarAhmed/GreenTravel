@@ -153,7 +153,7 @@ class CityController extends Zend_Controller_Action
         $all_locations = $location_obj->listLocations($cid);
         $this->view->locations = $all_locations;
 
-        $this->view->list = $car_form;
+        $this->view->car_form = $car_form;
 //var_dump($city_id);exit();
         $auth = Zend_Auth::getInstance();
         $storage = $auth->getStorage();
@@ -163,14 +163,14 @@ class CityController extends Zend_Controller_Action
        //var_dump($uid);exit(); 
         $request = $this->getRequest();
         if($request->isPost()){
-            if($car_form->isValid($request->getPost())){
+           // if($car_form->isValid($request->getPost())){
                
                 $carres_obj = new Application_Model_Carrequest();
-                $carres_obj-> addcarRes($request->getParams(),$uid);
-                $this->redirect("/city/display?id=".$city_id);
-            }
+                $carres_obj->addcarRes($request->getParams(),$uid);
+                $this->redirect("/city/display/id/".$cid);
+            //}
     }
-    $this->view->car_form = $car_form;
+    //$this->view->car_form = $car_form;
 
 }
 

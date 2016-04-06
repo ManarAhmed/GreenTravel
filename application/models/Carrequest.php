@@ -28,6 +28,9 @@ class Application_Model_Carrequest extends Zend_Db_Table_Abstract
         $row->date_from = $t1;
         $row->date_to = $t2;
         $row->city_id = $car_data['id'];
+        var_dump($car_data['date_form']);
+        $row->datef =$car_data['date_from'];
+        $row->datet=$car_data['date_to'];
         $row->save();  
     }
 }
