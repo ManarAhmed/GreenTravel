@@ -7,10 +7,10 @@ if (isset($this->cities)&&!empty($this->cities)) {?>
 </div>
 <div style="height:50px;"></div>
 
-	<?php var_dump($this->country); foreach($this->cities as $key=>$value): ?>
-    <ul>
-            <!--<td><\?= $value['id']?></td>-->
-            <li><a href="/city/display?id=<?= $value['id']?>" class="portfolio-box"><?= $value['name']?></a></li>
+	<?php foreach($this->cities as $key=>$value): ?>
+    <ul class="list-group">
+        <!--<td><\?= $value['id']?></td>-->
+        <li class="list-group-item"><a href="/city/display?id=<?= $value['id']?>" ><?= $value['name']?></a></li>
     </ul>
 	<?php endforeach;?>
 <?php }
@@ -29,8 +29,8 @@ div.bkground {
 
 div.transbox {
     margin: 200px;
-    background-color: #000000;
-    width:400px;
+    background-color: rgba(0,0,0,0.8);
+    width:300px;
     margin-left: 50px;
     border: 1px solid black;
     opacity: 0.6;
@@ -38,9 +38,33 @@ div.transbox {
 }
 
 div.transbox p {
-    font-size: 22px;
+    font-size: 24px;
     margin: 5%;
     font-weight: bold;
-    color: #ffffff;
+    color: white;
+}
+a{
+    font-size: 24px;
+    color: #999999;
+    font-weight: bold;
+    text-decoration: none;  
+    display: block;
+    
+    
+}
+a:hover ,a:focus{
+    color: white;
+    text-decoration: none;
+}
+    
+    
+li:hover , li:focus{
+        background-color: #999999;
+        color: white;
+
+    
+}
+body{
+    background-color: #e3e3e3;
 }
 </style>
