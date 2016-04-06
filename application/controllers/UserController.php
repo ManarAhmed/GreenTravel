@@ -50,6 +50,9 @@ class UserController extends Zend_Controller_Action
                 //set the email and password
                 $authAdapter->setIdentity($email); //yshof el mail mwgod f el DB wla l2
                 $authAdapter->setCredential(md5($password)); //yshof el pass matching m3ah wla l2
+                
+                //check for is_active column
+                $authAdapter->getDbSelect()->where('is_active = 1');;                
                 //authenticate
                 $result = $authAdapter->authenticate( );
                 //check if the result is valid
@@ -62,7 +65,7 @@ class UserController extends Zend_Controller_Action
                     return $this->redirect();
                 }else{
                     //if user not valid
-                    $this->view->error_message = "Invalid Email or Password!";
+                    $this->view->error_message = "Invalid Email or Password !! or may be BLOCKED email..";
                 }
             }
         }
