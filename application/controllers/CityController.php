@@ -57,7 +57,7 @@ class CityController extends Zend_Controller_Action
                 $hotel_obj = new Application_Model_Hotel();
                 $hotel = $hotel_obj->getHotelByName($request->getParam('name'));
                 $hotelres_obj-> addHotelRes($request->getParams(),$uid,$hotel[0]['id']);
-                $this->redirect("/country/city?id=".$city_id);
+                $this->redirect("/city/display?id=".$city_id);
             }
         }
 

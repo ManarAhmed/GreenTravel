@@ -13,11 +13,9 @@ class Application_Model_Hotel extends Zend_DB_Table_Abstract
 	{
 		$this->delete("id=$id");
 	}
-<<<<<<< HEAD
 	function getHotelByName($name) {
         return $this->fetchAll("name='".$name."'")->toArray();
     }
-=======
 
 	function hotelDetails($id){
 		return $this->find($id)->toArray()[0];
@@ -42,6 +40,5 @@ class Application_Model_Hotel extends Zend_DB_Table_Abstract
 
 		$this->update($customData,"id= $id");
 	}
->>>>>>> 8346a7dbe2a52f6f976fdcf32d35730a321aba70
 }
 
