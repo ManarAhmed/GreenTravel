@@ -117,6 +117,7 @@ class CityController extends Zend_Controller_Action
         $city_post= new Application_Model_Experience();
         $city_id = $this->_request->getParam("id");
         $city_row=$city_obj->citydetails($city_id);
+        $this->view->city_id=$city_row['id'];
         $this->view->city_desc= $city_row['description'];
         $this->view->city_img= $city_row['image'];
         $this->view->city_lat= $city_row['latitude'];
@@ -141,5 +142,14 @@ class CityController extends Zend_Controller_Action
         $this->view->post=$post_row;
     }
 
+    public function addpostAction()
+    {
+        // action body
+        $city_id = $this->_request->getParam("city_id");
+
+    }
+
 
 }
+
+

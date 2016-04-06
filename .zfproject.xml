@@ -42,6 +42,7 @@
           <actionMethod actionName="edit"/>
           <actionMethod actionName="display"/>
           <actionMethod actionName="post"/>
+          <actionMethod actionName="addpost"/>
         </controllerFile>
         <controllerFile controllerName="Location">
           <actionMethod actionName="index"/>
@@ -200,6 +201,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="User">
             <viewScriptFile forActionName="unblock"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="City">
+            <viewScriptFile forActionName="addpost"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
