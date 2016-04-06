@@ -62,6 +62,7 @@ class CityController extends Zend_Controller_Action
         }
 
         $this->view->hotel_form = $hotel_form;
+    }
 
     public function addAction()
     {
@@ -140,5 +141,12 @@ class CityController extends Zend_Controller_Action
         $this->view->post=$post_row;
     }
 
+    public function carreservationAction()
+    {
+        // action body
+    }
+
 
 }
+
+
