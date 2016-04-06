@@ -74,7 +74,7 @@ crossorigin="anonymous"></script>
         echo $this->jQuery();
         ?> -->
 </head>
-<?php
+<!-- <?php
 $auth = Zend_Auth::getInstance();
 $storage = $auth->getStorage();
 $sessionRead = $storage->read();
@@ -92,13 +92,11 @@ if (!empty($sessionRead)) {
 //elseif (isset($fbsession->first_name) && !empty (isset($fbsession->first_name))) {
 //$name = $fbsession->first_name;
 //echo '<li><a href="#"> Welcome'." ". $name.'</a>'.'</li>';
-?>
+?> -->
 <!--<li><a href="<\?php echo $this->baseUrl() ?>/user/fblogout"><span class="glyphicon glyphicon-log-in"></span> Logout </a>
   </li> -->
 <!--<\?php }?> -->
-  <!--
-<?php echo $this->layout()->content; ?>
--->
+
 
  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <!-- Include all compiled plugins (below), or include individual files as needed -->
