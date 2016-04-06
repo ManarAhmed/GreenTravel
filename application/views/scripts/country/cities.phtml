@@ -4,9 +4,9 @@ if (isset($this->cities)&&!empty($this->cities)) {?>
 <table>
 	<?php foreach($this->cities as $key=>$value): ?>
 	<tr>	
-		<td><?= $value['id']?></td>
-		<td><?= $value['name']?></td>
-		<td><?= $value['rate']?></td>
+            <!--<td><\?= $value['id']?></td>-->
+            <td><?= $value['rate']?></td>
+            <td><a href="city/display?id=<?= $value['id']?>" class="portfolio-box"><?= $value['name']?></a></td>
 	</tr>	
 	<?php endforeach;?>
 </table>	
