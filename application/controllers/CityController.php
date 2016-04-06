@@ -38,7 +38,7 @@ class CityController extends Zend_Controller_Action
     {
         // get city id 
         $hotel_obj=new Application_Model_Hotel();
-        $city_id = $this->_request->getParam("cid");
+        $city_id = $this->_request->getParam("id");
 //      $hotels=$hotel_obj->listHotels($ci_id);
 //      $this->views->hotels = $hotels;
 //       

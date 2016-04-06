@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 04, 2016 at 08:16 PM
+-- Generation Time: Apr 06, 2016 at 01:51 PM
 -- Server version: 5.5.47-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.14
 
@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS `carrequest` (
   `date_from` varchar(200) NOT NULL,
   `date_to` varchar(200) NOT NULL,
   `city_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
   KEY `id` (`id`,`user_id`),
   KEY `city_id` (`city_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -239,11 +240,11 @@ CREATE TABLE IF NOT EXISTS `room` (
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL DEFAULT 'facebook',
   `password` varchar(300) NOT NULL,
-  `gender` varchar(50) NOT NULL,
+  `gender` varchar(50) NOT NULL DEFAULT 'male',
   `type` enum('1','0') NOT NULL DEFAULT '0',
-  `is_active` enum('1','0') NOT NULL,
+  `is_active` enum('1','0') NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
@@ -252,11 +253,9 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `email`, `password`, `gender`, `type`, `is_active`) VALUES
-(1, 'manar', 'manar@yahoo.com', '123', '', '1', '1'),
-(2, 'aya', 'aya@yahoo.com', '123', '', '0', '1'),
 (5, 'mema', 'manar@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'female', '1', '1'),
-(7, 'aya', 'aya@mail.com', '81dc9bdb52d04dc20036dbd8313ed055', '', '0', '1'),
-(8, 'esraa', 'esraa@mail.com', '81dc9bdb52d04dc20036dbd8313ed055', '', '1', '1');
+(7, 'aya', 'aya@mail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'female', '0', '1'),
+(8, 'esraa', 'esraa@mail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'female', '0', '0');
 
 --
 -- Constraints for dumped tables

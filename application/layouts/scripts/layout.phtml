@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <head>
     <!--<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.
@@ -50,9 +51,13 @@ crossorigin="anonymous"></script>
 
  
  <!-- jQuery -->
+=======
+<!-- jQuery -->
+>>>>>>> dd43140f7f4980539c6f3fba9260442bc741a6ad
 <script src="/bootstrap/js/jquery.min.js"></script>
 <script src="/bootstrap/js/jquery.easing.min.js"></script>
 <script src="/bootstrap/js/jquery.fittext.js"></script>
+
 <!-- compiled and minified CSS -->
 <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
 <!-- Optional theme -->
@@ -63,19 +68,8 @@ crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/bootstrap/css/creative.css" type="text/css">
 <link rel="stylesheet" href="/bootstrap/css/datepicker.css">
 
-
-
-
-   <!--  <\?php 
-        echo $this->headLink();
-        echo $this->headScript();
-		$this->jQuery ()
-        ->setUiVersion ( '1.8.7' )
-        ->setVersion ( '1.4.4' );
-        echo $this->jQuery();
-        ?> -->
 </head>
-<?php
+<!-- <?php
 $auth = Zend_Auth::getInstance();
 $storage = $auth->getStorage();
 $sessionRead = $storage->read();
@@ -89,22 +83,12 @@ if (!empty($sessionRead)) {
   </li> 
 <?php
 }
-
 //elseif (isset($fbsession->first_name) && !empty (isset($fbsession->first_name))) {
 //$name = $fbsession->first_name;
 //echo '<li><a href="#"> Welcome'." ". $name.'</a>'.'</li>';
-?>
+?> -->
 <!--<li><a href="<\?php echo $this->baseUrl() ?>/user/fblogout"><span class="glyphicon glyphicon-log-in"></span> Logout </a>
   </li> -->
 <!--<\?php }?> -->
-  
 <?php echo $this->layout()->content; ?>
-
- <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<!-- compiled and minified JavaScript -->
-<script src="/bootstrap/js/bootstrap.min.js"></script>
-
-<script src="/bootstrap/js/creative.js"></script>
-<script src="/bootstrap/js/wow.min.js"></script>
 
