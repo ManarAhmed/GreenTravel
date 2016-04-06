@@ -2,11 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a9aa583-f53c-41b4-8742-77f709a45a7d" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bootstrap/img/header.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bootstrap/img/portfolio/1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bootstrap/img/portfolio/2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bootstrap/img/portfolio/3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bootstrap/img/portfolio/4.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bootstrap/img/portfolio/5.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bootstrap/img/portfolio/6.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/forms/Carrequest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/city/carreservation.phtml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bootstrap/css/font-awesome.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bootstrap/css/font-awesome.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/Zend" afterPath="$PROJECT_DIR$/library/Zend" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.zfproject.xml" afterPath="$PROJECT_DIR$/.zfproject.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/CityController.php" afterPath="$PROJECT_DIR$/application/controllers/CityController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/Experience.php" afterPath="$PROJECT_DIR$/application/models/Experience.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/city/addpost.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/city/addpost.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/city/display.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/city/display.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/CountryController.php" afterPath="$PROJECT_DIR$/application/controllers/CountryController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/Carrequest.php" afterPath="$PROJECT_DIR$/application/models/Carrequest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/Hotel.php" afterPath="$PROJECT_DIR$/application/models/Hotel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/city/hotelreserve.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/city/hotelreserve.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/country/cities.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/country/cities.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/index/index.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/index/index.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/bootstrap/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/public/bootstrap/css/bootstrap.min.css" />
     </list>
     <ignored path="zend_project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,8 +48,18 @@
       <file leaf-file-name="CityController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/CityController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.266667">
-              <caret line="153" column="48" selection-start-line="153" selection-start-column="48" selection-end-line="153" selection-end-column="48" />
+            <state vertical-scroll-proportion="-13.966666">
+              <caret line="196" column="0" selection-start-line="196" selection-start-column="0" selection-end-line="196" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".zfproject.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.zfproject.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="2.7904599">
+              <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -68,10 +95,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="display.phtml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="display.phtml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/scripts/city/display.phtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2504259">
+            <state vertical-scroll-proportion="-4.9">
               <caret line="10" column="75" selection-start-line="10" selection-start-column="75" selection-end-line="10" selection-end-column="75" />
               <folding />
             </state>
@@ -118,16 +145,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="details.phtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/scripts/city/details.phtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="Git.Settings">
@@ -137,7 +154,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/application/models/City.php" />
-        <option value="$PROJECT_DIR$/.zfproject.xml" />
         <option value="$PROJECT_DIR$/application/views/scripts/city/disqus.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/city/post.phtml" />
         <option value="$PROJECT_DIR$/application/layouts/scripts/layout.phtml" />
@@ -146,6 +162,7 @@
         <option value="$PROJECT_DIR$/application/models/Experience.php" />
         <option value="$PROJECT_DIR$/application/controllers/CityController.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/city/display.phtml" />
+        <option value="$PROJECT_DIR$/.zfproject.xml" />
       </list>
     </option>
   </component>
@@ -660,14 +677,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.zfproject.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="196" column="50" selection-start-line="196" selection-start-column="50" selection-end-line="196" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/city/paginate.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -756,14 +765,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/CityController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.266667">
-          <caret line="153" column="48" selection-start-line="153" selection-start-column="48" selection-end-line="153" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/city/add.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
@@ -782,8 +783,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/city/display.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2504259">
+        <state vertical-scroll-proportion="-4.9">
           <caret line="10" column="75" selection-start-line="10" selection-start-column="75" selection-end-line="10" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/CityController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.966666">
+          <caret line="196" column="0" selection-start-line="196" selection-start-column="0" selection-end-line="196" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.zfproject.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.7904599">
+          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
           <folding />
         </state>
       </provider>

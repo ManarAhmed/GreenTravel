@@ -17,9 +17,12 @@ class CountryController extends Zend_Controller_Action
     {
         // action body
         $city_obj=new Application_Model_City();
-        $co_id=$this->_request->getParam("cid");
-        $cities=$city_obj->listCities($co_id);
+        $country_obj=new Application_Model_Country();
+        $country_id=$this->_request->getParam("cid");
+        $country=$country_obj->getCountry($country_id);
+        $cities=$city_obj->listCities($country_id);
         $this->view->cities=$cities;
+        $this->view->country=$country;
     }
 
     public function cityAction()
