@@ -38,7 +38,7 @@ class CityController extends Zend_Controller_Action
     {
         // get city id 
         $hotel_obj=new Application_Model_Hotel();
-        $city_id = $this->_request->getParam("cid");
+        $city_id = $this->_request->getParam("id");
 //      $hotels=$hotel_obj->listHotels($ci_id);
 //      $this->views->hotels = $hotels;
 //       
@@ -117,6 +117,7 @@ class CityController extends Zend_Controller_Action
         $city_post= new Application_Model_Experience();
         $city_id = $this->_request->getParam("id");
         $city_row=$city_obj->citydetails($city_id);
+        $this->view->city_id=$city_row['id'];
         $this->view->city_desc= $city_row['description'];
         $this->view->city_img= $city_row['image'];
         $this->view->city_lat= $city_row['latitude'];
@@ -141,6 +142,7 @@ class CityController extends Zend_Controller_Action
         $this->view->post=$post_row;
     }
 
+
     public function carreservationAction()
     {
         // action body
@@ -153,8 +155,7 @@ class CityController extends Zend_Controller_Action
         $sessionRead = $storage->read();
        $uid = $sessionRead->id;
        //var_dump($uid);exit(); 
-
-        $car_form = new  Application_Form_Carrequest();
+         $car_form = new  Application_Form_Carrequest();
         $request = $this->getRequest();
         if($request->isPost()){
             if($car_form->isValid($request->getPost())){
@@ -167,6 +168,16 @@ class CityController extends Zend_Controller_Action
     $this->view->car_form = $car_form;
 
 }
+
+    public function addpostAction()
+    {
+        // action body
+        $city_id = $this->_request->getParam("city_id");
+
+    }
+
+
+      
 }
 
 
