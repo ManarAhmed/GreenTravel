@@ -12,12 +12,16 @@ class Application_Form_Carrequest extends Zend_Form
             'class'=>'container',
             ));
         $id = new Zend_Form_Element_Hidden('id');
-        $name = new Zend_Form_Element_Text('name');
-        $name->setAttribs(Array(
-        'placeholder'=>'enter pickup location',
-        'class'=>'form-control'
-        ));
+        // $name = new Zend_Form_Element_Text('name');
+        // $name->setAttribs(Array(
+        // 'placeholder'=>'enter pickup location',
+        // 'class'=>'form-control'
+        // ));
+        // $name->setRequired();
+        $name = new Zend_Form_Element_Select('name');
+        $name->setLabel('enter location :');
         $name->setRequired();
+
         // $name->addValidator('StringLength', false, Array(2,20));
         // $name->addFilter('StringTrim');
 
