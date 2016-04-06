@@ -12,8 +12,8 @@
 </div>
 <div class="container">
 	<?php
+		echo "<h3 class='text-danger'>".$this->error_message."</h3>";
 		echo $this->login_form;
-		echo $this->error_message;
 		echo '<a class="btn btn-primary" href="' . $this->facebook_url . '"> Login with Facebook </a>';
 	?>
 
