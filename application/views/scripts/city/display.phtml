@@ -7,7 +7,8 @@
 <p>
     <?php
     echo $this->city_desc;
-    echo "<a href='/city/addpost/city_id/{$this->city_id}'></a>"
+    if(isset($_SESSION['Zend_Auth']['storage']))
+    {echo "<a href='/city/addpost/city_id/{$this->city_id}'>Add Post</a>";}
     ?>
 
     <?php

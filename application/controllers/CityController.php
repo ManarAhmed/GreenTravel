@@ -145,7 +145,22 @@ class CityController extends Zend_Controller_Action
     public function addpostAction()
     {
         // action body
+        $city_post= new Application_Model_Experience();
         $city_id = $this->_request->getParam("city_id");
+        $post = new Application_Form_Addpost();
+        $this->view->addpost=$post;
+        $req = $this->getRequest();
+        if($req->isPost()){
+            if($post->isValid($req->getPost())){
+                $user_id= $_SESSION['Zend_Auth']['storage']->id;
+                $title= $_POST['title'];
+                $content=$_POST['content'];
+                $city_post->addPost($city_id,$user_id,$title,$content);
+                $this->redirect('/city/display/id/'.$city_id);
+
+            }
+        }
+
 
     }
 
