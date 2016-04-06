@@ -52,7 +52,8 @@ class UserController extends Zend_Controller_Action
                 $authAdapter->setCredential(md5($password)); //yshof el pass matching m3ah wla l2
                 
                 //check for is_active column
-                $authAdapter->getDbSelect()->where('is_active = 1');;                
+                $authAdapter->getDbSelect()->where('is_active = 1');
+
                 //authenticate
                 $result = $authAdapter->authenticate( );
                 //check if the result is valid
@@ -155,6 +156,7 @@ class UserController extends Zend_Controller_Action
         try {
             $response = $fb->get('/me');
             $userNode = $response->getGraphUser(); //get user data only
+
         }
         catch (Facebook\Exceptions\FacebookResponseException $e) {
             // When Graph returns an error
@@ -168,8 +170,16 @@ class UserController extends Zend_Controller_Action
         }
         //create new session
         $fpsession = new Zend_Session_Namespace('facebook');
-        // write in session username
+        // write in session username & id 
         $fpsession->username = $userNode->getName();
+        $fpsession->id = $userNode->getId();
+        $user_model = new Application_Model_User ();
+        $res = $user_model->findUser($userNode->getName());
+        if(!$res){
+
+            $user_model->fbRegister( $userNode->getName() , $userNode->getId() );
+        }
+        
         $this->redirect();
     }
 

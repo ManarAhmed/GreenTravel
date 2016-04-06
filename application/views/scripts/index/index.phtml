@@ -60,7 +60,7 @@
             echo " * Welcome " . $name . " *";
     ?>
     <div class="pull-left">
-        <a class='btn btn-default' href="/user/fplogout">Logout</a>
+        <a class='btn btn-danger' href="/user/fplogout">Logout</a>
     </div>
 
 <?php
@@ -121,8 +121,13 @@ else{
                         <a class="page-scroll" href="#booking">Booking</a>
                         -->
                     </li> 
+                    <?php if(!(isset($fbsession->username)))  : ?>
                     <li><a  href='update/name/ <?php echo $name ?>'> update profile </a></li>
                     <?php endif; ?>
+                    
+                    <?php endif; ?>
+
+                    
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

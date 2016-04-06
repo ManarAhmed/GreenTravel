@@ -59,5 +59,20 @@ class Application_Model_User extends Zend_Db_Table_Abstract
 		$this->update($active , "id='$id'");
 	}
 
+	function fbRegister($username , $id){
+
+		$row = $this->createRow();
+		$row->username = $username;
+		$row->password = md5($id);
+		$row->save();
+	}
+
+	function findUser($username){
+
+		$result = $this->fetchRow($this->select()->from('user')->where('username = ?', $username));
+		$id=$result->id;
+		return $this->find($id)->toArray()[0];
+	}
+
 }
 
