@@ -1,8 +1,5 @@
 
 <br /><br />
-
-
-
 <div id="map"></div>
 
 <div id="view-content">
@@ -10,6 +7,8 @@
 <p>
     <?php
     echo $this->city_desc;
+    if(isset($_SESSION['Zend_Auth']['storage']))
+    {echo "<a href='/city/addpost/city_id/{$this->city_id}'>Add Post</a>";}
     ?>
 
     <?php
@@ -30,7 +29,6 @@
 
 </p>
 </div>
-
 
 
 <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>

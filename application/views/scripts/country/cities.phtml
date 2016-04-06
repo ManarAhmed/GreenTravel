@@ -1,19 +1,46 @@
 <?php 
 if (isset($this->cities)&&!empty($this->cities)) {?>
+<div class="bkground">
+    <div class="transbox">
+        <p class="text-uppercase"><?=$this->country['name']?></p>
+    </div>     
+</div>
+<div style="height:50px;"></div>
 
-<table>
-	<?php foreach($this->cities as $key=>$value): ?>
-	<tr>	
+	<?php var_dump($this->country); foreach($this->cities as $key=>$value): ?>
+    <ul>
             <!--<td><\?= $value['id']?></td>-->
-            <td><?= $value['rate']?></td>
-            <td><a href="city/display?id=<?= $value['id']?>" class="portfolio-box"><?= $value['name']?></a></td>
-	</tr>	
+            <li><a href="/city/display?id=<?= $value['id']?>" class="portfolio-box"><?= $value['name']?></a></li>
+    </ul>
 	<?php endforeach;?>
-</table>	
-
 <?php }
 else{
-	echo "no cities registered for this site";;
+	echo "no cities registered for this site";
 }
 
 ?> 
+<style>
+div.bkground {
+    background: url(<?= $this->country['image']?>);
+    height:300px;
+    border: 2px solid black;
+    margin:15px;
+}
+
+div.transbox {
+    margin: 200px;
+    background-color: #000000;
+    width:400px;
+    margin-left: 50px;
+    border: 1px solid black;
+    opacity: 0.6;
+    filter: alpha(opacity=60); /* For IE8 and earlier */
+}
+
+div.transbox p {
+    font-size: 22px;
+    margin: 5%;
+    font-weight: bold;
+    color: #ffffff;
+}
+</style>
