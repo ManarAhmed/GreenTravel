@@ -176,7 +176,7 @@ class CityController extends Zend_Controller_Action
                
                 $carres_obj = new Application_Model_Carrequest();
                 $carres_obj->addcarRes($request->getParams(),$uid);
-                $this->redirect("/city/display/id/".$cid);
+                $this->redirect("/city/display?id=".$cid);
             //}
     }
     //$this->view->car_form = $car_form;

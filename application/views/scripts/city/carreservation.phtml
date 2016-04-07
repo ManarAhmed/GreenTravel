@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html >
   <head>
+<style type="text/css">
+#d {
+   
+ font: normal 32px courier !important;
+     color:#A0A6A8;
+}
+</style>
     <meta charset="UTF-8">
     <title>car form</title>
     <link rel="stylesheet" href="/bootstrap/css/reset.css">
@@ -13,8 +20,11 @@
 
     <div id="bg"></div>
 
-<form action="<?= $this->car_form->getAction()?>" method="<?= $this->car_form->getMethod()?>">
-     <?= $this->car_form->name ?> 
+<form action="<?= $this->car_form->getAction()?>" method="<?= $this->car_form->getMethod()?>" style="background-color:#C6EEFE; width: 500px">
+
+    <center> <?= "<label  id='d'> Car Reservation </label>"?> </center>
+    <br>
+    <center> <?= $this->car_form->name ?> </center>
 
     <!-- -->
 <script>
@@ -38,18 +48,24 @@ $(function () {
 
 
 </script>
-
+<br><br>
 
     <!-- -->
      <?= $this->car_form->date_from ?>
-    <center>time from</center> <?= $this->car_form->time_form_hour ?><?= $this->car_form->time_form_min ?>
+    <center>time from</center> <?= $this->car_form->time_form_hour ?>
+    <br>
+    <?= $this->car_form->time_form_min ?>
+     <br>
     <?= $this->car_form->am_pm1 ?>
      <br>
     <?= $this->car_form->date_to ?>
-     <center>time to</center><?= $this->car_form->time_to_hour ?><?= $this->car_form->time_to_min ?>
+     <center>time to</center><?= $this->car_form->time_to_hour ?>
+      <br>
+     <?= $this->car_form->time_to_min ?>
+      <br>
       <?= $this->car_form->am_pm2 ?>
     <br> 
-    <?= $this->car_form->submit?>
+   <center> <?= $this->car_form->submit?></center>
   
 
 </form> 

@@ -12,6 +12,9 @@ class Application_Form_Carrequest extends Zend_Form
             'class'=>'container',
             ));
         $id = new Zend_Form_Element_Hidden('id');
+
+
+
         // $name = new Zend_Form_Element_Text('name');
         // $name->setAttribs(Array(
         // 'placeholder'=>'enter pickup location',
@@ -19,7 +22,7 @@ class Application_Form_Carrequest extends Zend_Form
         // ));
         // $name->setRequired();
         $name = new Zend_Form_Element_Select('name');
-        $name->setLabel('enter location :');
+        $name->setLabel('Enter Location :');
         //$name->setRequired();
 
 
@@ -87,8 +90,8 @@ class Application_Form_Carrequest extends Zend_Form
          $am_pm1 = new Zend_Form_Element_Select('$am_pm1');
         // $time_form_min->setRequired();
         //$am_pm->setLabel('');
-        $am_pm1->addMultiOption('1','AM')->
-        addMultiOption('2','PM ');
+        $am_pm1->addMultiOption('AM','AM')->
+        addMultiOption('PM','PM ');
         $am_pm1->setAttribs(array(
             'class'=>'form-control',
             'id'=>'am_pm1'));
@@ -149,8 +152,8 @@ class Application_Form_Carrequest extends Zend_Form
         $am_pm2 = new Zend_Form_Element_Select('$am_pm2');
         // $time_form_min->setRequired();
         //$am_pm->setLabel('');
-        $am_pm2->addMultiOption('1','AM')->
-        addMultiOption('2','PM ');
+        $am_pm2->addMultiOption('AM','AM')->
+        addMultiOption('PM','PM ');
         $am_pm2->setAttribs(array(
             'class'=>'form-control',
             'id'=>'am_pm2'));
