@@ -9,7 +9,7 @@ class Application_Model_Experience extends Zend_DB_Table_Abstract
     }
 
     function cityPost($post_id){
-        return $this->fetchAll("id=$post_id");
+        return $this->find("$post_id")->toArray();
     }
 
     function addPost($city_id,$user_id,$title,$content){
@@ -19,6 +19,14 @@ class Application_Model_Experience extends Zend_DB_Table_Abstract
         $row->title=$title;
         $row->content=$content;
         $row->save();
+    }
+
+    function editPost($post_id,$data){
+        $this->update($data,"id=$post_id");
+    }
+
+    function deletePost($post_id){
+        $this->delete("id=$post_id");
     }
 
 }

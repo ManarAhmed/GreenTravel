@@ -23,33 +23,42 @@ if (!empty($sessionRead)) {
 
 <div id="view-content">
 <?php
+echo $this->is_owner;
+echo "<br>";
+echo $this->sessionId;
+echo "<br>";
+echo $this->userId;
+echo $this->post_id;
+if($this->is_owner==1){
+    echo "<a href='/city/editpost/post_id/$this->post_id'>Edit Post</a>";
+    echo "<br>";
+    $city_id=$this->post[0]['city_id'];
+    echo "<a href='/city/deletepost/post_id/$this->post_id'>Delete Post </a>";
+}
 echo $this->post[0]['title'];
 echo "<br>";
 echo $this->post[0]['content'];
 ?>
-</div>
-<div id="disqus_thread"></div>
-<script>
-/**
- * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
- * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
- */
-/*
- var disqus_config = function () {
- this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
- this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
- };
- */
-(function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
+    <div id="disqus_thread"></div>
+    <script>
+        /**
+         * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+         */
+        /*
+         var disqus_config = function () {
+         this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+         this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+         };
+         */
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
 
-        s.src = '//greentravelteam.disqus.com/embed.js';
+            s.src = '//greentravel2.disqus.com/embed.js';
 
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-
-<script id="dsq-count-scr" src="//greentravelteam.disqus.com/count.js" async></script>
-
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+    <script id="dsq-count-scr" src="//greentravel2.disqus.com/count.js" async></script>
