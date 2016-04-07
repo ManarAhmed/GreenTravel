@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 06, 2016 at 01:51 PM
+-- Generation Time: Apr 07, 2016 at 05:24 PM
 -- Server version: 5.5.47-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.14
 
@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `country` (
   `image` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `country`
@@ -246,7 +246,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `type` enum('1','0') NOT NULL DEFAULT '0',
   `is_active` enum('1','0') NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `user`
@@ -255,7 +255,8 @@ CREATE TABLE IF NOT EXISTS `user` (
 INSERT INTO `user` (`id`, `username`, `email`, `password`, `gender`, `type`, `is_active`) VALUES
 (5, 'mema', 'manar@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'female', '1', '1'),
 (7, 'aya', 'aya@mail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'female', '0', '1'),
-(8, 'esraa', 'esraa@mail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'female', '0', '0');
+(8, 'esraa', 'esraa@mail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'female', '1', '1'),
+(9, 'Aya Aly Hassan', 'facebook', '0e3a092b376db649eb9f265439d274db', 'male', '0', '1');
 
 --
 -- Constraints for dumped tables
