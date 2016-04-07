@@ -18,7 +18,7 @@ class Application_Form_Location extends Zend_Form
         $name->setAttrib('class','form-control');
         $name->setRequired();
         $name->AddValidator('StringLength',false,array(3,20));
-        $name->AddValidator('db_NoRecordExists',true,array('location','name'));
+     //   $name->AddValidator('db_NoRecordExists',true,array('location','name'));
 
         //description
         $description = new Zend_Form_Element_Textarea('description');

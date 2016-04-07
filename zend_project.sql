@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 07, 2016 at 05:37 PM
+-- Generation Time: Apr 07, 2016 at 11:06 PM
 -- Server version: 5.5.47-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.14
 
@@ -63,7 +63,6 @@ CREATE TABLE IF NOT EXISTS `city` (
   `longitude` float NOT NULL,
   `country_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `name` (`name`),
   KEY `country_id` (`country_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
@@ -116,8 +115,7 @@ CREATE TABLE IF NOT EXISTS `country` (
   `name` varchar(200) NOT NULL,
   `rate` float NOT NULL,
   `image` varchar(500) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `name` (`name`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
@@ -172,7 +170,6 @@ CREATE TABLE IF NOT EXISTS `hotel` (
   `name` varchar(200) NOT NULL,
   `city_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `name` (`name`),
   KEY `city_id` (`city_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
