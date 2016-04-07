@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 07, 2016 at 11:06 PM
+-- Generation Time: Apr 07, 2016 at 11:45 PM
 -- Server version: 5.5.47-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.14
 
@@ -115,6 +115,7 @@ CREATE TABLE IF NOT EXISTS `country` (
   `name` varchar(200) NOT NULL,
   `rate` float NOT NULL,
   `image` varchar(500) DEFAULT NULL,
+  `description` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
@@ -122,13 +123,13 @@ CREATE TABLE IF NOT EXISTS `country` (
 -- Dumping data for table `country`
 --
 
-INSERT INTO `country` (`id`, `name`, `rate`, `image`) VALUES
-(1, 'egypt', 100, '/uploads/countries/egypt.jpeg'),
-(4, 'brazil', 40, '/uploads/countries/brazil.jpeg'),
-(5, 'Africa', 70, '/uploads/countries/Africa.jpeg'),
-(11, 'londonn', 22, '/uploads/countries/londonn.jpeg'),
-(12, 'southAmerica', 90, '/uploads/countries/southAmerica.jpeg'),
-(13, 'almaniaa', 90, '/uploads/countries/almaniaa.jpeg');
+INSERT INTO `country` (`id`, `name`, `rate`, `image`, `description`) VALUES
+(1, 'egypt', 100, '/uploads/countries/egypt.jpeg', ''),
+(4, 'brazil', 40, '/uploads/countries/brazil.jpeg', ''),
+(5, 'Africa', 70, '/uploads/countries/Africa.jpeg', ''),
+(11, 'londonn', 22, '/uploads/countries/londonn.jpeg', ''),
+(12, 'southAmerica', 90, '/uploads/countries/southAmerica.jpeg', ''),
+(13, 'almaniaa', 90, '/uploads/countries/almaniaa.jpeg', '');
 
 -- --------------------------------------------------------
 
