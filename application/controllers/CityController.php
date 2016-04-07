@@ -155,8 +155,14 @@ class CityController extends Zend_Controller_Action
     public function carreservationAction()
     {
         // action body
-        $city_id = $this->_request->getParam("id");
+        $cid = $this->_request->getParam("id");
+        $location_obj = new Application_Model_Location();
+        $car_form = new  Application_Form_Carrequest();
 
+        $all_locations = $location_obj->listLocations($cid);
+        $this->view->locations = $all_locations;
+
+        $this->view->car_form = $car_form;
 //var_dump($city_id);exit();
         $auth = Zend_Auth::getInstance();
         $storage = $auth->getStorage();
@@ -164,17 +170,16 @@ class CityController extends Zend_Controller_Action
         $sessionRead = $storage->read();
        $uid = $sessionRead->id;
        //var_dump($uid);exit(); 
-         $car_form = new  Application_Form_Carrequest();
         $request = $this->getRequest();
         if($request->isPost()){
-            if($car_form->isValid($request->getPost())){
+           // if($car_form->isValid($request->getPost())){
                
                 $carres_obj = new Application_Model_Carrequest();
-                $carres_obj-> addcarRes($request->getParams(),$uid);
-                $this->redirect("/city/display?id=".$city_id);
-            }
+                $carres_obj->addcarRes($request->getParams(),$uid);
+                $this->redirect("/city/display/id/".$cid);
+            //}
     }
-    $this->view->car_form = $car_form;
+    //$this->view->car_form = $car_form;
 
 }
 
