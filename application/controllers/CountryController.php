@@ -15,7 +15,12 @@ class CountryController extends Zend_Controller_Action
 
     public function citiesAction()
     {
-        // action body
+        // list all countries to send them to layout
+        $country_obj = new Application_Model_Country();
+        $all_countries = $country_obj->listCountries();
+        $this->view->countries = $all_countries;
+        Zend_Layout::getMvcInstance()->assign('countries', $all_countries);
+        //list all cities in certain country
         $city_obj=new Application_Model_City();
         $country_obj=new Application_Model_Country();
         $country_id=$this->_request->getParam("cid");
@@ -27,7 +32,7 @@ class CountryController extends Zend_Controller_Action
 
     public function cityAction()
     {
-        // action body
+        // show details for certain city
         $city_obj=new Application_Model_City();
         $ci_id=$this->_request->getParam("id");
         $city=$city_obj->citydetails($ci_id);
@@ -36,9 +41,11 @@ class CountryController extends Zend_Controller_Action
 
     public function listAction()
     {
+        #list all countrys
         $country_obj = new Application_Model_Country();
         $all_countries = $country_obj->listCountries();
         $this->view->countries = $all_countries;
+        return $all_countries;
     }
 
     public function deleteAction()

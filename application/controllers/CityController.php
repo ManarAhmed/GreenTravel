@@ -112,10 +112,19 @@ class CityController extends Zend_Controller_Action
 
     public function displayAction()
     {
-        // action body
+        
+        
+        // list all countries to send them to layout
+        $country_obj = new Application_Model_Country();
+        $all_countries = $country_obj->listCountries();
+        $this->view->countries = $all_countries;
+        Zend_Layout::getMvcInstance()->assign('countries', $all_countries);
+        
+        // show details for certain city
         $city_obj = new Application_Model_City();
         $city_post= new Application_Model_Experience();
         $city_id = $this->_request->getParam("id");
+        Zend_Layout::getMvcInstance()->assign('city_id', $city_id); // send city_id for layout
         $city_row=$city_obj->citydetails($city_id);
         $this->view->city_id=$city_row['id'];
         $this->view->city_desc= $city_row['description'];
@@ -155,26 +164,31 @@ class CityController extends Zend_Controller_Action
     public function carreservationAction()
     {
         // action body
-        $city_id = $this->_request->getParam("id");
+        $cid = $this->_request->getParam("id");
+        $location_obj = new Application_Model_Location();
+        $car_form = new  Application_Form_Carrequest();
 
+        $all_locations = $location_obj->listLocations($cid);
+        $this->view->locations = $all_locations;
+
+        $this->view->car_form = $car_form;
 //var_dump($city_id);exit();
         $auth = Zend_Auth::getInstance();
         $storage = $auth->getStorage();
 
         $sessionRead = $storage->read();
-       $uid = $sessionRead->id;
+        $uid = $sessionRead->id;
        //var_dump($uid);exit(); 
-         $car_form = new  Application_Form_Carrequest();
         $request = $this->getRequest();
         if($request->isPost()){
-            if($car_form->isValid($request->getPost())){
+           // if($car_form->isValid($request->getPost())){
                
                 $carres_obj = new Application_Model_Carrequest();
-                $carres_obj-> addcarRes($request->getParams(),$uid);
-                $this->redirect("/city/display?id=".$city_id);
-            }
+                $carres_obj->addcarRes($request->getParams(),$uid);
+                $this->redirect("/city/display?id=".$cid);
+            //}
     }
-    $this->view->car_form = $car_form;
+    //$this->view->car_form = $car_form;
 
     }
 

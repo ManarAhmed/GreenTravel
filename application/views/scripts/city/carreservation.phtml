@@ -1,24 +1,71 @@
 <!DOCTYPE html>
 <html >
   <head>
+<style type="text/css">
+#d {
+   
+ font: normal 32px courier !important;
+     color:#A0A6A8;
+}
+</style>
     <meta charset="UTF-8">
     <title>car form</title>
     <link rel="stylesheet" href="/bootstrap/css/reset.css">
     <link rel="stylesheet" href="/bootstrap/css/hotel.css">
     <script src="/bootstrap/js/prefixfree.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
   </head>
 
   <body>
 
     <div id="bg"></div>
-<form action="<?= $this->car_form->getAction()?>" method="<?= $this->car_form->getMethod()?>">
-   enter location <?= $this->car_form->name ?>
-    date From <input   size="16" type="text" name="from" id="date_field1" readonly >
-    time from <?= $this->car_form->time_form_hour ?><?= $this->car_form->time_form_min ?>
+
+<form action="<?= $this->car_form->getAction()?>" method="<?= $this->car_form->getMethod()?>" style="background-color:#C6EEFE; width: 500px">
+
+    <center> <?= "<label  id='d'> Car Reservation </label>"?> </center>
+    <br>
+    <center> <?= $this->car_form->name ?> </center>
+
+    <!-- -->
+<script>
+
+$(function () {
+  <?php 
+     foreach ($this->locations as $key => $value)
+     { ?>
+
+    $('#name').append("<option><?php echo $value['name'];?></option>");
+
+
+ <?php }?>
+  // echo "<script>$('#name').append( '<option>".""."</option>')
+  <!--//  foreach ($this->locations as $key => $value)
+  //    {
+  //     echo "<script>$('#name').append( '<option>$value['name']</option>')
+  //    }-->
+});
+
+
+
+</script>
+<br><br>
+
+    <!-- -->
+     <?= $this->car_form->date_from ?>
+    <center>time from</center> <?= $this->car_form->time_form_hour ?>
+    <br>
+    <?= $this->car_form->time_form_min ?>
      <br>
- date To <input   size="16" type="text" name="to" id="date_field2" readonly >
-time to <?= $this->car_form->time_to_hour ?><?= $this->car_form->time_to_min ?>
-  <br> <?= $this->car_form->submit?>
+    <?= $this->car_form->am_pm1 ?>
+     <br>
+    <?= $this->car_form->date_to ?>
+     <center>time to</center><?= $this->car_form->time_to_hour ?>
+      <br>
+     <?= $this->car_form->time_to_min ?>
+      <br>
+      <?= $this->car_form->am_pm2 ?>
+    <br> 
+   <center> <?= $this->car_form->submit?></center>
   
 
 </form> 
@@ -26,8 +73,10 @@ time to <?= $this->car_form->time_to_hour ?><?= $this->car_form->time_to_min ?>
 
     <script src="/bootstrap/js/bootstrap-datepicker.js"></script>
 <script>
-	$('#date_field1').datepicker('show');
-	$('#date_field2').datepicker('show');
+  $('#date_from').val('08/04/2016');
+  $('#date_to').val('09/04/2016');
+	$('#date_from').datepicker('show');
+  $('#date_to').datepicker('show');
 </script>   
     
     

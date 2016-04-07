@@ -24,6 +24,7 @@ class IndexController extends Zend_Controller_Action
         //list countries
         $country_obj=new Application_Model_Country();
         $countries=$country_obj->listCountries();
+        Zend_Layout::getMvcInstance()->assign('countries', $countries);
         $this->view->countries = $countries;
     }
 
