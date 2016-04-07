@@ -112,10 +112,19 @@ class CityController extends Zend_Controller_Action
 
     public function displayAction()
     {
-        // action body
+        
+        
+        // list all countries to send them to layout
+        $country_obj = new Application_Model_Country();
+        $all_countries = $country_obj->listCountries();
+        $this->view->countries = $all_countries;
+        Zend_Layout::getMvcInstance()->assign('countries', $all_countries);
+        
+        // show details for certain city
         $city_obj = new Application_Model_City();
         $city_post= new Application_Model_Experience();
         $city_id = $this->_request->getParam("id");
+        Zend_Layout::getMvcInstance()->assign('city_id', $city_id); // send city_id for layout
         $city_row=$city_obj->citydetails($city_id);
         $this->view->city_id=$city_row['id'];
         $this->view->city_desc= $city_row['description'];

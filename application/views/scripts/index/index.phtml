@@ -15,128 +15,18 @@
 
     <style>
     .carousel-inner{
-        height:400px;
+        height:500px;
+        width: 108.55%;
+        right: 4.3%;
+        alignment-adjust: central;
     }
     </style>
 
 </head>
 
-<body id="page-top">
+<body id="page-top" class="home">
 <div class="container">
 
-<div = align="center">
-   <div style="margin-top: 60px;"></div>
- 
-   <h3 class="text-danger">
-    <?php
-        $fbsession = new Zend_Session_Namespace('facebook');
-        $auth = Zend_Auth::getInstance();
-        $storage = $auth->getStorage();
-        $sessionRead = $storage->read();
-        if (!empty($sessionRead)) {
-            if($sessionRead->type == 0){ //user not admin
-                $name = $sessionRead->username;
-                echo " * Welcome " . $name . " *";
-                
-            }
-            else{ //admin not user
-                
-                header("Location: /user/admin");
-            ?>
-    <?php    
-            }
-            
-    ?>
-    <div class="pull-left">
-        <a class='btn btn-danger' href='/user/logout'>Logout</a>
-    </div>
-    <!--facebook-->
-    <?php
-
-        }
-
-        else if (isset($fbsession->username) && !empty (isset($fbsession->username))) {
-            $name = $fbsession->username;
-            echo " * Welcome " . $name . " *";
-    ?>
-    <div class="pull-left">
-        <a class='btn btn-danger' href="/user/fplogout">Logout</a>
-    </div>
-
-<?php
-}
-else{
-    echo " * Welcome * " ;
-}
-?>
-
-   </h3>
-    
-   
-</div>
-
-    <nav id="mainNav" class="navbar navbar-info navbar-fixed-top">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
- 
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Destinations <span class="caret"></span></a>
-                       <ul class="dropdown-menu">
-                        <?php $i=1; foreach($this->countries as $key=>$value): ?>
-                            <li> <a href="/country/cities?cid=<?= $value['id']?>"><?= $value['name']?> </a> </li>
-                        <?php endforeach; ?>                        
-                      </ul>
-                    </li>
-
-                    <?php if(!(isset($name))): ?>
-                    <li><a href="/user/login">Login</a></li>
-                    <li><a href="user/add">Sign-Up</a></li>
-                    <?php endif; ?>
-
-                    <?php if(isset($name)): ?>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bookings  <span class="caret"></span></a>
-
-                      <ul class="dropdown-menu">
-                            <li> <a href="/user/hotalinfo/name/<?=  $name ?>">Hotel Reservation</a> </li>                     
-                            <li> <a href="/user/carinfo/name/<?= $name ?>">Car Request</a> </li>
-                    
-                      </ul>
-            
-                    <!-- <li>
-                        <a class="page-scroll" href="#destinations">Destinations</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#booking">Booking</a>
-                        -->
-                    </li> 
-                    <?php if(!(isset($fbsession->username)))  : ?>
-                    <li><a  href='/user/update/name/ <?php echo $name ?>'> update profile </a></li>
-                    <?php endif; ?>
-                    
-                    <?php endif; ?>
-
-                    
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-    <div style="height:100px;"></div>
  <div class="container">
        
  <div id="myCarousel" class="carousel slide  " data-ride="carousel" >
@@ -152,15 +42,16 @@ else{
   </ol>
 
   <!-- Wrapper for slides -->
-  <div class="carousel-inner" role="listbox">
+  <div class="carousel-inner" >
     <div class="item active" >
-                <div class="img_container ">
-                    <img src="<?= $this->countrys_rated[0]['image']?>" alt="" >
-                    <a href="country/cities?cid=<?= $this->countrys_rated[0]['id']?>" class="btn btn-info btn-xl page-scroll"> Learn More > </a>
-                </div>
-            </div>
+        <div class="img_container ">
+            <img src="<?= $this->countrys_rated[0]['image']?>" alt="" >
+            <a href="country/cities?cid=<?= $this->countrys_rated[0]['id']?>" class="btn btn-info btn-xl page-scroll"> Learn More > </a>
+        </div>
+    </div>
     
-    <?php $i=1; foreach($this->countrys_rated as $key=>$value): 
+    <?php
+    $i=1; foreach($this->countrys_rated as $key=>$value): 
     if (!$i){?>
         <div class="item" >
             <div class="img_container ">
@@ -170,29 +61,32 @@ else{
         </div>             
     <?php  } $i=0; endforeach;?>
   </div>
+   <!-- Controls -->
+   <a class="left carousel-control" href="#myCarousel" data-slide="prev" style=" margin-top: 100px;height:400px;">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next" style="margin-top: 100px; height:400px;">
+            <span class="icon-next"></span>
+        </a>
 </div>
 </div>
-    <!-- <section class="bg-info" id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">We've got what you need!</h2>
-                    <hr class="light">
-                    <p class="text-faded">Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</p>
-                    <a href="#" class="btn btn-default btn-xl">Get Started!</a>
-                </div>
-            </div>
-        </div>
-    </section> -->
     <div style="height:500px;"></div>
+                
+                
+
+<div class="col-lg-8 col-lg-offset-2 text-center">
+    <h2 class="section-heading">High six rated Cities!</h2>
+    <hr class="light" style="color:green;">
+</div>
+
 
     <section class="no-padding" id="portfolio">
-        <div class="container-fluid">
-            <div class="row no-gutter">
+        <div class="container-fluid" >
+            <div class="row no-gutter" >
                 <?php foreach($this->citys_rated as $key=>$value): ?>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="greentravel.com/city/display?id=<?= $value['id']?>" class="portfolio-box">
-                        <img src="<?= $value['image']?>" class="img-responsive" alt="" width="200" height="200">
+                <div class="col-lg-4 col-sm-6" style="height:200px;">
+                    <a href="/city/display?id=<?= $value['id']?>" class="portfolio-box">
+                        <img src="<?= $value['image']?>" class="img-responsive " alt="" style="width: 500px; height:300px;">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
@@ -209,7 +103,7 @@ else{
             </div>
         </div>
     </section>
-
+    <div style="height:50px;"></div>
 
     <section id="contact">
 
@@ -218,7 +112,7 @@ else{
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h2 class="section-heading">Let's Get In Touch!</h2>
                     <hr class="primary">
-                    <p>Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>
+                    <p>Ready to start your adventure with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>
                 </div>
                 <div class="col-lg-4 col-lg-offset-2 text-center">
                     <i class="fa fa-phone fa-3x wow bounceIn"></i>
@@ -247,8 +141,15 @@ else{
     alignment-adjust: middle;
     z-index: 100;
     right: 44%;
-    top: 200px;
+    top: 275px;
+    
 }
+.portfolio-box-caption:hover{
+    background-color: rgba(0, 255, 92, 0.5); 
+}
+ .home{
+background-color: rgba(0, 255, 92, 0.3); 
+ }
 
 </style>
 </div>
