@@ -1,0 +1,105 @@
+
+/* slider slider arrow navigator skin 05 css */
+/*
+.slidera05l                  (normal)
+.slidera05r                  (normal)
+.slidera05l:hover            (normal mouseover)
+.slidera05r:hover            (normal mouseover)
+.slidera05l.slidera05ldn      (mousedown)
+.slidera05r.slidera05rdn      (mousedown)
+*/
+.slidera05l, .slidera05r {
+    display: block;
+    position: absolute;
+    /* size of arrow element */
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    background: url('img/a17.png') no-repeat;
+    overflow: hidden;
+}
+.slidera05l { background-position: -10px -40px; }
+.slidera05r { background-position: -70px -40px; }
+.slidera05l:hover { background-position: -130px -40px; }
+.slidera05r:hover { background-position: -190px -40px; }
+.slidera05l.slidera05ldn { background-position: -250px -40px; }
+.slidera05r.slidera05rdn { background-position: -310px -40px; }
+
+/* slider slider thumbnail navigator skin 01 css */
+/*
+.slidert01 .p            (normal)
+.slidert01 .p:hover      (normal mouseover)
+.slidert01 .p.pav        (active)
+.slidert01 .p.pdn        (mousedown)
+*/
+.slidert01 .p {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 72px;
+    height: 72px;
+}
+
+.slidert01 .t {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.slidert01 .w {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.slidert01 .c {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 68px;
+    height: 68px;
+    border: #000 2px solid;
+    box-sizing: content-box;
+    background: url('img/t01.png') -800px -800px no-repeat;
+    _background: none;
+}
+
+.slidert01 .pav .c {
+    top: 2px;
+    _top: 0px;
+    left: 2px;
+    _left: 0px;
+    width: 68px;
+    height: 68px;
+    border: #000 0px solid;
+    _border: #fff 2px solid;
+    background-position: 50% 50%;
+}
+
+.slidert01 .p:hover .c {
+    top: 0px;
+    left: 0px;
+    width: 70px;
+    height: 70px;
+    border: #fff 1px solid;
+    background-position: 50% 50%;
+}
+
+.slidert01 .p.pdn .c {
+    background-position: 50% 50%;
+    width: 68px;
+    height: 68px;
+    border: #000 2px solid;
+}
+
+* html .slidert01 .c, * html .slidert01 .pdn .c, * html .slidert01 .pav .c {
+    /* ie quirks mode adjust */
+    width /**/: 72px;
+    height /**/: 72px;
+}
+

@@ -23,6 +23,7 @@
           <actionMethod actionName="list"/>
           <actionMethod actionName="block"/>
           <actionMethod actionName="unblock"/>
+          <actionMethod actionName="twitterauth"/>
         </controllerFile>
         <controllerFile controllerName="Country">
           <actionMethod actionName="index"/>
@@ -42,11 +43,8 @@
           <actionMethod actionName="edit"/>
           <actionMethod actionName="display"/>
           <actionMethod actionName="post"/>
-
           <actionMethod actionName="carreservation"/>
-
           <actionMethod actionName="addpost"/>
-
         </controllerFile>
         <controllerFile controllerName="Location">
           <actionMethod actionName="index"/>
@@ -76,11 +74,8 @@
         <formFile formName="ULocation"/>
         <formFile formName="Hotelreq"/>
         <formFile formName="HotelRequest"/>
-
         <formFile formName="Addpost"/>
-
         <formFile formName="Carrequest"/>
-
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
@@ -212,11 +207,11 @@
             <viewScriptFile forActionName="unblock"/>
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="City">
-
             <viewScriptFile forActionName="carreservation"/>
-
             <viewScriptFile forActionName="addpost"/>
-
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="twitterauth"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

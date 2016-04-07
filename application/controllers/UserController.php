@@ -1,4 +1,7 @@
 <?php
+require "twitteroauth/autoload.php";
+
+use Abraham\TwitterOAuth\TwitterOAuth;
 
 class UserController extends Zend_Controller_Action
 {
@@ -83,6 +86,16 @@ class UserController extends Zend_Controller_Action
         $loginUrl = $helper->getLoginUrl($this->view->serverUrl() . $this->view->baseUrl() . '/user/fpauth');
         $this->view->facebook_url = $loginUrl;
         //*********************************************
+        //twitter
+        $connection = new TwitterOAuth('JvF10xTrO1s8WyYjPlB7zKzMi', 'vX4yfBj21tkF5NZQDomomUyTNKVieKPILl2QcGWN4ZeiQ1bIiR');
+        $token = $connection->oauth('oauth/request_token', array('oauth_callback' => 'http://greentravel.com/user/twitterauth'));
+        $_SESSION['oauth_token'] = $token['oauth_token'];
+        $_SESSION['oauth_token_secret'] = $token['oauth_token_secret'];
+//exit;
+        $url = $connection->url('oauth/authorize', array('oauth_token' => $token['oauth_token']));
+        $this->view->twitter=$url;
+//        header('Location: '.$url);
+//        exit;
     }
 
     public function logoutAction()
@@ -93,7 +106,7 @@ class UserController extends Zend_Controller_Action
     }
 
     public function fpauthAction()
-    {
+    {  
         //instance from FB
         $fb = new Facebook\Facebook([
         'app_id' => '201509036905791', 
@@ -284,8 +297,40 @@ class UserController extends Zend_Controller_Action
         
     }
 
+    public function twitterauthAction()
+    {
+        // action body
+        //$twitter =  'hiiiiiiiiiiii';   
+
+        $request_token = [];
+        $request_token['oauth_token'] = $_SESSION['oauth_token'];
+        $request_token['oauth_token_secret'] = $_SESSION['oauth_token_secret'];
+        $app_id = 'JvF10xTrO1s8WyYjPlB7zKzMi';
+        $app_secret = 'vX4yfBj21tkF5NZQDomomUyTNKVieKPILl2QcGWN4ZeiQ1bIiR';
+        if (isset($_REQUEST['oauth_token']) && $request_token['oauth_token'] !== $_REQUEST['oauth_token']) {
+            echo 'Something is wrong.';
+        }
+
+        $connection = new TwitterOAuth($app_id, $app_secret, $request_token['oauth_token'], $request_token['oauth_token_secret']);
+        $access_token = $connection->oauth("oauth/access_token", ["oauth_verifier" => $_REQUEST['oauth_verifier']]);
+        print_r($access_token);
+        $connection = new TwitterOAuth($app_id,$app_secret , $access_token['oauth_token'], $access_token['oauth_token_secret']);
+        $content = $connection->get("account/verify_credentials",[
+            'id',
+            'name',
+            'include_email '
+            
+        ]);
+        //pre($content);
+        $this->view->tweet = $content;
+
+        
+    }
+
 
 }
+
+
 
 
 
