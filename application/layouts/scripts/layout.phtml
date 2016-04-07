@@ -120,10 +120,9 @@ if (!empty($sessionRead)) {
         <a class='btn btn-danger' href="/user/fplogout">Logout</a>
     </div>
 
-<?php }
-    else{
-        echo " * Welcome * " ;
-    }
+<?php
+}
+ 
 ?>
 </h3>
 </div>
@@ -158,8 +157,8 @@ if(!isset($path[4]) or (!empty($path[4]) and strpos($path[4], 'add' )!==0 and st
                       </ul>
                     </li>
                     <?php if(!(isset($name))): ?>
-                    <li><a class="btn" href="/user/login">Login</a></li>
-                    <li><a class="btn" href="user/add">Sign-Up</a></li>
+                    <li><a  href="/user/login">Login</a></li>
+                    <li><a  href="user/add">Sign-Up</a></li>
                     <?php endif; ?>
 
                     <?php if(isset($name) and ($path[3]=='city' or $path[3]==NULL)): ?>
@@ -174,6 +173,7 @@ if(!isset($path[4]) or (!empty($path[4]) and strpos($path[4], 'add' )!==0 and st
                     </li> 
                     <?php if(!(isset($fbsession->username)))  : ?>
                     <li><a  href='/user/update/name/ <?php echo $name ?>'> update profile </a></li>
+                    <li><a  href='/user/logout'>Logout</a></li>
                     <?php endif; ?>
                     
                     <?php endif; ?>
@@ -203,7 +203,8 @@ echo $this->layout()->content;
     }
     .a-item:hover,.a-item:focus{
         height: 40px;
-        color:80c52e;
+        width: 50px;
+        color:#80c52e;
         background-color: #80c52e;
         
     }
