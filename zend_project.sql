@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 07, 2016 at 05:26 PM
+-- Generation Time: Apr 07, 2016 at 05:37 PM
 -- Server version: 5.5.47-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.14
 
@@ -27,17 +27,25 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `carrequest` (
-  `id` int(11) NOT NULL,
+  `ud` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `source` varchar(200) NOT NULL,
-  `destination` varchar(200) NOT NULL,
   `date_from` varchar(200) NOT NULL,
   `date_to` varchar(200) NOT NULL,
   `city_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id` (`id`,`user_id`),
+  `datef` varchar(50) NOT NULL,
+  `datet` varchar(50) NOT NULL,
+  PRIMARY KEY (`ud`),
+  KEY `id` (`ud`,`user_id`),
   KEY `city_id` (`city_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `carrequest`
+--
+
+INSERT INTO `carrequest` (`ud`, `user_id`, `source`, `date_from`, `date_to`, `city_id`, `datef`, `datet`) VALUES
+(1, 5, 'camp shezarr', '1:1AM', '1:1AM', 3, '08/04/2016', '09/04/2016');
 
 -- --------------------------------------------------------
 
@@ -149,7 +157,8 @@ CREATE TABLE IF NOT EXISTS `experience` (
   `content` varchar(200) NOT NULL,
   `date` date NOT NULL,
   `user_id` int(11) NOT NULL,
-  `city_id` int(11) NOT NULL
+  `city_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
