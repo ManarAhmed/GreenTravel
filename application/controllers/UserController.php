@@ -1,7 +1,7 @@
 <?php
-require "twitteroauth/autoload.php";
+//require "twitteroauth/autoload.php";
 
-use Abraham\TwitterOAuth\TwitterOAuth;
+//use Abraham\TwitterOAuth\TwitterOAuth;
 
 class UserController extends Zend_Controller_Action
 {
@@ -87,13 +87,13 @@ class UserController extends Zend_Controller_Action
         $this->view->facebook_url = $loginUrl;
         //*********************************************
         //twitter
-        $connection = new TwitterOAuth('JvF10xTrO1s8WyYjPlB7zKzMi', 'vX4yfBj21tkF5NZQDomomUyTNKVieKPILl2QcGWN4ZeiQ1bIiR');
-        $token = $connection->oauth('oauth/request_token', array('oauth_callback' => 'http://greentravel.com/user/twitterauth'));
-        $_SESSION['oauth_token'] = $token['oauth_token'];
-        $_SESSION['oauth_token_secret'] = $token['oauth_token_secret'];
-//exit;
-        $url = $connection->url('oauth/authorize', array('oauth_token' => $token['oauth_token']));
-        $this->view->twitter=$url;
+//         $connection = new TwitterOAuth('JvF10xTrO1s8WyYjPlB7zKzMi', 'vX4yfBj21tkF5NZQDomomUyTNKVieKPILl2QcGWN4ZeiQ1bIiR');
+//         $token = $connection->oauth('oauth/request_token', array('oauth_callback' => 'http://greentravel.com/user/twitterauth'));
+//         $_SESSION['oauth_token'] = $token['oauth_token'];
+//         $_SESSION['oauth_token_secret'] = $token['oauth_token_secret'];
+// //exit;
+//         $url = $connection->url('oauth/authorize', array('oauth_token' => $token['oauth_token']));
+//         $this->view->twitter=$url;
 //        header('Location: '.$url);
 //        exit;
     }
@@ -213,7 +213,13 @@ class UserController extends Zend_Controller_Action
     {
         $form = new Application_Form_Update ();
         $user_model = new Application_Model_User ();
-        $name = $this->_request->getParam('name');
+        //$name = $this->_request->getParam('name');
+        $auth = Zend_Auth::getInstance();
+        $storage = $auth->getStorage();
+        $sessionRead = $storage->read();
+        if (!empty($sessionRead)) {
+            $name=$sessionRead->username;
+        }
         //var_dump($name);exit();
         $filter = new Zend_Filter_Alnum();
         $return = $filter->filter($name);
@@ -231,7 +237,7 @@ class UserController extends Zend_Controller_Action
           if($form-> isValid($request-> getPost()))
           {
             $user_model-> updateUser ($id, $_POST);
-            $this->redirect('/user/index ');
+            $this->redirect();
           }
     }
     }
@@ -240,8 +246,14 @@ class UserController extends Zend_Controller_Action
     {
         // action body
         $user_model = new Application_Model_User();
-        $name = $this->_request->getParam('name');
+        //$name = $this->_request->getParam('name');
         //var_dump($id);exit();
+                     $auth = Zend_Auth::getInstance();
+        $storage = $auth->getStorage();
+        $sessionRead = $storage->read();
+        if (!empty($sessionRead)) {
+            $name=$sessionRead->username;
+        }
         $filter = new Zend_Filter_Alnum();
         $return = $filter->filter($name);
         //var_dump($return);exit();
@@ -257,7 +269,16 @@ class UserController extends Zend_Controller_Action
     {
            // action body
         $user_model = new Application_Model_User();
-        $name = $this->_request->getParam('name');
+        //$name = $this->_request->getParam('name');
+
+                    $auth = Zend_Auth::getInstance();
+        $storage = $auth->getStorage();
+        $sessionRead = $storage->read();
+        if (!empty($sessionRead)) {
+            $name=$sessionRead->username;
+        }
+        //var_dump($x);
+
         //var_dump($id);exit();
         $filter = new Zend_Filter_Alnum();
         $return = $filter->filter($name);
