@@ -130,7 +130,7 @@ if (!empty($sessionRead)) {
 <?php 
 if(!isset($path[4]) or (!empty($path[4]) and strpos($path[4], 'add' )!==0 and strpos($path[4], 'login' )!==0 and strpos($path[4], 'update' )!==0 and strpos($path[4], 'carreservation' )!==0 and strpos($path[4], 'hotelreserve' )!==0)){ ?>
 
-    <nav id="mainNav" class="navbar navbar-info navbar-fixed-top">
+<nav id="mainNav" class="navbar navbar-fixed-top" style=" height: 100px; background-color: #777777;">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -140,26 +140,26 @@ if(!isset($path[4]) or (!empty($path[4]) and strpos($path[4], 'add' )!==0 and st
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
- 
+                <a class=" btn navbar-brand page-scroll" href="#page-top" style="font-family: cursive; font-size: 22px;">Green Travel</a>
             </div>
 
+
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class=" navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                 
                     <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Destinations <span class="caret"></span></a>
-                       <ul class="dropdown-menu">
+                      <a href="#" class="dropdown-toggle a-item" data-toggle="dropdown" style="width: 200px;">Destinations <span class="caret"></span></a>
+                      <ul class="dropdown-menu" style="background-color: #777777; width: 159px;">
                         <?php                         
                         $i=1; foreach($countries as $key=>$value): ?>
-                            <li> <a href="/country/cities?cid=<?= $value['id']?>"><?= $value['name']?> </a> </li>
+                          <li class="drop-item"style=" height:40px;" > <a class=' a-item' href="/country/cities?cid=<?= $value['id']?>" ><?= $value['name']?> </a> </li>
                         <?php endforeach; ?>                        
                       </ul>
                     </li>
-
                     <?php if(!(isset($name))): ?>
-                    <li><a href="/user/login">Login</a></li>
-                    <li><a href="user/add">Sign-Up</a></li>
+                    <li><a class="btn" href="/user/login">Login</a></li>
+                    <li><a class="btn" href="user/add">Sign-Up</a></li>
                     <?php endif; ?>
 
                     <?php if(isset($name) and ($path[3]=='city' or $path[3]==NULL)): ?>
@@ -189,3 +189,27 @@ if(!isset($path[4]) or (!empty($path[4]) and strpos($path[4], 'add' )!==0 and st
 echo $this->layout()->content;
 ?>
 
+<style>
+    nav{
+        font-size: 18px;
+        font-weight: bold;
+        color: #000000;
+        padding: 20px;
+        
+    }
+    .drop-item:hover{
+        background-color: #80c52e;
+        
+    }
+    .a-item:hover,.a-item:focus{
+        height: 40px;
+        color:80c52e;
+        background-color: #80c52e;
+        
+    }
+    a{
+        font-family: cursive;
+        font-size: 18px;
+        color: #80c52e;
+    }
+</style>
