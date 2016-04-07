@@ -4,9 +4,9 @@ class Application_Model_Location extends Zend_DB_Table_Abstract
 {
 	protected $_name = "location";
 
-	function listLocations(){
+	function listLocations($cid){
 		//returns all Locations from db
-		return $this->fetchAll(null,"name ASC")->toArray();
+		return $this->fetchAll("city_id=$cid",null,null)->toArray();
 	}
 
 	function locationDelete($id)

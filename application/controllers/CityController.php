@@ -168,7 +168,7 @@ class CityController extends Zend_Controller_Action
         $storage = $auth->getStorage();
 
         $sessionRead = $storage->read();
-       $uid = $sessionRead->id;
+        $uid = $sessionRead->id;
        //var_dump($uid);exit(); 
         $request = $this->getRequest();
         if($request->isPost()){
@@ -176,7 +176,7 @@ class CityController extends Zend_Controller_Action
                
                 $carres_obj = new Application_Model_Carrequest();
                 $carres_obj->addcarRes($request->getParams(),$uid);
-                $this->redirect("/city/display/id/".$cid);
+                $this->redirect("/city/display?id=".$cid);
             //}
     }
     //$this->view->car_form = $car_form;
