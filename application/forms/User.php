@@ -15,14 +15,14 @@ class Application_Form_User extends Zend_Form
         $username = new Zend_Form_Element_Text('username');
         $username->setLabel('UserName');
         $username->setAttrib('placeholder','UserName');
-        //$username->setAttrib('class','form-control');
+        $username->setAttrib('class','form-control');
         $username->setRequired();
 
         //email
         $email = new Zend_Form_Element_Text('email');
         $email->setLabel('Email');
         $email->setAttrib('placeholder','Email');
-        //$email->setAttrib('class','form-control');
+        $email->setAttrib('class','form-control');
         $email->AddValidator('EmailAddress');
         $email->AddValidator('db_NoRecordExists',true,array('user','email'));
 
@@ -30,20 +30,20 @@ class Application_Form_User extends Zend_Form
         $password = new Zend_Form_Element_Password('password');
         $password->setLabel('Password');
         $password->setAttrib('placeholder','Password');
-        //$password->setAttrib('class','form-control');
+        $password->setAttrib('class','form-control');
         $password->setRequired();
 
         //confirm password
         $repassword = new Zend_Form_Element_Password('repassword');
         $repassword->setLabel('Re-Password');
         $repassword->setAttrib('placeholder','Re-Password');
-        //$repassword->setAttrib('class','form-control');
+        $repassword->setAttrib('class','form-control');
         $repassword->AddValidator('identical',true,'password');
 
         //gender
         $gender = new Zend_Form_Element_Select('gender');
         $gender->setLabel('Gender');
-        //$gender->setAttrib('class','form-control');
+        $gender->setAttrib('class','form-control');
         $gender->addMultiOption('male','Male');
         $gender->addMultiOption('female','Female');
 

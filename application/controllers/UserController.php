@@ -1,7 +1,7 @@
 <?php
-require "twitteroauth/autoload.php";
+// require "twitteroauth/autoload.php";
 
-use Abraham\TwitterOAuth\TwitterOAuth;
+// use Abraham\TwitterOAuth\TwitterOAuth;
 
 class UserController extends Zend_Controller_Action
 {

@@ -20,6 +20,13 @@ class Application_Form_Country extends Zend_Form
         $name->AddValidator('StringLength',false,array(3,20));
      //   $name->AddValidator('db_NoRecordExists',true,array('country','name'));
 
+        //description
+        $description = new Zend_Form_Element_Textarea('description');
+        $description->setLabel('Description');
+        $description->setAttrib('class','form-control');
+        $description->setAttribs(array('cols'=>'5', 'rows'=>'6'));
+        $description->setRequired();
+
         //rate
         $rate = new Zend_Form_Element_Text('rate');
         $rate->setLabel('Rate');
@@ -50,6 +57,7 @@ class Application_Form_Country extends Zend_Form
         $this->addElements(array(
         	$id,
         	$name,
+            $description,
         	$image,
         	$rate,
         	$submit,

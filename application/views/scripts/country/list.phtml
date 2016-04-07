@@ -20,6 +20,7 @@
 		<th>ID</th>
 		<th>Name</th>
 		<th>Rate</th>
+		<th>Description</th>
 		<th colspan="2">Action</th>
 	</tr>
 
@@ -30,6 +31,7 @@
 			echo "<td>".$value['id']."</td>";
 			echo "<td>".$value['name']."</td>";
 			echo "<td>".$value['rate']."</td>";
+			echo "<td>".$value['description']."</td>";
 			echo "<td><a class='btn btn-danger' href='/country/delete/eid/".$value['id']."'>Delete</a></td>";
 			echo "<td><a class='btn btn-primary' href='/country/edit/eid/".$value['id']."'>Edit</a></td>";
 			echo "</tr>";
