@@ -159,7 +159,7 @@ class CityController extends Zend_Controller_Action
         $storage = $auth->getStorage();
 
         $sessionRead = $storage->read();
-       $uid = $sessionRead->id;
+        $uid = $sessionRead->id;
        //var_dump($uid);exit(); 
         $request = $this->getRequest();
         if($request->isPost()){
