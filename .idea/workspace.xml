@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9a9aa583-f53c-41b4-8742-77f709a45a7d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/CityController.php" afterPath="$PROJECT_DIR$/application/controllers/CityController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/layouts/scripts/layout.phtml" afterPath="$PROJECT_DIR$/application/layouts/scripts/layout.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/User.php" afterPath="$PROJECT_DIR$/application/models/User.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/city/display.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/city/display.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/city/post.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/city/post.phtml" />
     </list>
     <ignored path="zend_project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,10 +45,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="post.phtml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="post.phtml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/scripts/city/post.phtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.6081772">
+            <state vertical-scroll-proportion="-21.7">
               <caret line="31" column="50" selection-start-line="31" selection-start-column="50" selection-end-line="31" selection-end-column="50" />
               <folding>
                 <element signature="e#604#627#0#PHP" expanded="true" />
@@ -87,17 +83,18 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="display.phtml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="display.phtml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/views/scripts/city/display.phtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.7">
-              <caret line="20" column="22" selection-start-line="20" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.03577513">
+              <caret line="1" column="94" selection-start-line="1" selection-start-column="94" selection-end-line="1" selection-end-column="125" />
               <folding>
-                <marker date="1460127250188" expanded="true" signature="82:105" placeholder="..." />
-                <marker date="1460127250188" expanded="true" signature="197:327" placeholder="..." />
-                <marker date="1460127250188" expanded="true" signature="253:266" placeholder="..." />
-                <marker date="1460127250188" expanded="true" signature="579:593" placeholder="..." />
-                <marker date="1460127250188" expanded="true" signature="731:745" placeholder="..." />
+                <marker date="1460134516043" expanded="true" signature="106:117" placeholder="..." />
+                <marker date="1460134516043" expanded="true" signature="106:129" placeholder="..." />
+                <marker date="1460134516043" expanded="true" signature="221:351" placeholder="..." />
+                <marker date="1460134516043" expanded="true" signature="277:290" placeholder="..." />
+                <marker date="1460134516043" expanded="true" signature="624:649" placeholder="..." />
+                <marker date="1460134516043" expanded="true" signature="771:785" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -167,9 +164,9 @@
         <option value="$PROJECT_DIR$/.zfproject.xml" />
         <option value="$PROJECT_DIR$/application/layouts/scripts/layout.phtml" />
         <option value="$PROJECT_DIR$/application/models/User.php" />
-        <option value="$PROJECT_DIR$/application/views/scripts/city/display.phtml" />
         <option value="$PROJECT_DIR$/application/controllers/CityController.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/city/post.phtml" />
+        <option value="$PROJECT_DIR$/application/views/scripts/city/display.phtml" />
       </list>
     </option>
   </component>
@@ -597,11 +594,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding>
-            <marker date="1460127250188" expanded="true" signature="82:105" placeholder="..." />
-            <marker date="1460127250188" expanded="true" signature="197:327" placeholder="..." />
-            <marker date="1460127250188" expanded="true" signature="253:266" placeholder="..." />
-            <marker date="1460127250188" expanded="true" signature="579:593" placeholder="..." />
-            <marker date="1460127250188" expanded="true" signature="731:745" placeholder="..." />
+            <marker date="1460134516043" expanded="true" signature="106:117" placeholder="..." />
+            <marker date="1460134516043" expanded="true" signature="106:129" placeholder="..." />
+            <marker date="1460134516043" expanded="true" signature="221:351" placeholder="..." />
+            <marker date="1460134516043" expanded="true" signature="277:290" placeholder="..." />
+            <marker date="1460134516043" expanded="true" signature="624:649" placeholder="..." />
+            <marker date="1460134516043" expanded="true" signature="771:785" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -634,11 +632,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding>
-            <marker date="1460127250188" expanded="true" signature="82:105" placeholder="..." />
-            <marker date="1460127250188" expanded="true" signature="197:327" placeholder="..." />
-            <marker date="1460127250188" expanded="true" signature="253:266" placeholder="..." />
-            <marker date="1460127250188" expanded="true" signature="579:593" placeholder="..." />
-            <marker date="1460127250188" expanded="true" signature="731:745" placeholder="..." />
+            <marker date="1460134516043" expanded="true" signature="106:117" placeholder="..." />
+            <marker date="1460134516043" expanded="true" signature="106:129" placeholder="..." />
+            <marker date="1460134516043" expanded="true" signature="221:351" placeholder="..." />
+            <marker date="1460134516043" expanded="true" signature="277:290" placeholder="..." />
+            <marker date="1460134516043" expanded="true" signature="624:649" placeholder="..." />
+            <marker date="1460134516043" expanded="true" signature="771:785" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -671,11 +670,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding>
-            <marker date="1460127250188" expanded="true" signature="82:105" placeholder="..." />
-            <marker date="1460127250188" expanded="true" signature="197:327" placeholder="..." />
-            <marker date="1460127250188" expanded="true" signature="253:266" placeholder="..." />
-            <marker date="1460127250188" expanded="true" signature="579:593" placeholder="..." />
-            <marker date="1460127250188" expanded="true" signature="731:745" placeholder="..." />
+            <marker date="1460134516043" expanded="true" signature="106:117" placeholder="..." />
+            <marker date="1460134516043" expanded="true" signature="106:129" placeholder="..." />
+            <marker date="1460134516043" expanded="true" signature="221:351" placeholder="..." />
+            <marker date="1460134516043" expanded="true" signature="277:290" placeholder="..." />
+            <marker date="1460134516043" expanded="true" signature="624:649" placeholder="..." />
+            <marker date="1460134516043" expanded="true" signature="771:785" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -861,23 +861,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/city/display.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.7">
-          <caret line="20" column="22" selection-start-line="20" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding>
-            <marker date="1460127250188" expanded="true" signature="82:105" placeholder="..." />
-            <marker date="1460127250188" expanded="true" signature="197:327" placeholder="..." />
-            <marker date="1460127250188" expanded="true" signature="253:266" placeholder="..." />
-            <marker date="1460127250188" expanded="true" signature="579:593" placeholder="..." />
-            <marker date="1460127250188" expanded="true" signature="731:745" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/city/post.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.6081772">
+        <state vertical-scroll-proportion="-21.7">
           <caret line="31" column="50" selection-start-line="31" selection-start-column="50" selection-end-line="31" selection-end-column="50" />
           <folding>
             <element signature="e#604#627#0#PHP" expanded="true" />
@@ -887,6 +873,21 @@
             <marker date="1460133411683" expanded="true" signature="1183:1197" placeholder="..." />
             <marker date="1460133411683" expanded="true" signature="1346:1622" placeholder="/** RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS. ...*/" />
             <marker date="1460133411683" expanded="true" signature="1631:1746" placeholder="/*...*/" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/city/display.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.03577513">
+          <caret line="1" column="94" selection-start-line="1" selection-start-column="94" selection-end-line="1" selection-end-column="125" />
+          <folding>
+            <marker date="1460134516043" expanded="true" signature="106:117" placeholder="..." />
+            <marker date="1460134516043" expanded="true" signature="106:129" placeholder="..." />
+            <marker date="1460134516043" expanded="true" signature="221:351" placeholder="..." />
+            <marker date="1460134516043" expanded="true" signature="277:290" placeholder="..." />
+            <marker date="1460134516043" expanded="true" signature="624:649" placeholder="..." />
+            <marker date="1460134516043" expanded="true" signature="771:785" placeholder="..." />
           </folding>
         </state>
       </provider>
