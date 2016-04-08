@@ -28,6 +28,8 @@ class CountryController extends Zend_Controller_Action
         $cities=$city_obj->listCities($country_id);
         $this->view->cities=$cities;
         $this->view->country=$country;
+//        echo '<pre>'.  print_r($cities).'</pre>';
+//         echo '<pre>'.  print_r($country).'</pre>';exit;
     }
 
     public function cityAction()
@@ -65,6 +67,9 @@ class CountryController extends Zend_Controller_Action
 
         if($request->isPost()){
             if ($form->isValid($_POST)) {
+                $upload = new Zend_File_Transfer();
+                $upload->setDestination('/var/www/html/zend_project/public/uploads/countries/');
+                $upload->receive();
                 $_POST['image'] = "/uploads/countries/" .$_FILES['image']['name'];
                 //2ab3at el data lel function ele f el model countryAdd()
                 $country_obj->countryAdd($_POST);
@@ -87,10 +92,10 @@ class CountryController extends Zend_Controller_Action
         if($request->isPost()){
             if($form->isValid($_POST)){
 
-                $upload = new Zend_File_Transfer_Adapter_Http();
-                $upload->addFilter('Rename',"/var/www/html/zend_project/public/uploads/countries/".$_POST['name'].time().".jpeg");
+                $upload = new Zend_File_Transfer();
+                $upload->setDestination('/var/www/html/zend_project/public/uploads/countries/');
                 $upload->receive();
-                $_POST['image']="/uploads/countries/".$_POST['name'].".jpeg";
+                $_POST['image'] = "/uploads/countries/" .$_FILES['image']['name'];
 
                 $country_obj->countryEdit($_POST);
                 $this->redirect('/country/list');

@@ -1,26 +1,26 @@
-<?php if (isset($this->cities) && !empty($this->cities)) { ?>
-    <div class="bkground">
-        <div class="transbox">
-            <p class="text-uppercase"><?= $this->country['name'] ?></p>
-        </div>     
-    </div>
-    <div style="height:50px;"></div>
-
+<div style="height:50px;"></div>
+<div class="bkground">
+    <div class="transbox">
+        <p class="text-uppercase"><?= $this->country['name'] ?></p>
+    </div>     
+</div>
+<div style="height:50px;"></div>
+<?php if (isset($this->country) && !empty($this->cities)) { ?>
     <?php foreach ($this->cities as $key => $value): ?>
         <ul class="list-group">
             <!--<td><\?= $value['id']?></td>-->
             <li class="list-group-item"><a href="/city/display?id=<?= $value['id'] ?>" ><?= $value['name'] ?></a></li>
         </ul>
     <?php endforeach; ?>
-<?php
+    <?php
 }
 else {
-    echo "no cities registered for this site";
-}
-?> 
+    ?>
+    <p style="font-size:24px;font-weight: bold; padding-left: 10px; margin:20px;">No cities registered for this Country. </p>
+<?php } ?> 
 <style>
     div.bkground {
-        background: url(<?= $this->country['image'] ?>) no-repeat;
+        background: url(<?= $this->baseUrl() . $this->country['image'] ?>) no-repeat;
         background-size: 100% 100%;
         height:300px;
         border: 2px solid black;
