@@ -14,10 +14,11 @@ class LocationController extends Zend_Controller_Action
             $this->redirect();
 
         }
-        else if ($sessionRead->type == 0 || isset($fbsession->username)){
-            if($this->_request->getActionName() == 'list' || $this->_request->getActionName() == 'add' || $this->_request->getActionName() == 'delete' || $this->_request->getActionName() == 'edit'){
-
-                $this->redirect();
+        else if($auth->hasIdentity() || isset($fbsession->username)) {
+            if ($sessionRead->type == 0 || $fbsession->type == 0){
+                if($this->_request->getActionName() == 'list' || $this->_request->getActionName() == 'add' || $this->_request->getActionName() == 'edit' || $this->_request->getActionName() == 'delete'){
+                    $this->redirect();
+                }
             }
         }
     }

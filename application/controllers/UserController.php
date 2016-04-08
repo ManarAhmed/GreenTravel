@@ -19,10 +19,11 @@ class UserController extends Zend_Controller_Action
                     $this->redirect();
             }
         }
-        else if ($sessionRead->type == 0 || isset($fbsession->username)){
-            if($this->_request->getActionName() == 'admin'){
-
-                $this->redirect();
+        else if($authorization->hasIdentity() || isset($fbsession->username)) {
+            if ($sessionRead->type == 0 || $fbsession->type == 0){
+                if($this->_request->getActionName() == 'admin' || $this->_request->getActionName() == 'list' || $this->_request->getActionName() == 'block' || $this->_request->getActionName() == 'unblock'){
+                    $this->redirect();
+                }
             }
         }
     }
@@ -207,6 +208,7 @@ class UserController extends Zend_Controller_Action
             // write in session username & id 
             $fpsession->username = $userNode->getName();
             $fpsession->id = $userNode->getId();
+            $fpsession->type = 0 ;
             $this->redirect();
         }
         else{
