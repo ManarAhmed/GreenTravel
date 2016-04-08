@@ -60,7 +60,8 @@ if (!isset($path[4]) or ( !empty($path[4]) and strpos($path[4], 'add') !== 0 and
                             //header("Location: /user/admin");
                             ?>
                             <li><a href="<?php echo $this->baseUrl() ?>/user/admin">Admin Panel</a></li>
-                            <?php
+                            <li><a href="<?php echo $this->baseUrl() ?>/user/logout"><span class="glyphicon glyphicon-log-out"></span> Logout </a> </li
+                        <?php
                         } else { //normal user
                             $name = $sessionRead->username;
                             $uid = $sessionRead->id;
@@ -68,8 +69,7 @@ if (!isset($path[4]) or ( !empty($path[4]) and strpos($path[4], 'add') !== 0 and
                             ?>
                             <li><a href="<?php echo $this->baseUrl() ?>/user/update"><span class="glyphicon glyphicon-user"></span> Update Profile </a>
                             </li> 
-                            <li><a href="<?php echo $this->baseUrl() ?>/user/logout"><span class="glyphicon glyphicon-log-out"></span> Logout </a>
-                            </li> 
+                            <li><a href="<?php echo $this->baseUrl() ?>/user/logout"><span class="glyphicon glyphicon-log-out"></span> Logout </a> </li> 
                             <?php
                         }
                     } elseif (isset($fbsession->first_name) && !empty(isset($fbsession->first_name))) {
@@ -95,7 +95,7 @@ if (!isset($path[4]) or ( !empty($path[4]) and strpos($path[4], 'add') !== 0 and
     <?php $i = 1;
     foreach ($countries as $key => $value): ?>
                                 <li class="drop-item"style=" width: 200px; height:40px;" > <a class='a-item' href="/country/cities?cid=<?= $value['id'] ?>" style="background-color: #80c52e;"><?= $value['name'] ?> </a> </li>
-                            <?php endforeach; ?>                        
+    <?php endforeach; ?>                        
                         </ul>
                     </li>
     <?php if (isset($name) and $path[3] == 'city'): ?>

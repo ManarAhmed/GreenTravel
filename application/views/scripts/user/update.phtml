@@ -7,17 +7,13 @@
         <link href="/bootstrap/css/simple-sidebar.css" rel="stylesheet">
     </head>
     <body>
+    <div class="container">
+    
         <div style="z-index: 0;top: -60;">
             <div id="sidebar-wrapper" class="col-sm-8">
                 <ul class="sidebar-nav">
-                    <li class="sidebar-brand">
-                        <a href="#">
-                            index
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">update profile</a>
-                    </li>
+
+                    <br>
                     <li>
                         <?php
                         $auth = Zend_Auth::getInstance();
@@ -30,22 +26,26 @@
 
                         <a href="/user/carinfo/name/<?= $x; ?>">car reservation info</a>
                     </li>
+                    <hr>
                     <li>
                         <a href="/user/hotalinfo/name/<?= $x; ?>">hotal reservation info</a>
                     </li>
+                    <hr>
 
                 </ul>
             </div>
         </div>
-        <div
-            class="col-sm-4"></div>
+        <div class="col-sm-4"></div>
         <div class="col-sm-4" >
-            <center><h1>Update Profile</h1></center>
+        <div class="page-header" align="center">
+        <h1>Update Profile</h1>
+    </div>
+            
             <?php
             echo $this->user_form;
             ?>
         </div>
         <!-- Menu Toggle Script -->
-
+        </div>
     </body>
 </html>
