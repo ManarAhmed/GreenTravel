@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 09, 2016 at 12:35 AM
+-- Generation Time: Apr 09, 2016 at 12:52 AM
 -- Server version: 5.5.47-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.14
 
@@ -176,6 +176,7 @@ CREATE TABLE IF NOT EXISTS `hotel` (
 CREATE TABLE IF NOT EXISTS `hotelreserve` (
   `hotel_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
+  `number` int(11) NOT NULL,
   `date_from` varchar(200) NOT NULL,
   `date_to` varchar(200) NOT NULL,
   `hotel_name` varchar(200) NOT NULL,
