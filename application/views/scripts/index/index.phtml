@@ -87,7 +87,7 @@
                     <?php foreach ($this->citys_rated as $key => $value): ?>
                             <div class="col-lg-4 col-sm-6" style="padding: 5px; height:320px;">
                                 <a href="/city/display?id=<?= $value['id'] ?>" class="portfolio-box">
-                                    <img src="<?=  $this->baseUrl() ?>/$value['image'] ?>" class="img-responsive " alt="" style="width: 500px; height:300px;">
+                                    <img src="<?=  $this->baseUrl().$value['image'] ?>" class="img-responsive " alt="" style="width: 500px; height:300px;">
                                     <div class="portfolio-box-caption">
                                         <div class="portfolio-box-caption-content">
                                             <div class="project-category text-faded">

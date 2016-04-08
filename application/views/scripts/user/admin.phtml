@@ -18,8 +18,8 @@
                     if ($sessionRead->type == 1) { //admin not user
                         $name = $sessionRead->username;
                         ?>
-                        <div class="pull-left">
-                            <a class='btn btn-danger btn-lg' href='/user/logout'>Logout</a>
+                        <div class="pull-right">
+                            <a class='btn btn-danger btn-lg' href='<?php echo $this->baseUrl() ?>/'>Visit Website</a>
                         </div>
                         <?php
                     }

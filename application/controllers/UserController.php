@@ -1,6 +1,6 @@
 <?php
-require "twitteroauth/autoload.php";
-use Abraham\TwitterOAuth\TwitterOAuth;
+// require "twitteroauth/autoload.php";
+// use Abraham\TwitterOAuth\TwitterOAuth;
 
 class UserController extends Zend_Controller_Action
 {
@@ -86,12 +86,12 @@ class UserController extends Zend_Controller_Action
         $this->view->facebook_url = $loginUrl;
         //*********************************************
         //twitter
-        $connection = new TwitterOAuth('JvF10xTrO1s8WyYjPlB7zKzMi', 'vX4yfBj21tkF5NZQDomomUyTNKVieKPILl2QcGWN4ZeiQ1bIiR');
-        $token = $connection->oauth('oauth/request_token', array('oauth_callback' => 'http://greentravel.com/user/twitterauth'));
-        $_SESSION['oauth_token'] = $token['oauth_token'];
-        $_SESSION['oauth_token_secret'] = $token['oauth_token_secret'];
-        $url = $connection->url('oauth/authorize', array('oauth_token' => $token['oauth_token']));
-        $this->view->twitter=$url;
+        // $connection = new TwitterOAuth('JvF10xTrO1s8WyYjPlB7zKzMi', 'vX4yfBj21tkF5NZQDomomUyTNKVieKPILl2QcGWN4ZeiQ1bIiR');
+        // $token = $connection->oauth('oauth/request_token', array('oauth_callback' => 'http://greentravel.com/user/twitterauth'));
+        // $_SESSION['oauth_token'] = $token['oauth_token'];
+        // $_SESSION['oauth_token_secret'] = $token['oauth_token_secret'];
+        // $url = $connection->url('oauth/authorize', array('oauth_token' => $token['oauth_token']));
+        // $this->view->twitter=$url;
     }
 
     public function logoutAction()

@@ -77,7 +77,7 @@ class CityController extends Zend_Controller_Action
                 $upload = new Zend_File_Transfer();
                 $upload->setDestination('/var/www/html/zend_project/public/uploads/cities/');
                 $upload->receive();
-                $_POST['image'] = "/uploads/countries/" .$_FILES['image']['name'];
+                $_POST['image'] = "/uploads/cities/" .$_FILES['image']['name'];
                 //2ab3at el data lel function ele f el model cityAdd()
                 $city_obj->cityAdd($_POST);
                 $this->redirect('/city/list');
@@ -103,7 +103,7 @@ class CityController extends Zend_Controller_Action
                 $upload = new Zend_File_Transfer();
                 $upload->setDestination('/var/www/html/zend_project/public/uploads/cities/');
                 $upload->receive();
-                $_POST['image'] = "/uploads/countries/" .$_FILES['image']['name'];
+                $_POST['image'] = "/uploads/cities/" .$_FILES['image']['name'];
                 
                 $city_obj->cityEdit($_POST);
                 $this->redirect('/city/list');
