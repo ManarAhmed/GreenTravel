@@ -7,7 +7,21 @@ class UserController extends Zend_Controller_Action
 
     public function init()
     {
-        /* Initialize action controller here */
+        $authorization = Zend_Auth::getInstance();
+        $storage = $authorization->getStorage();
+        $sessionRead = $storage->read();
+
+        $fbsession = new Zend_Session_Namespace('facebook');
+
+        if (!$authorization->hasIdentity() && !isset($fbsession->username)) {
+
+            if ($this->_request->getActionName() != 'login' && $this->_request->getActionName() != 'add' && $this->_request->getActionName() != 'fpauth' && $this->_request->getActionName() != 'twitterauth') {
+                    $this->redirect();
+            }
+        }
+        else if ($sessionRead->type == 0 && $this->_request->getActionName() == 'admin'){
+            $this->redirect();
+        }
     }
 
     public function indexAction()

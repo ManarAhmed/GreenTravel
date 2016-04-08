@@ -5,7 +5,21 @@ class LocationController extends Zend_Controller_Action
 
     public function init()
     {
-        /* Initialize action controller here */
+        $auth = Zend_Auth::getInstance();
+        $storage = $auth->getStorage();
+        $sessionRead = $storage->read();
+
+        if (!$auth->hasIdentity() && !isset($fbsession->username)) {
+
+            $this->redirect();
+
+        }
+        else if ($sessionRead->type == 0){
+            if($this->_request->getActionName() == 'list' || $this->_request->getActionName() == 'add' || $this->_request->getActionName() == 'delete' || $this->_request->getActionName() == 'edit'){
+
+                $this->redirect();
+            }
+        }
     }
 
     public function indexAction()
