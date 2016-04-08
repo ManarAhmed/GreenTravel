@@ -23,21 +23,29 @@ if (!empty($sessionRead)) {
 
 <div id="view-content">
 <?php
-echo $this->is_owner;
-echo "<br>";
-echo $this->sessionId;
-echo "<br>";
-echo $this->userId;
-echo $this->post_id;
+//echo $this->is_owner;
+//echo "<br>";
+//echo $this->sessionId;
+//echo "<br>";
+//echo $this->userId;
+//echo $this->post_id;
+echo "<span style='color: #3c763d;font-size: large'>$this->userName</span>";
 if($this->is_owner==1){
-    echo "<a href='/city/editpost/post_id/$this->post_id'>Edit Post</a>";
-    echo "<br>";
+    echo "<a href='/city/editpost/post_id/$this->post_id'> Edit Post </a>";
+    echo " ";
     $city_id=$this->post[0]['city_id'];
-    echo "<a href='/city/deletepost/post_id/$this->post_id'>Delete Post </a>";
+    echo "<a href='/city/deletepost/post_id/$this->post_id'> Delete Post </a><br>";
 }
+
+echo "<span style='color: #3c763d'>Experience Title </span>";
+echo "<br>";
 echo $this->post[0]['title'];
 echo "<br>";
+echo "<span style='color: #3c763d'>Experience Content </span>";
+echo "<br>";
 echo $this->post[0]['content'];
+echo "<br>";
+
 ?>
     <div id="disqus_thread"></div>
     <script>

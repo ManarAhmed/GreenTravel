@@ -74,5 +74,9 @@ class Application_Model_User extends Zend_Db_Table_Abstract
 		return $this->find($id)->toArray()[0];
 	}
 
+	function userName($user_id){
+		return $this->find($user_id)->toArray();
+	}
+
 }
 
