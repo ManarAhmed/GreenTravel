@@ -57,7 +57,10 @@ if (!isset($path[4]) or ( !empty($path[4]) and strpos($path[4], 'add') !== 0 and
                     <?php
                     if (!empty($sessionRead)) {
                         if ($sessionRead->type == 1) { //super user "admin"
-                            header("Location: /user/admin");
+                            //header("Location: /user/admin");
+                            ?>
+                            <li><a href="<?php echo $this->baseUrl() ?>/user/admin">Admin Panel</a></li>
+                            <?php
                         } else { //normal user
                             $name = $sessionRead->username;
                             $uid = $sessionRead->id;
