@@ -8,6 +8,10 @@ class Application_Model_Location extends Zend_DB_Table_Abstract
 		//returns all Locations from db
 		return $this->fetchAll()->toArray();
 	}
+	function listLocation($cid){
+		//returns all Locations from db
+		return $this->fetchAll("city_id=$cid",null,null)->toArray();
+	}
 
 	function locationDelete($id)
 	{
