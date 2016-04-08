@@ -1,2 +1,12 @@
+/application/controllers/twitter.php
+/application/views/scripts/country/newCascadeStyleSheet.css
+/application/views/scripts/country/test.php
+/application/views/scripts/index/index.old.html
+/library/google-api-php-client/
+/library/twitter.php~
+/library/twitteroauth/
+/nbproject/project.properties
+/nbproject/project.xml
+/application/views/scripts/index/slider.html
 .idea/
 /nbproject/private/
