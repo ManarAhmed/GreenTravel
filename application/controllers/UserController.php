@@ -19,8 +19,11 @@ class UserController extends Zend_Controller_Action
                     $this->redirect();
             }
         }
-        else if ($sessionRead->type == 0 && $this->_request->getActionName() == 'admin'){
-            $this->redirect();
+        else if ($sessionRead->type == 0 || isset($fbsession->username)){
+            if($this->_request->getActionName() == 'admin'){
+
+                $this->redirect();
+            }
         }
     }
 
