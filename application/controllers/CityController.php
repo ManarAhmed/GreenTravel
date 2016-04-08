@@ -189,7 +189,7 @@ class CityController extends Zend_Controller_Action
         $location_obj = new Application_Model_Location();
         $car_form = new  Application_Form_Carrequest();
 
-        $all_locations = $location_obj->listLocations($cid);
+        $all_locations = $location_obj->listLocation($cid);
         $this->view->locations = $all_locations;
 
         $this->view->car_form = $car_form;
