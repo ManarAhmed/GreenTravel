@@ -12,6 +12,9 @@ class Application_Form_Carrequest extends Zend_Form
             'class'=>'container',
             ));
         $id = new Zend_Form_Element_Hidden('id');
+
+
+
         // $name = new Zend_Form_Element_Text('name');
         // $name->setAttribs(Array(
         // 'placeholder'=>'enter pickup location',
@@ -19,7 +22,7 @@ class Application_Form_Carrequest extends Zend_Form
         // ));
         // $name->setRequired();
         $name = new Zend_Form_Element_Select('name');
-        $name->setLabel('enter location :');
+        $name->setLabel('Enter Location :');
         //$name->setRequired();
 
 
@@ -59,7 +62,7 @@ class Application_Form_Carrequest extends Zend_Form
         // $time_form_min->setRequired();
 
 
- $time_form_min = new Zend_Form_Element_Select('$time_form_min');
+        $time_form_min = new Zend_Form_Element_Select('$time_form_min');
         // $time_form_min->setRequired();
         $time_form_min->setLabel(' from minute:');
         $time_form_min->addMultiOption('1','05')->
@@ -77,6 +80,21 @@ class Application_Form_Carrequest extends Zend_Form
         $time_form_min->setAttribs(array(
             'class'=>'form-control',
             'id'=>'time_form_min'));
+
+
+
+
+
+
+
+         $am_pm1 = new Zend_Form_Element_Select('$am_pm1');
+        // $time_form_min->setRequired();
+        //$am_pm->setLabel('');
+        $am_pm1->addMultiOption('AM','AM')->
+        addMultiOption('PM','PM ');
+        $am_pm1->setAttribs(array(
+            'class'=>'form-control',
+            'id'=>'am_pm1'));
 
         // $time_to_hour = new Zend_Form_Element_Text('time_to_hour');
         // $time_to_hour->setAttribs(Array(
@@ -131,7 +149,14 @@ class Application_Form_Carrequest extends Zend_Form
             'class'=>'form-control',
             'id'=>'time_to_min'));
 
-
+        $am_pm2 = new Zend_Form_Element_Select('$am_pm2');
+        // $time_form_min->setRequired();
+        //$am_pm->setLabel('');
+        $am_pm2->addMultiOption('AM','AM')->
+        addMultiOption('PM','PM ');
+        $am_pm2->setAttribs(array(
+            'class'=>'form-control',
+            'id'=>'am_pm2'));
 
 
         $date_from = new Zend_Form_Element_Text('date_from');
@@ -163,9 +188,11 @@ class Application_Form_Carrequest extends Zend_Form
             $date_from,
             $time_form_hour,
             $time_form_min,
+            $am_pm1,
             $date_to,
             $time_to_hour,
             $time_to_min,
+            $am_pm2,
             $submit
 
      

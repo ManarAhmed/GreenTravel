@@ -3,20 +3,20 @@
 <head>
 	<title>Login</title>
 </head>
-<body>
+<body style="background: url('/var/www/html/zend_project/public/uploads/map.jpg') fixed ;">
 <div class="container">
-<div class = "page-header" >
+<div class = "page-header" align="center">
    
    <h1 class="text-center">Login Form</h1>
    
 </div>
-
+<img src="/var/www/html/zend_project/public/uploads/map.jpg">
 	<?php
 		
 		echo "<h3 class='text-danger'>".$this->error_message."</h3>";
 		echo $this->login_form;
-		echo '<a class="btn btn-primary" href="' . $this->facebook_url . '"> Login with Facebook </a><br>';
-                echo '<a class="btn btn-warning" href="' . $this->twitter . '"> Login with twitter </a>';
+		echo '<a class="btn btn-primary" href="' . $this->facebook_url . '"> Login with Facebook </a><br><br>';
+        echo '<a class="btn btn-info" href="' . $this->twitter . '"> Login with twitter </a>';
 	?>
 
 	

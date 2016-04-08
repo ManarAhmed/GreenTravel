@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 06, 2016 at 10:53 PM
+-- Generation Time: Apr 07, 2016 at 11:45 PM
 -- Server version: 5.5.47-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.14
 
@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `carrequest` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ud` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `source` varchar(200) NOT NULL,
   `date_from` varchar(200) NOT NULL,
@@ -35,25 +35,17 @@ CREATE TABLE IF NOT EXISTS `carrequest` (
   `city_id` int(11) NOT NULL,
   `datef` varchar(50) NOT NULL,
   `datet` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id` (`id`,`user_id`),
+  PRIMARY KEY (`ud`),
+  KEY `id` (`ud`,`user_id`),
   KEY `city_id` (`city_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `carrequest`
 --
 
-INSERT INTO `carrequest` (`id`, `user_id`, `source`, `date_from`, `date_to`, `city_id`, `datef`, `datet`) VALUES
-(1, 5, 'alex', '12', '45', 1, '', ''),
-(2, 5, 'cairo', '12-22', '5-40', 3, '', ''),
-(3, 5, 'ssss', '12-32', '20-40', 3, '', ''),
-(4, 5, 'camp shezarr', '1-1', '1-1', 3, '', ''),
-(5, 5, 'camp shezarr', '1-1', '1-1', 3, '', ''),
-(6, 5, 'camp shezarr', '1-1', '1-1', 3, '', ''),
-(7, 5, 'camp shezarr', '1-1', '1-1', 3, '', ''),
-(8, 5, 'camp shezarr', '1-1', '1-1', 3, '', ''),
-(9, 5, 'ibrahmya', '1-1', '1-1', 3, '08/04/2016', '09/14/2016');
+INSERT INTO `carrequest` (`ud`, `user_id`, `source`, `date_from`, `date_to`, `city_id`, `datef`, `datet`) VALUES
+(1, 5, 'camp shezarr', '1:1AM', '1:1AM', 3, '08/04/2016', '09/04/2016');
 
 -- --------------------------------------------------------
 
@@ -71,7 +63,6 @@ CREATE TABLE IF NOT EXISTS `city` (
   `longitude` float NOT NULL,
   `country_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `name` (`name`),
   KEY `country_id` (`country_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
@@ -124,21 +115,21 @@ CREATE TABLE IF NOT EXISTS `country` (
   `name` varchar(200) NOT NULL,
   `rate` float NOT NULL,
   `image` varchar(500) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `name` (`name`)
+  `description` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `country`
 --
 
-INSERT INTO `country` (`id`, `name`, `rate`, `image`) VALUES
-(1, 'egypt', 100, '/uploads/countries/egypt.jpeg'),
-(4, 'brazil', 40, '/uploads/countries/brazil.jpeg'),
-(5, 'Africa', 70, '/uploads/countries/Africa.jpeg'),
-(11, 'londonn', 22, '/uploads/countries/londonn.jpeg'),
-(12, 'southAmerica', 90, '/uploads/countries/southAmerica.jpeg'),
-(13, 'almaniaa', 90, '/uploads/countries/almaniaa.jpeg');
+INSERT INTO `country` (`id`, `name`, `rate`, `image`, `description`) VALUES
+(1, 'egypt', 100, '/uploads/countries/egypt.jpeg', ''),
+(4, 'brazil', 40, '/uploads/countries/brazil.jpeg', ''),
+(5, 'Africa', 70, '/uploads/countries/Africa.jpeg', ''),
+(11, 'londonn', 22, '/uploads/countries/londonn.jpeg', ''),
+(12, 'southAmerica', 90, '/uploads/countries/southAmerica.jpeg', ''),
+(13, 'almaniaa', 90, '/uploads/countries/almaniaa.jpeg', '');
 
 -- --------------------------------------------------------
 
@@ -180,7 +171,6 @@ CREATE TABLE IF NOT EXISTS `hotel` (
   `name` varchar(200) NOT NULL,
   `city_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `name` (`name`),
   KEY `city_id` (`city_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
@@ -205,10 +195,8 @@ CREATE TABLE IF NOT EXISTS `hotelreserve` (
   `date_to` varchar(200) NOT NULL,
   `hotel_name` varchar(200) NOT NULL,
   `city_id` int(11) NOT NULL,
-  PRIMARY KEY (`hotel_id`),
   UNIQUE KEY `user_id` (`user_id`),
-  KEY `hotel_id` (`hotel_id`,`city_id`),
-  KEY `city_id` (`city_id`)
+  KEY `hotel_id` (`hotel_id`,`city_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -259,24 +247,23 @@ CREATE TABLE IF NOT EXISTS `room` (
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL DEFAULT 'facebook',
   `password` varchar(300) NOT NULL,
-  `gender` varchar(50) NOT NULL,
+  `gender` varchar(50) NOT NULL DEFAULT 'male',
   `type` enum('1','0') NOT NULL DEFAULT '0',
-  `is_active` enum('1','0') NOT NULL,
+  `is_active` enum('1','0') NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `username`, `email`, `password`, `gender`, `type`, `is_active`) VALUES
-(1, 'manar', 'manar@yahoo.com', '123', '', '1', '1'),
-(2, 'aya', 'aya@yahoo.com', '123', '', '0', '1'),
-(5, 'mema', 'manar@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'female', '0', '1'),
-(7, 'aya', 'aya@mail.com', '81dc9bdb52d04dc20036dbd8313ed055', '', '0', '1'),
-(8, 'esraa', 'esraa@mail.com', '81dc9bdb52d04dc20036dbd8313ed055', '', '1', '1');
+(5, 'mema', 'manar@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'female', '1', '1'),
+(7, 'aya', 'aya@mail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'female', '0', '1'),
+(8, 'esraa', 'esraa@mail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'female', '1', '1'),
+(9, 'Aya Aly Hassan', 'facebook', '0e3a092b376db649eb9f265439d274db', 'male', '0', '1');
 
 --
 -- Constraints for dumped tables
@@ -293,14 +280,6 @@ ALTER TABLE `city`
 --
 ALTER TABLE `hotel`
   ADD CONSTRAINT `hotel_ibfk_1` FOREIGN KEY (`city_id`) REFERENCES `city` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `hotelreserve`
---
-ALTER TABLE `hotelreserve`
-  ADD CONSTRAINT `hotelreserve_ibfk_1` FOREIGN KEY (`hotel_id`) REFERENCES `hotel` (`id`),
-  ADD CONSTRAINT `hotelreserve_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
-  ADD CONSTRAINT `hotelreserve_ibfk_3` FOREIGN KEY (`city_id`) REFERENCES `city` (`id`);
 
 --
 -- Constraints for table `location`

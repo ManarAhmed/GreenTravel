@@ -145,12 +145,21 @@ class CityController extends Zend_Controller_Action
     public function postAction()
     {
         // action body
+        $is_owner=0;
         $city_post= new Application_Model_Experience();
         $post_id= $this->_request->getParam("post_id");
         $post_row=$city_post->cityPost($post_id);
         $this->view->post=$post_row;
+        $this->view->post_id= $post_id;
+        $sessionId=$_SESSION['Zend_Auth']['storage']->id;
+        $this->view->userId=$post_row[0]['user_id'];
+        $this->view->sessionId=$sessionId;
+        if(isset($_SESSION['Zend_Auth']['storage']->id)){
+            $user_id=$_SESSION['Zend_Auth']['storage']->id;
+            if($user_id==$post_row[0]['user_id']){$is_owner=1;}
+        }
+        $this->view->is_owner=$is_owner;
     }
-
 
     public function carreservationAction()
     {
@@ -168,7 +177,7 @@ class CityController extends Zend_Controller_Action
         $storage = $auth->getStorage();
 
         $sessionRead = $storage->read();
-       $uid = $sessionRead->id;
+        $uid = $sessionRead->id;
        //var_dump($uid);exit(); 
         $request = $this->getRequest();
         if($request->isPost()){
@@ -176,16 +185,18 @@ class CityController extends Zend_Controller_Action
                
                 $carres_obj = new Application_Model_Carrequest();
                 $carres_obj->addcarRes($request->getParams(),$uid);
-                $this->redirect("/city/display/id/".$cid);
+                $this->redirect("/city/display?id=".$cid);
             //}
     }
     //$this->view->car_form = $car_form;
 
-}
+    }
 
     public function addpostAction()
     {
         // action body
+        if(!isset($_SESSION['Zend_Auth']['storage']))
+        {$this->redirect('/');}
         $city_post= new Application_Model_Experience();
         $city_id = $this->_request->getParam("city_id");
         $post = new Application_Form_Addpost();
@@ -205,8 +216,50 @@ class CityController extends Zend_Controller_Action
 
     }
 
+    public function editpostAction()
+    {
+        // action body
+        if(!isset($_SESSION['Zend_Auth']['storage']))
+        {$this->redirect('/');}
+        $post_obj= new Application_Model_Experience();
+        $post = new Application_Form_Addpost();
+        $post_id=$this->_request->getParam("post_id");
+        $req = $this->getRequest();
+        $post_row= $post_obj->cityPost($post_id);
+        $post->populate($post_row[0]);
+        $city_id = $post_row[0]['city_id'];
+        $this->view->editpost=$post;
+        if($req->isPost()) {
+            if ($post->isValid($req->getPost())) {
+                $data['title']= $_POST['title'];
+                $data['content']= $_POST['content'];
+                $post_obj->editPost($post_id,$data);
+//                $new_content = $_POST['content'];
+                $this->redirect('/city/display/id/'.$city_id);
+            }
+        }
 
-      
+    }
+
+    public function deletepostAction()
+    {
+        // action body
+        if(!isset($_SESSION['Zend_Auth']['storage']))
+        {$this->redirect('/');}
+        $post_obj= new Application_Model_Experience();
+        $post_id=$this->_request->getParam("post_id");
+        $post_row= $post_obj->cityPost($post_id);
+        $city_id=$post_row[0]['city_id'];
+        $post_obj->deletePost($post_id);
+        $this->redirect('/city/display/id/'.$city_id);
+
+    }
+
+
 }
+
+
+
+
 
 

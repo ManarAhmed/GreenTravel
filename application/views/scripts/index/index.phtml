@@ -14,6 +14,7 @@
     </head>
 
     <body id="page-top" class="home">
+        <div style="height: 60px;"></div>
         <div class="row">   
             <div id="myCarousel" class="carousel slide  " data-ride="carousel" >
                 <!-- Indicators -->
@@ -30,7 +31,7 @@
                 <div class="carousel-inner" role="listbox">_
                     <div class="item active" >
                         <div class="img_container ">
-                            <img src="<?= $this->countrys_rated[0]['image'] ?>" alt="">
+                            <img src="<?=  $this->baseUrl().$this->countrys_rated[0]['image'] ?>" alt="">
                             <a href="country/cities?cid=<?= $this->countrys_rated[0]['id'] ?>" class="btn btn-info btn-xl text-center col-centered page-scroll"> Learn More > </a>
                         </div>
                     </div>
@@ -41,7 +42,7 @@
                             ?>
                             <div class="item" >
                                 <div class="img_container ">
-                                    <img src="<?= $value['image'] ?>" alt="" >
+                                    <img src="<?=  $this->baseUrl().$value['image'] ?>" alt="" >
                                     <a href="country/cities?cid=<?= $value['id'] ?>" class="btn btn-info btn-xl col-centered text-center page-scroll"> Learn More > </a>
                                     <div class="carousel-caption country">
                                         <h2><?= $value['name'] ?></h2>
@@ -81,7 +82,7 @@
                     <?php foreach ($this->citys_rated as $key => $value): ?>
                             <div class="col-lg-4 col-sm-6" style="padding: 5px; height:320px;">
                                 <a href="/city/display?id=<?= $value['id'] ?>" class="portfolio-box">
-                                    <img src="<?= $value['image'] ?>" class="img-responsive " alt="" style="width: 500px; height:300px;">
+                                    <img src="<?=  $this->baseUrl() ?>/$value['image'] ?>" class="img-responsive " alt="" style="width: 500px; height:300px;">
                                     <div class="portfolio-box-caption">
                                         <div class="portfolio-box-caption-content">
                                             <div class="project-category text-faded">

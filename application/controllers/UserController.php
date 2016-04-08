@@ -1,6 +1,5 @@
 <?php
 require "twitteroauth/autoload.php";
-
 use Abraham\TwitterOAuth\TwitterOAuth;
 
 class UserController extends Zend_Controller_Action
@@ -210,7 +209,13 @@ class UserController extends Zend_Controller_Action
     {
         $form = new Application_Form_Update ();
         $user_model = new Application_Model_User ();
-        $name = $this->_request->getParam('name');
+        //$name = $this->_request->getParam('name');
+        $auth = Zend_Auth::getInstance();
+        $storage = $auth->getStorage();
+        $sessionRead = $storage->read();
+        if (!empty($sessionRead)) {
+            $name=$sessionRead->username;
+        }
         //var_dump($name);exit();
         $filter = new Zend_Filter_Alnum();
         $return = $filter->filter($name);
@@ -228,7 +233,7 @@ class UserController extends Zend_Controller_Action
           if($form-> isValid($request-> getPost()))
           {
             $user_model-> updateUser ($id, $_POST);
-            $this->redirect('/user/index ');
+            $this->redirect();
           }
     }
     }
@@ -237,8 +242,14 @@ class UserController extends Zend_Controller_Action
     {
         // action body
         $user_model = new Application_Model_User();
-        $name = $this->_request->getParam('name');
+        //$name = $this->_request->getParam('name');
         //var_dump($id);exit();
+                     $auth = Zend_Auth::getInstance();
+        $storage = $auth->getStorage();
+        $sessionRead = $storage->read();
+        if (!empty($sessionRead)) {
+            $name=$sessionRead->username;
+        }
         $filter = new Zend_Filter_Alnum();
         $return = $filter->filter($name);
         //var_dump($return);exit();
@@ -254,7 +265,16 @@ class UserController extends Zend_Controller_Action
     {
            // action body
         $user_model = new Application_Model_User();
-        $name = $this->_request->getParam('name');
+        //$name = $this->_request->getParam('name');
+
+                    $auth = Zend_Auth::getInstance();
+        $storage = $auth->getStorage();
+        $sessionRead = $storage->read();
+        if (!empty($sessionRead)) {
+            $name=$sessionRead->username;
+        }
+        //var_dump($x);
+
         //var_dump($id);exit();
         $filter = new Zend_Filter_Alnum();
         $return = $filter->filter($name);

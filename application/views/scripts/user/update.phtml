@@ -1,19 +1,51 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Update Profile</title>
-</head>
-<body>
-<div class="container">
-<div class="page-header">
-    <h1 class="text-center">Update Profile</h1>
-    <a href="http://greentravel.com" class="btn btn-success">Back To Home Page</a>
-</div>
-	<?php
-		echo $this->user_form;
+    <head>
+        <title>Update Profile</title>
+        <script src="/bootstrap/js/prefixfree.min.js"></script>
+        <!-- Custom CSS -->
+        <link href="/bootstrap/css/simple-sidebar.css" rel="stylesheet">
+    </head>
+    <body>
+        <div style="z-index: 0;top: -60;">
+            <div id="sidebar-wrapper" class="col-sm-8">
+                <ul class="sidebar-nav">
+                    <li class="sidebar-brand">
+                        <a href="#">
+                            index
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">update profile</a>
+                    </li>
+                    <li>
+                        <?php
+                        $auth = Zend_Auth::getInstance();
+                        $storage = $auth->getStorage();
+                        $sessionRead = $storage->read();
+                        if (!empty($sessionRead)) {
+                            $x = $sessionRead->username;
+                        }
+                        ?>
 
-	?>
-</div>
-</body>
+                        <a href="/user/carinfo/name/<?= $x; ?>">car reservation info</a>
+                    </li>
+                    <li>
+                        <a href="/user/hotalinfo/name/<?= $x; ?>">hotal reservation info</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <div
+            class="col-sm-4"></div>
+        <div class="col-sm-4" >
+            <center><h1>Update Profile</h1></center>
+            <?php
+            echo $this->user_form;
+            ?>
+        </div>
+        <!-- Menu Toggle Script -->
+
+    </body>
 </html>
-

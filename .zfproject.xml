@@ -45,6 +45,11 @@
           <actionMethod actionName="post"/>
           <actionMethod actionName="carreservation"/>
           <actionMethod actionName="addpost"/>
+<<<<<<< HEAD
+          <actionMethod actionName="editpost"/>
+          <actionMethod actionName="deletepost"/>
+=======
+>>>>>>> 04678cce9fbe14b3203b0449843a2ce05681cb08
         </controllerFile>
         <controllerFile controllerName="Location">
           <actionMethod actionName="index"/>
@@ -210,8 +215,14 @@
             <viewScriptFile forActionName="carreservation"/>
             <viewScriptFile forActionName="addpost"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="City">
+            <viewScriptFile forActionName="editpost"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="City">
+            <viewScriptFile forActionName="deletepost"/>
           <viewControllerScriptsDirectory forControllerName="User">
             <viewScriptFile forActionName="twitterauth"/>
+
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

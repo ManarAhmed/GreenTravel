@@ -1,13 +1,15 @@
 <?php
-define('DISQUS_SECRET_KEY', 'LPWsgRFRvPQLubg1iY2VRXad9aq1Ir5DIn7VyE6phcu7M1xPIwtHVba5JFFq8U68');
-define('DISQUS_PUBLIC_KEY', 'tfuJHWu1pAYWsEgdcLOvUwcsogA8gP3yWeFHCaSHCOhH6HlIjKM3j9m0OGLlGrdH');
+define('DISQUS_SECRET_KEY', '5WdfZHwqr3QooDL0bGwVo0KWibnYQ9OmrUGkYOuzhvt8ar5VZ4o78tBekzPjCelP
+
+');
+define('DISQUS_PUBLIC_KEY', 'c7to4m5c9a740ji9fTbYarZPuBf3c3s2wbaNOSNhdwcNnDc6NEqNh9X3oX2reAui
+');
 
 $data = array(
 "id" => $user->id,
 "username" => $user->username,
 "email" => $user->email
 );
-
 function dsq_hmacsha1($data, $key) {
 $blocksize=64;
 $hashfunc='sha1';
