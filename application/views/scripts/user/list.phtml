@@ -7,9 +7,12 @@
 <div class="container">
 
 <div class="page-header" align="center">
+<div style="margin-top: 80px;"></div>
+
 	<h2>All Users </h2>
 	<div class="pull-left">
-	<a class='btn btn-success btn-lg' href='/city/add'>Add</a>
+	<a class='btn btn-info btn-lg' href='/user/admin'>Back</a>
+
 	</div>
 </div>
 <div style="margin-top: 80px;"></div>
@@ -40,7 +43,7 @@
 					echo "<td><a class='btn btn-danger' href='/user/block/id/".$value['id']."'>Block</a></td>";
 				}else{
 					echo "<td class='text-danger'>No</td>";
-					echo "<td><a class='btn btn-info' href='/user/unblock/id/".$value['id']."'>UN-Block</a></td>";
+					echo "<td><a class='btn btn-primary' href='/user/unblock/id/".$value['id']."'>UN-Block</a></td>";
 				}
 				
 				

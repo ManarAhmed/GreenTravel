@@ -13,12 +13,12 @@ class LocationController extends Zend_Controller_Action
         // action body
     }
 
+    
+
     public function listAction()
     {
         $location_obj = new Application_Model_Location();
-        $cid = $this->_request->getParam("id");
-
-        $all_locations = $location_obj->listLocations($cid);
+        $all_locations = $location_obj->listLocations();
         $this->view->locations = $all_locations;
     }
 
