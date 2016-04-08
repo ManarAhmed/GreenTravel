@@ -33,6 +33,11 @@
                         <div class="img_container ">
                             <img src="<?=  $this->baseUrl().$this->countrys_rated[0]['image'] ?>" alt="">
                             <a href="country/cities?cid=<?= $this->countrys_rated[0]['id'] ?>" class="btn btn-info btn-xl text-center col-centered page-scroll"> Learn More > </a>
+                            <div class="carousel-caption country">
+                                <h2><?= $this->countrys_rated[0]['name'] ?></h2>
+                                <p><?= $this->countrys_rated[0]['description'] ?></p>
+                            </div>
+
                         </div>
                     </div>
                     <?php

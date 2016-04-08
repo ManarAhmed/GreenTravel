@@ -30,7 +30,7 @@ class Application_Model_Country extends Zend_DB_Table_Abstract
 		$row->name = $countryData['name'];
 		$row->rate = $countryData['rate'];
 		$row->image = $countryData['image'];
-
+                $row->description = $countryData['description'];
 		//save in DB
 		$row->save();
 	}
