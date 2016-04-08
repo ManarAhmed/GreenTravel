@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 07, 2016 at 11:45 PM
+-- Generation Time: Apr 09, 2016 at 12:35 AM
 -- Server version: 5.5.47-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.14
 
@@ -66,15 +66,6 @@ CREATE TABLE IF NOT EXISTS `city` (
   KEY `country_id` (`country_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
---
--- Dumping data for table `city`
---
-
-INSERT INTO `city` (`id`, `name`, `description`, `image`, `rate`, `latitude`, `longitude`, `country_id`) VALUES
-(3, 'alexx', 'description description description description description description description description description description ', '/uploads/cities/alexx.jpeg', 80, 22, 44, 1),
-(8, 'matrouh', 'description description description description description description description description ', '/uploads/cities/matrouh.jpeg', 4, 77, 678, 5),
-(10, 'cairo', 'description description description description description description description description description description description description description description description description description description description description ', '/uploads/cities/cairo.jpeg', 90, 21, 22, 5);
-
 -- --------------------------------------------------------
 
 --
@@ -117,19 +108,21 @@ CREATE TABLE IF NOT EXISTS `country` (
   `image` varchar(500) DEFAULT NULL,
   `description` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=35 ;
 
 --
 -- Dumping data for table `country`
 --
 
 INSERT INTO `country` (`id`, `name`, `rate`, `image`, `description`) VALUES
-(1, 'egypt', 100, '/uploads/countries/egypt.jpeg', ''),
-(4, 'brazil', 40, '/uploads/countries/brazil.jpeg', ''),
-(5, 'Africa', 70, '/uploads/countries/Africa.jpeg', ''),
-(11, 'londonn', 22, '/uploads/countries/londonn.jpeg', ''),
-(12, 'southAmerica', 90, '/uploads/countries/southAmerica.jpeg', ''),
-(13, 'almaniaa', 90, '/uploads/countries/almaniaa.jpeg', '');
+(27, 'Egypt', 100, '/uploads/countries/Egypt.jpg', 'Egypt on of the most beautiful countries.\r\nit locate in north of Africa.'),
+(28, 'India', 99, '/uploads/countries/ india.jpg', 'India''s Colors is awesome ,i love it so much.'),
+(29, 'Greece', 98, '/uploads/countries/Greece.jpg', ' Is romantic island sunsetsØ²'),
+(30, 'France', 97, '/uploads/countries/France.jpg', ' Europe\r\nFrance\r\nHas romantic sunset views and  iconic landscapes.'),
+(31, 'Philippines', 96, '/uploads/countries/Philippines.jpeg', '\r\nis World Heritage landscapes\r\nis sprawling cities\r\n'),
+(32, 'Germany', 95, '/uploads/countries/Germany.jpg', '\r\nis where medieval meets modernity and forest of fairy tales.\r\n\r\n'),
+(33, 'Spain', 88, '/uploads/countries/Spain.jpg', ' Spain\r\nis exploring one village at a time and architectural magic.\r\n'),
+(34, 'Namibia', 89, '/uploads/countries/ namibia.jpg', ' is where dunes are mountains and  an elephant stomping ground.\r\n');
 
 -- --------------------------------------------------------
 
@@ -174,14 +167,6 @@ CREATE TABLE IF NOT EXISTS `hotel` (
   KEY `city_id` (`city_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
---
--- Dumping data for table `hotel`
---
-
-INSERT INTO `hotel` (`id`, `name`, `city_id`) VALUES
-(4, 'four seasons', 3),
-(5, 'makka', 3);
-
 -- --------------------------------------------------------
 
 --
@@ -214,15 +199,6 @@ CREATE TABLE IF NOT EXISTS `location` (
   KEY `city_id` (`city_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
---
--- Dumping data for table `location`
---
-
-INSERT INTO `location` (`id`, `name`, `description`, `city_id`) VALUES
-(1, 'camp shezarr', 'description description description ', 3),
-(3, 'mhatet masr', 'description description description description description ', 3),
-(5, 'ibrahmya', 'beside my home', 3);
-
 -- --------------------------------------------------------
 
 --
@@ -253,7 +229,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `type` enum('1','0') NOT NULL DEFAULT '0',
   `is_active` enum('1','0') NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `user`
@@ -263,7 +239,8 @@ INSERT INTO `user` (`id`, `username`, `email`, `password`, `gender`, `type`, `is
 (5, 'mema', 'manar@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'female', '1', '1'),
 (7, 'aya', 'aya@mail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'female', '0', '1'),
 (8, 'esraa', 'esraa@mail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'female', '1', '1'),
-(9, 'Aya Aly Hassan', 'facebook', '0e3a092b376db649eb9f265439d274db', 'male', '0', '1');
+(9, 'Aya Aly Hassan', 'facebook', '0e3a092b376db649eb9f265439d274db', 'male', '0', '1'),
+(10, 'ahmd', 'ahmed@yahoo.com', '81dc9bdb52d04dc20036dbd8313ed055', 'male', '0', '1');
 
 --
 -- Constraints for dumped tables
