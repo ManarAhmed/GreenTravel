@@ -1,14 +1,13 @@
-
-<br /><br />
-<div id="map"></div>
-
-<div id="view-content">
-
+<br>
+    <?php echo "<div class='container-fluid'><img class='img-rounded' src='{$this->city_img}' style='width: %100;height: 20%'></div>";?>
+    <div class="container-fluid" id='map'></div>
+    <div id="view-content">
 <p>
+
     <?php
-    echo $this->city_desc;
+    echo "<span class='-align-left' style='color:#3c763d'>City Description : </span>".$this->city_desc;
     if(isset($_SESSION['Zend_Auth']['storage']))
-    {echo "<a href='/city/addpost/city_id/{$this->city_id}'>Add Post</a>";}
+    {echo "<a href='/city/addpost/city_id/{$this->city_id}'>Add Your Experience In this City</a>";}
     ?>
 
     <?php
@@ -16,12 +15,12 @@
 
     foreach ($this->paginator as $key => $val)
     {
-        echo $val['title'];
         echo "<br>";
-        $subPost=substr($val['content'],0,50);
-        echo $subPost."...";
+        echo "<span style='background-color: #c1e2b3'>{$val['title']}</span>";
         echo "<br>";
-//        echo $val['content'];
+        $subPost=substr($val['content'],0,40);
+        echo "<span style='color: #3c763d'></span>".$subPost."...";
+
         echo "<a href='/city/post/post_id/{$val["id"]}'>See more</a>";
     }
     echo $this->paginator;

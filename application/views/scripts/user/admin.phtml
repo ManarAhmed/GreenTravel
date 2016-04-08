@@ -1,45 +1,47 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Admin Page</title>
-</head>
-<body>
-<div class="container">
-	<div class="page-header text-warning" align="center">
-		<h1>Admin Page</h1>
-		<?php
-        $fbsession = new Zend_Session_Namespace('facebook');
-        $auth = Zend_Auth::getInstance();
-        $storage = $auth->getStorage();
-        $sessionRead = $storage->read();
-        if (!empty($sessionRead)) {
-            if($sessionRead->type == 1){ //admin not user
-                $name = $sessionRead->username;
+    <head>
+        <title>Admin Page</title>
+    </head>
+    <body>
+        <div style="height: 60px;"></div>
+
+        <div class="container">
+            <div class="page-header text-warning" align="center">
+                <h1>Admin Page</h1>
+                <?php
+                $fbsession = new Zend_Session_Namespace('facebook');
+                $auth = Zend_Auth::getInstance();
+                $storage = $auth->getStorage();
+                $sessionRead = $storage->read();
+                if (!empty($sessionRead)) {
+                    if ($sessionRead->type == 1) { //admin not user
+                        $name = $sessionRead->username;
+                        ?>
+                        <div class="pull-left">
+                            <a class='btn btn-danger btn-lg' href='/user/logout'>Logout</a>
+                        </div>
+                        <?php
+                    }
+                }
                 ?>
-                <div class="pull-left">
-		       		<a class='btn btn-danger btn-lg' href='/user/logout'>Logout</a>
-		    	</div>
-            <?php
-            }
-        }
-            ?>
-		
-	</div>
-	
-<div style="margin-top: 80px;"></div>
 
-<div class="col-md-3"></div>
+            </div>
 
-<div  class="col-md-6">
+            <div style="margin-top: 80px;"></div>
 
-	<a class="btn btn-warning btn-lg btn-block" href="/country/list">Manage Countries</a><br><br>
-	<a class="btn btn-warning btn-lg btn-block" href="/city/list">Manage Cities</a><br><br>
-	<a class="btn btn-warning btn-lg btn-block" href="/hotel/list">Manage Hotels</a><br><br>
-	<a class="btn btn-warning btn-lg btn-block" href="/location/list">Manage Locations</a><br><br>
-	<a class="btn btn-warning btn-lg btn-block" href="/user/list">Manage Users</a><br><br>
+            <div class="col-md-3"></div>
 
-</div>
+            <div  class="col-md-6">
 
-</div>
-</body>
+                <a class="btn btn-warning btn-lg btn-block" href="/country/list">Manage Countries</a><br><br>
+                <a class="btn btn-warning btn-lg btn-block" href="/city/list">Manage Cities</a><br><br>
+                <a class="btn btn-warning btn-lg btn-block" href="/hotel/list">Manage Hotels</a><br><br>
+                <a class="btn btn-warning btn-lg btn-block" href="/location/list">Manage Locations</a><br><br>
+                <a class="btn btn-warning btn-lg btn-block" href="/user/list">Manage Users</a><br><br>
+
+            </div>
+
+        </div>
+    </body>
 </html>

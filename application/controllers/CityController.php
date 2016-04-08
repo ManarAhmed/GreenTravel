@@ -74,10 +74,10 @@ class CityController extends Zend_Controller_Action
         if($request->isPost()){
             if($form->isValid($_POST)){
 
-                $upload = new Zend_File_Transfer_Adapter_Http();
-                $upload->addFilter('Rename',"/var/www/html/zend_project/public/uploads/cities/".$_POST['name'].time().".jpeg");
+                $upload = new Zend_File_Transfer();
+                $upload->setDestination('/var/www/html/zend_project/public/uploads/cities/');
                 $upload->receive();
-                $_POST['image']="/uploads/cities/".$_POST['name'].".jpeg";
+                $_POST['image'] = "/uploads/countries/" .$_FILES['image']['name'];
                 //2ab3at el data lel function ele f el model cityAdd()
                 $city_obj->cityAdd($_POST);
                 $this->redirect('/city/list');
@@ -99,11 +99,12 @@ class CityController extends Zend_Controller_Action
         if($request->isPost()){
             if($form->isValid($_POST)){
 
-                $upload = new Zend_File_Transfer_Adapter_Http();
-                $upload->addFilter('Rename',"/var/www/html/zend_project/public/uploads/cities/".$_POST['name'].time().".jpeg");
+                
+                $upload = new Zend_File_Transfer();
+                $upload->setDestination('/var/www/html/zend_project/public/uploads/cities/');
                 $upload->receive();
-                $_POST['image']="/uploads/cities/".$_POST['name'].".jpeg";
-
+                $_POST['image'] = "/uploads/countries/" .$_FILES['image']['name'];
+                
                 $city_obj->cityEdit($_POST);
                 $this->redirect('/city/list');
             }
@@ -123,6 +124,7 @@ class CityController extends Zend_Controller_Action
         // show details for certain city
         $city_obj = new Application_Model_City();
         $city_post= new Application_Model_Experience();
+
         $city_id = $this->_request->getParam("id");
         Zend_Layout::getMvcInstance()->assign('city_id', $city_id); // send city_id for layout
         $city_row=$city_obj->citydetails($city_id);
@@ -147,8 +149,12 @@ class CityController extends Zend_Controller_Action
         // action body
         $is_owner=0;
         $city_post= new Application_Model_Experience();
+        $user_obj = new Application_Model_User();
+
         $post_id= $this->_request->getParam("post_id");
         $post_row=$city_post->cityPost($post_id);
+        $user=$user_obj->userName($post_row[0]['user_id']);
+        $this->view->userName=$user[0]['username'];
         $this->view->post=$post_row;
         $this->view->post_id= $post_id;
         $sessionId=$_SESSION['Zend_Auth']['storage']->id;

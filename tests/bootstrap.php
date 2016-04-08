@@ -16,19 +16,19 @@ set_include_path(implode(PATH_SEPARATOR, array(
 
 require_once 'Zend/Loader/Autoloader.php';
 Zend_Loader_Autoloader::getInstance();
-protected function _initViewHelpers()
-{
-    # $view->addHelperPath("ZendX/JQuery/View/Helper", "ZendX_JQuery_View_Helper");
-    # $view->jQuery()->addStylesheet('/js/jquery/css/ui-lightness/jquery-ui-1.7.2.custom.css')
-    #     ->setLocalPath('/js/jquery/js/jquery-1.3.2.min.js')
-    #     ->setUiLocalPath('/js/jquery/js/jquery-ui-1.7.2.custom.min.js');
-    $this->bootstrap('layout');
-    $layout = $this->getResource('layout');
-    $view = $layout->getView();
-
-    ZendX_JQuery_View_Helper_JQuery::enableNoConflictMode();
-    $view->addHelperPath('ZendX/JQuery/View/Helper/', 'ZendX_JQuery_View_Helper');
-    $view->addHelperPath('ZendX/JQuery/View/Helper/JQuery', 'ZendX_JQuery_View_Helper_JQuery');
-    $view->addHelperPath('Core/View/Helper/', 'Core_View_Helper');
-
-}
+//protected function _initViewHelpers()
+//{
+//    # $view->addHelperPath("ZendX/JQuery/View/Helper", "ZendX_JQuery_View_Helper");
+//    # $view->jQuery()->addStylesheet('/js/jquery/css/ui-lightness/jquery-ui-1.7.2.custom.css')
+//    #     ->setLocalPath('/js/jquery/js/jquery-1.3.2.min.js')
+//    #     ->setUiLocalPath('/js/jquery/js/jquery-ui-1.7.2.custom.min.js');
+//    $this->bootstrap('layout');
+//    $layout = $this->getResource('layout');
+//    $view = $layout->getView();
+//
+//    ZendX_JQuery_View_Helper_JQuery::enableNoConflictMode();
+//    $view->addHelperPath('ZendX/JQuery/View/Helper/', 'ZendX_JQuery_View_Helper');
+//    $view->addHelperPath('ZendX/JQuery/View/Helper/JQuery', 'ZendX_JQuery_View_Helper_JQuery');
+//    $view->addHelperPath('Core/View/Helper/', 'Core_View_Helper');
+//
+//}

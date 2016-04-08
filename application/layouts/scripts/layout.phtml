@@ -2,211 +2,138 @@
 
 <head>
     <!--<!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap-theme.min.css" type="text/css">
+    <!--<!-- Latest compiled and minified JavaScript -->
 
+    <script src="/bootstrap/js/jquery-1.12.0.min.js"></script>
+    <!---->
+    <!--<!-- Custom Fonts -->
+    <link rel="stylesheet" href="/bootstrap/css/animate.min.css" type="text/css">
 
-
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-
-theme.min.css" integrity="sha384-
-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-<!--<!-- Latest compiled and minified JavaScript -->
-
-    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-<!---->
-
-<!--<!-- Custom Fonts -->
-<link rel="stylesheet" href="css/animate.min.css" type="text/css">
-<!--<!-- Custom CSS -->
-<link rel="stylesheet" href="css/creative.css" type="text/css">
-<!--<!-- jQuery -->
-<!--<!-- Custom Theme JavaScript -->
-<!---->
-    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-    <script src="js/creative.js"></script>
-<script src="js/jquery.js"></script>
+    <!--<!-- Custom CSS --/bootstrap/>
+    <!--<!-- jQuery -->
+    <!--<!-- Custom Theme JavaScript -->
+    <!---->
+    <script src="/bootstrap/js/creative.js"></script>
+    <script src="/bootstrap/js/jquery.js"></script>
 
 
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-        #map {
-            height: 50%;
-        }
 
-    </style>
+    <script src="/bootstrap/js/jquery.min.js"></script>
+    <script src="/bootstrap/js/jquery.fittext.js"></script>
+    <script src="/bootstrap//js/bootstrap.min.js"></script>
 
+    <!-- compiled and minified CSS -->
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <!-- Custom Fonts -->
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/bootstrap/css/creative.css" type="text/css">
+    <link rel="stylesheet" href="/bootstrap/css/datepicker.css">
 
-<script src="/bootstrap/js/jquery.min.js"></script>
-<script src="/bootstrap/js/jquery.easing.min.js"></script>
-<script src="/bootstrap/js/jquery.fittext.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-<!-- compiled and minified CSS -->
-<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
-
-<!-- Optional theme -->
-<link rel="stylesheet" href="/bootstrap/css/bootstrap-theme.min.css">
-<!-- Custom Fonts -->
-<link rel="stylesheet" href="/bootstrap/css/animate.min.css" type="text/css">
-<!-- Custom CSS -->
-<link rel="stylesheet" href="/bootstrap/css/creative.css" type="text/css">
-<link rel="stylesheet" href="/bootstrap/css/datepicker.css">
 
 </head>
-<!-- <?php
+
+<?php
+$countries = $this->layout()->countries;
+$uri = $this->serverUrl(true);
+$path = explode('/', $uri);
+$fbsession = new Zend_Session_Namespace('facebook');
 $auth = Zend_Auth::getInstance();
 $storage = $auth->getStorage();
 $sessionRead = $storage->read();
-$fbsession = new Zend_Session_Namespace('facebook');
-if (!empty($sessionRead)) {
-  $name = $sessionRead->username;
-  $uid = $sessionRead->id;
-  echo '<li><a href="#"> Welcome'." ". $name.'</a>'.'</li>'; 
-  ?>
-  <li><a href="<\?php echo $this->baseUrl() ?>/user/logout"><span class="glyphicon glyphicon-log-in"></span> Logout </a>
-  </li> 
-<?php
-}
-//elseif (isset($fbsession->first_name) && !empty (isset($fbsession->first_name))) {
-//$name = $fbsession->first_name;
-//echo '<li><a href="#"> Welcome'." ". $name.'</a>'.'</li>';
-?> -->
-<!--<li><a href="<\?php echo $this->baseUrl() ?>/user/fblogout"><span class="glyphicon glyphicon-log-in"></span> Logout </a>
-  </li> -->
-<!--<\?php }?> -->
-
-
-<div class=" text-center">
-   <div style="margin-top: 60px;"></div>
- 
-   <h3 class="text-danger">
-    <?php
-    $countries= $this->layout()->countries;
-    $uri = $this->serverUrl(true);
-    $path = explode('/', $uri);
-    $fbsession = new Zend_Session_Namespace('facebook');
-    $auth = Zend_Auth::getInstance();
-    $storage = $auth->getStorage();
-    $sessionRead = $storage->read();
-    if (!empty($sessionRead)) {
-        if($sessionRead->type == 0){ //user not admin
-            $name = $sessionRead->username;
-            echo " * Welcome " . $name . " *";
-
-        }
-        else{ //admin not user
-
-            header("Location: /user/admin");
-        ?>
-    <?php } ?>
-    <div class="pull-left">
-        <a class='btn btn-danger' href='/user/logout'>Logout</a>
-    </div>
-    <!--facebook-->
-    <?php }
-        else if (isset($fbsession->username) && !empty (isset($fbsession->username))) {
-            $name = $fbsession->username;
-            echo " * Welcome " . $name . " *";
+if (!isset($path[4]) or ( !empty($path[4]) and strpos($path[4], 'add') !== 0 and strpos($path[4], 'login') !== 0 and strpos($path[4], 'update') !== 0 and strpos($path[4], 'carreservation') !== 0 and strpos($path[4], 'hotelreserve') !== 0)) {
     ?>
-    <div class="pull-left">
-        <a class='btn btn-danger' href="/user/fplogout">Logout</a>
-    </div>
+    <div class="container-fluid">
+        <div class="row">
 
-<?php
-}
- 
-?>
-</h3>
-</div>
-<?php 
-if(!isset($path[4]) or (!empty($path[4]) and strpos($path[4], 'add' )!==0 and strpos($path[4], 'login' )!==0 and strpos($path[4], 'update' )!==0 and strpos($path[4], 'carreservation' )!==0 and strpos($path[4], 'hotelreserve' )!==0)){ ?>
-
-<nav id="mainNav" class="navbar navbar-fixed-top" style=" height: 100px; background-color: #777777;">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class=" btn navbar-brand page-scroll" href="#page-top" style="font-family: cursive; font-size: 22px;">Green Travel</a>
-            </div>
-
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class=" navbar-collapse" id="bs-example-navbar-collapse-1">
+            <nav class="navbar navbar-fixed-top" >
+                <div class="navbar-header">
+                    <a class=" btn navbar-brand page-scroll" href="http://greentravel.com#page-top">Green Travel</a>
+                </div>
                 <ul class="nav navbar-nav navbar-right">
-                
+                    <?php
+                    if (!empty($sessionRead)) {
+                        if ($sessionRead->type == 1) { //super user "admin"
+                            header("Location: /user/admin");
+                        } else { //normal user
+                            $name = $sessionRead->username;
+                            $uid = $sessionRead->id;
+                            echo '<li><a href="#"> Welcome' . " " . $name . '</a>' . '</li>';
+                            ?>
+                            <li><a href="<?php echo $this->baseUrl() ?>/user/update"><span class="glyphicon glyphicon-user"></span> Update Profile </a>
+                            </li> 
+                            <li><a href="<?php echo $this->baseUrl() ?>/user/logout"><span class="glyphicon glyphicon-log-out"></span> Logout </a>
+                            </li> 
+                            <?php
+                        }
+                    } elseif (isset($fbsession->first_name) && !empty(isset($fbsession->first_name))) {
+                        $name = $fbsession->first_name;
+                        echo '<li><a href="#"> Welcome' . " " . $name . '</a>' . '</li>';
+                        ?>
+                        <li><a href="<?php echo $this->baseUrl() ?>/user/update"><span class="glyphicon glyphicon-user"></span> Update Profile </a>
+                        </li>       
+                        <li><a href="<?php echo $this->baseUrl() ?>/user/logout"><span class="glyphicon glyphicon-log-in"></span> Logout </a>
+                        </li> 
+    <?php } else {
+        ?>
+                        <li><a href="<?php echo $this->baseUrl() ?>/user/login"><span class="glyphicon glyphicon-log-in"></span> Login </a>
+                        </li>
+                        <li><a href="<?php echo $this->baseUrl() ?>/user/add"><span class="glyphicon glyphicon-log-in"></span> SignUp </a>
+                        </li> 
+    <?php } ?> 
+                </ul>  
+                <ul class="nav navbar-nav navbar-left">
                     <li class="dropdown">
-                      <a href="#" class="dropdown-toggle a-item" data-toggle="dropdown" style="width: 200px;">Destinations <span class="caret"></span></a>
-                      <ul class="dropdown-menu" style="background-color: #777777; width: 159px;">
-                        <?php                         
-                        $i=1; foreach($countries as $key=>$value): ?>
-                          <li class="drop-item"style=" height:40px;" > <a class=' a-item' href="/country/cities?cid=<?= $value['id']?>" ><?= $value['name']?> </a> </li>
-                        <?php endforeach; ?>                        
-                      </ul>
+                        <a href="#" class="dropdown-toggle a-item" data-toggle="dropdown" style="width: 200px;  height:51px;">Destinations <span class="caret"></span></a>
+                        <ul class="dropdown-menu" style="background-color: #777777; width: 200px;">
+    <?php $i = 1;
+    foreach ($countries as $key => $value): ?>
+                                <li class="drop-item"style=" width: 200px; height:40px;" > <a class='a-item' href="/country/cities?cid=<?= $value['id'] ?>" style="background-color: #80c52e;"><?= $value['name'] ?> </a> </li>
+                            <?php endforeach; ?>                        
+                        </ul>
                     </li>
-                    <?php if(!(isset($name))): ?>
-                    <li><a  href="/user/login">Login</a></li>
-                    <li><a  href="user/add">Sign-Up</a></li>
-                    <?php endif; ?>
+    <?php if (isset($name) and $path[3] == 'city'): ?>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bookings  <span class="caret"></span></a>
 
-                    <?php if(isset($name) and ($path[3]=='city' or $path[3]==NULL)): ?>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bookings  <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li> <a href="/city/hotelreserve?id=<?= $this->layout()->city_id ?>">Hotel Reservation</a> </li>                     
+                                <li> <a href="/city/carreservation?id=<?= $this->layout()->city_id ?>">Car Request</a> </li>
 
-                      <ul class="dropdown-menu">
-                            <li> <a href="/city/hotelreserve?id=<?=  $this->layout()->city_id ?>">Hotel Reservation</a> </li>                     
-                            <li> <a href="/city/carreservation?id=<?=  $this->layout()->city_id ?>">Car Request</a> </li>
-                    
-                      </ul>
-                    </li> 
-                    <?php if(!(isset($fbsession->username)))  : ?>
-                    <li><a  href='/user/update'> update profile </a></li>
-                    <li><a  href='/user/logout'>Logout</a></li>
-                    <?php endif; ?>
-                    
-                    <?php endif; ?>
-
-                    
+                            </ul>
+                        </li> 
+    <?php endif; ?>
                 </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+
+
+            </nav>
+
         </div>
-        <!-- /.container-fluid -->
-    </nav>
-<?php }
-echo $this->layout()->content;
-?>
+    </div>
+<?php } echo $this->layout()->content; ?>
 
 <style>
     nav{
         font-size: 18px;
         font-weight: bold;
         color: #000000;
-        padding: 20px;
-        
+        background-color: #777777;
+        padding: 4px;
+        margin-bottom: 0px;
+
     }
     .drop-item:hover{
-        background-color: #80c52e;
-        
+        /*        background-color: #80c52e;*/
+
     }
     .a-item:hover,.a-item:focus{
         height: 40px;
-        width: 50px;
-        color:#80c52e;
+        width: 200px;
         background-color: #80c52e;
-        
+
     }
     a{
         font-family: cursive;

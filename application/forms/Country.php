@@ -7,6 +7,7 @@ class Application_Form_Country extends Zend_Form
     {
         $this->setMethod('POST');
         $this->setAttrib('class','form-horizontal');
+        $this->setAttrib('enctype', 'multipart/form-data');
 
         //id
         $id = new Zend_Form_Element_Hidden('id');
@@ -38,9 +39,10 @@ class Application_Form_Country extends Zend_Form
         $image = new Zend_Form_Element_File('image');
         $image->setLabel('Upload an image:');
         $image->addValidator('Count', false, 1);
-        $image->addValidator('Extension',false, 'jpg,jpeg,png,gif');
+        $image->addValidator('Extension',false, array('jpg','jpeg','png','gif'));
         $image->setAttrib('class','text-danger');
         $image->setRequired();
+
 
         //submit btn
         $submit = new Zend_Form_Element_Submit('Submit');
