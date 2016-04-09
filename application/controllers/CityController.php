@@ -4,7 +4,23 @@ class CityController extends Zend_Controller_Action
 {
     public function init()
     {
-        /* Initialize action controller here */
+        $auth = Zend_Auth::getInstance();
+        $storage = $auth->getStorage();
+        $sessionRead = $storage->read();
+
+        if (!$auth->hasIdentity() && !isset($fbsession->username)) {
+
+            if ($this->_request->getActionName() != 'display' ) {
+                    $this->redirect();
+            }
+        }
+        else if($auth->hasIdentity() || isset($fbsession->username)) {
+            if ($sessionRead->type == 0 || $fbsession->type == 0){
+                if($this->_request->getActionName() == 'list' || $this->_request->getActionName() == 'add' || $this->_request->getActionName() == 'edit' || $this->_request->getActionName() == 'delete'){
+                    $this->redirect();
+                }
+            }
+        }
     }
 
     public function indexAction()
@@ -38,10 +54,7 @@ class CityController extends Zend_Controller_Action
         // get city id 
         $hotel_obj=new Application_Model_Hotel();
         $city_id = $this->_request->getParam("id");
-//        Zend_Form::getMvcInstance()->assign('city_id', $city_id);;
-//      $hotels=$hotel_obj->listHotels($ci_id);
-//      $this->views->hotels = $hotels;
-//       
+        
         //get user id from his session
         $auth = Zend_Auth::getInstance();
         $storage = $auth->getStorage();
