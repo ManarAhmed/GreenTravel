@@ -19,8 +19,14 @@ class UserController extends Zend_Controller_Action
                     $this->redirect();
             }
         }
-        else if($authorization->hasIdentity() || isset($fbsession->username)) {
-            if ($sessionRead->type == 0 || $fbsession->type == 0){
+        else if($authorization->hasIdentity() ) {
+            if ($sessionRead->type == 0){
+                if($this->_request->getActionName() == 'admin' || $this->_request->getActionName() == 'list' || $this->_request->getActionName() == 'block' || $this->_request->getActionName() == 'unblock'){
+                    $this->redirect();
+                }
+            }
+        }else if (isset($fbsession->username)){
+            if($fbsession->type == 0){
                 if($this->_request->getActionName() == 'admin' || $this->_request->getActionName() == 'list' || $this->_request->getActionName() == 'block' || $this->_request->getActionName() == 'unblock'){
                     $this->redirect();
                 }
@@ -123,8 +129,8 @@ class UserController extends Zend_Controller_Action
     {  
         //instance from FB
         $fb = new Facebook\Facebook([
-        'app_id' => '8kl6Hpm6GSu86ghRdGFQGoNE7', 
-        'app_secret' => 'XVh4oAaqsTrTRA1jCyVnM3pDNSOal7s7b7vLM5q7nggXnUmAGR',
+        'app_id' => '201509036905791', 
+        'app_secret' => '533ade11ef8a751159b61a4293a3dfc8',
         'default_graph_version' => 'v2.5'
         ]);
 
