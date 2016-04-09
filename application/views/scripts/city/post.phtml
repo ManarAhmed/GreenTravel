@@ -5,14 +5,15 @@ $user=null;
 $auth = Zend_Auth::getInstance();
 $storage = $auth->getStorage();
 $sessionRead = $storage->read();
-$fpsession = new Zend_Session_Namespace('facebook');
+//$fpsession = new Zend_Session_Namespace('facebook');
 if (!empty($sessionRead)) {
     $isLogin=true;
     $user=$sessionRead;
     include "disqus.phtml";
     ?>
-    <script type="text/javascript">
+    <script type="text/javascript" xmlns="http://www.w3.org/1999/html">
         var disqus_config = function() {
+            
             this.page.remote_auth_s3 = "<?php echo "$message $hmac $timestamp"; ?>";
             this.page.api_key = "<?php echo DISQUS_PUBLIC_KEY; ?>";
         }
@@ -29,7 +30,8 @@ if (!empty($sessionRead)) {
 //echo "<br>";
 //echo $this->userId;
 //echo $this->post_id;
-echo "<span style='color: #3c763d;font-size: large'>$this->userName</span>";
+
+echo "<br><br><span style='color: #3c763d;font-size: large'>$this->userName</span><br>";
 if($this->is_owner==1){
     echo "<a href='/city/editpost/post_id/$this->post_id'> Edit Post </a>";
     echo " ";
@@ -62,11 +64,11 @@ echo "<br>";
         (function() { // DON'T EDIT BELOW THIS LINE
             var d = document, s = d.createElement('script');
 
-            s.src = '//greentravel2.disqus.com/embed.js';
+            s.src = '//levoyage-iti.disqus.com/embed.js';
 
             s.setAttribute('data-timestamp', +new Date());
             (d.head || d.body).appendChild(s);
         })();
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-    <script id="dsq-count-scr" src="//greentravel2.disqus.com/count.js" async></script>
+    <script id="dsq-count-scr" src="//levoyage-iti.disqus.com/count.js" async></script>

@@ -8,6 +8,8 @@ class CountryController extends Zend_Controller_Action
         $auth = Zend_Auth::getInstance();
         $storage = $auth->getStorage();
         $sessionRead = $storage->read();
+        
+        $fbsession = new Zend_Session_Namespace('facebook');
 
         if (!$auth->hasIdentity() && !isset($fbsession->username)) {
 
@@ -68,9 +70,15 @@ class CountryController extends Zend_Controller_Action
     {
         #list all countrys
         $country_obj = new Application_Model_Country();
-        $all_countries = $country_obj->listCountries();
-        $this->view->countries = $all_countries;
-        return $all_countries;
+        $countries = $country_obj->listCountries();
+        Zend_Layout::getMvcInstance()->assign('countries', $countries);
+        $this->view->countries = $countries;
+       
+        //list countries
+//        $country_obj=new Application_Model_Country();
+//        $countries=$country_obj->listCountries();
+//        Zend_Layout::getMvcInstance()->assign('countries', $countries);
+//        $this->view->countries = $countries;
     }
 
     public function deleteAction()

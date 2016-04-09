@@ -8,6 +8,8 @@ class LocationController extends Zend_Controller_Action
         $auth = Zend_Auth::getInstance();
         $storage = $auth->getStorage();
         $sessionRead = $storage->read();
+        
+        $fbsession = new Zend_Session_Namespace('facebook');
 
         if (!$auth->hasIdentity() && !isset($fbsession->username)) {
 
@@ -42,6 +44,11 @@ class LocationController extends Zend_Controller_Action
         $location_obj = new Application_Model_Location();
         $all_locations = $location_obj->listLocations();
         $this->view->locations = $all_locations;
+        //list countries
+        $country_obj=new Application_Model_Country();
+        $countries=$country_obj->listCountries();
+        Zend_Layout::getMvcInstance()->assign('countries', $countries);
+        $this->view->countries = $countries;
     }
 
     public function deleteAction()

@@ -1,12 +1,20 @@
-<br>
+<br> <br>
+
+
+ 
+
     <?php echo "<div class='container-fluid'><img class='img-rounded' src='{$this->city_img}' style='width: %100;height: 20%'></div>";?>
-    <div class="container-fluid" id='map'></div>
-    <div id="view-content">
+
+
+
+   
 <p>
 
+ <div id="view-content">
     <?php
+    $fbsession = new Zend_Session_Namespace('facebook');
     echo "<span class='-align-left' style='color:#3c763d'>City Description : </span>".$this->city_desc;
-    if(isset($_SESSION['Zend_Auth']['storage']))
+    if(isset($_SESSION['Zend_Auth']['storage']) || isset($fbsession->username))
     {echo "<a href='/city/addpost/city_id/{$this->city_id}'>Add Your Experience In this City</a>";}
     ?>
 
@@ -42,4 +50,4 @@
         });
     }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8qj-3E6nRcvPyJP9DwpAZ3Xr_iSq_ot8&callback=initMap" async defer></script>
+  <script>$('#map').show();</script>

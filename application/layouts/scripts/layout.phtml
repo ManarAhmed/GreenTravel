@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="/bootstrap/css/bootstrap-theme.min.css" type="text/css">
     <!--<!-- Latest compiled and minified JavaScript -->
 
-    <script src="/bootstrap/js/jquery-1.12.0.min.js"></script>
+     
     <!---->
     <!--<!-- Custom Fonts -->
     <link rel="stylesheet" href="/bootstrap/css/animate.min.css" type="text/css">
@@ -14,6 +14,7 @@
     <!--<!-- jQuery -->
     <!--<!-- Custom Theme JavaScript -->
     <!---->
+    <script src="/bootstrap/js/jquery.min.js"></script>
     <script src="/bootstrap/js/creative.js"></script>
     <script src="/bootstrap/js/jquery.js"></script>
 
@@ -21,7 +22,7 @@
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
 
-    <script src="/bootstrap/js/jquery.min.js"></script>
+    
     <script src="/bootstrap/js/jquery.fittext.js"></script>
     <script src="/bootstrap//js/bootstrap.min.js"></script>
 
@@ -33,8 +34,26 @@
     <link rel="stylesheet" href="/bootstrap/css/creative.css" type="text/css">
     <link rel="stylesheet" href="/bootstrap/css/datepicker.css">
 
-
+<style>
+    html{
+        width:100%;
+        height: 60%;
+    }
+              body{
+        width: 100%;
+        height: 80%;
+    }
+    #map{
+        width: 100%;
+        height:100%;
+       
+    }
+        </style>
 </head>
+<body>
+    
+    <div  id='map'></div>
+</body>
 <div class="container-fluid">
     <div class="row">
         <?php
@@ -80,7 +99,7 @@
                         ?>
                               
                         <li><a href="<?php echo $this->baseUrl() ?>/user/fplogout"><span class="glyphicon glyphicon-log-in"></span> Logout </a>
-<<<<<<< HEAD
+
                         </li> 
                     <?php }elseif (isset($twsession->username) && !empty(isset($twsession->username))) {
                         $name = $twsession->username;
@@ -88,8 +107,7 @@
                         ?>
                               
                         <li><a href="<?php echo $this->baseUrl() ?>/user/twlogout"><span class="glyphicon glyphicon-log-in"></span> Logout </a>
-=======
->>>>>>> 0e3147ef44a8c9429e213f677423887964ee412f
+
                         </li> 
                     <?php } else {
                         ?>
@@ -127,8 +145,8 @@
 
             </nav>
 </div>
-
-
+        
+  <script>$('#map').hide();</script>
 <?php } echo $this->layout()->content; ?>
     </div>
 </div>
@@ -158,4 +176,8 @@
         font-size: 18px;
         color: #80c52e;
     }
+  
 </style>
+
+    
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8qj-3E6nRcvPyJP9DwpAZ3Xr_iSq_ot8&callback=initMap" async defer></script>

@@ -7,6 +7,8 @@ class CityController extends Zend_Controller_Action
         $auth = Zend_Auth::getInstance();
         $storage = $auth->getStorage();
         $sessionRead = $storage->read();
+        
+        $fbsession = new Zend_Session_Namespace('facebook');
 
         if (!$auth->hasIdentity() && !isset($fbsession->username)) {
 
@@ -22,6 +24,7 @@ class CityController extends Zend_Controller_Action
             }
         }
         else if (isset($fbsession->username)){
+            
             if($fbsession->type == 0){
                 if($this->_request->getActionName() == 'list' || $this->_request->getActionName() == 'add' || $this->_request->getActionName() == 'edit' || $this->_request->getActionName() == 'delete'){
                     $this->redirect();
@@ -40,6 +43,11 @@ class CityController extends Zend_Controller_Action
         $city_obj = new Application_Model_City();
         $all_cities = $city_obj->listAllCities();
         $this->view->cities = $all_cities;
+        //list countries
+        $country_obj=new Application_Model_Country();
+        $countries=$country_obj->listCountries();
+        Zend_Layout::getMvcInstance()->assign('countries', $countries);
+        $this->view->countries = $countries;
 
     }
 
@@ -176,6 +184,11 @@ class CityController extends Zend_Controller_Action
     public function postAction()
     {
         // action body
+        //list countries
+        $country_obj=new Application_Model_Country();
+        $countries=$country_obj->listCountries();
+        Zend_Layout::getMvcInstance()->assign('countries', $countries);
+        $this->view->countries = $countries;
         $is_owner=0;
         $city_post= new Application_Model_Experience();
         $user_obj = new Application_Model_User();
@@ -228,6 +241,11 @@ class CityController extends Zend_Controller_Action
     public function addpostAction()
     {
         // action body
+        //list countries
+        $country_obj=new Application_Model_Country();
+        $countries=$country_obj->listCountries();
+        Zend_Layout::getMvcInstance()->assign('countries', $countries);
+        $this->view->countries = $countries;
         if(!isset($_SESSION['Zend_Auth']['storage']))
         {$this->redirect('/');}
         $city_post= new Application_Model_Experience();

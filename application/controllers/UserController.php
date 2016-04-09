@@ -29,7 +29,7 @@ class UserController extends Zend_Controller_Action
             }
         }else if (isset($fbsession->username)){
             if($fbsession->type == 0){
-                if($this->_request->getActionName() == 'admin' || $this->_request->getActionName() == 'list' || $this->_request->getActionName() == 'block' || $this->_request->getActionName() == 'unblock'){
+                if($this->_request->getActionName() == 'admin' || $this->_request->getActionName() == 'list' || $this->_request->getActionName() == 'block' || $this->_request->getActionName() == 'unblock'|| $this->_request->getActionName() == 'update'){
                     $this->redirect();
                 }
             }
@@ -112,12 +112,12 @@ class UserController extends Zend_Controller_Action
         $this->view->facebook_url = $loginUrl;
         //*********************************************
         //twitter
-         $connection = new TwitterOAuth('JvF10xTrO1s8WyYjPlB7zKzMi', 'vX4yfBj21tkF5NZQDomomUyTNKVieKPILl2QcGWN4ZeiQ1bIiR');
-         $token = $connection->oauth('oauth/request_token', array('oauth_callback' => 'http://greentravel.com/user/twitterauth'));
-         $_SESSION['oauth_token'] = $token['oauth_token'];
-         $_SESSION['oauth_token_secret'] = $token['oauth_token_secret'];
-         $url = $connection->url('oauth/authorize', array('oauth_token' => $token['oauth_token']));
-         $this->view->twitter=$url;
+//         $connection = new TwitterOAuth('JvF10xTrO1s8WyYjPlB7zKzMi', 'vX4yfBj21tkF5NZQDomomUyTNKVieKPILl2QcGWN4ZeiQ1bIiR');
+//         $token = $connection->oauth('oauth/request_token', array('oauth_callback' => 'http://greentravel.com/user/twitterauth'));
+//         $_SESSION['oauth_token'] = $token['oauth_token'];
+//         $_SESSION['oauth_token_secret'] = $token['oauth_token_secret'];
+//         $url = $connection->url('oauth/authorize', array('oauth_token' => $token['oauth_token']));
+//         $this->view->twitter=$url;
     }
 
     public function logoutAction()
@@ -133,8 +133,8 @@ class UserController extends Zend_Controller_Action
         $fb = new Facebook\Facebook([
 //        'app_id' => '260248527643697', 
 //        'app_secret' => '78055aeb6d86e3a72794e59e11eeeeed',
-        'app_id' => '201509036905791', 
-        'app_secret' => '533ade11ef8a751159b61a4293a3dfc8',
+        'app_id' => '260248527643697', 
+        'app_secret' => '78055aeb6d86e3a72794e59e11eeeeed',
         'default_graph_version' => 'v2.5'
         ]);
 
@@ -217,8 +217,9 @@ class UserController extends Zend_Controller_Action
             $fpsession = new Zend_Session_Namespace('facebook');
             // write in session username & id 
             $fpsession->username = $userNode->getName();
-            $fpsession->id = $userNode->getId();
+            $fpsession->id = $res['id'];
             $fpsession->type = 0 ;
+            
             $this->redirect();
         }
         else{
@@ -317,7 +318,11 @@ class UserController extends Zend_Controller_Action
 
     public function adminAction()
     {
-        // action body
+        //list countries
+        $country_obj=new Application_Model_Country();
+        $countries=$country_obj->listCountries();
+        Zend_Layout::getMvcInstance()->assign('countries', $countries);
+        $this->view->countries = $countries;
     }
 
     public function listAction()

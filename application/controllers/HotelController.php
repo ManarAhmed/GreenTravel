@@ -8,6 +8,8 @@ class HotelController extends Zend_Controller_Action
         $auth = Zend_Auth::getInstance();
         $storage = $auth->getStorage();
         $sessionRead = $storage->read();
+        
+        $fbsession = new Zend_Session_Namespace('facebook');
 
         if (!$auth->hasIdentity() && !isset($fbsession->username)) {
 
@@ -40,6 +42,11 @@ class HotelController extends Zend_Controller_Action
         $hotel_obj = new Application_Model_Hotel();
         $all_hotels = $hotel_obj->listHotels();
         $this->view->hotels = $all_hotels;
+        //list countries
+        $country_obj=new Application_Model_Country();
+        $countries=$country_obj->listCountries();
+        Zend_Layout::getMvcInstance()->assign('countries', $countries);
+        $this->view->countries = $countries;
     }
 
     public function deleteAction()
