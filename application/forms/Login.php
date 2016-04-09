@@ -26,7 +26,7 @@ class Application_Form_Login extends Zend_Form
         //submit btn
         $submit = new Zend_Form_Element_Submit('Submit');
         $submit->setValue('submit');
-        $submit->setAttrib('class','btn btn-success');
+        $submit->setAttrib('class','btn btn-success create-acc col-md-offset-1 col-xs-12 col-md-5');
 
         $this->addElements(array(
         	$email,

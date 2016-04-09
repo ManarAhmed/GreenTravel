@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <title>Hotel form</title>
         <!--<link rel="stylesheet" href="/bootstrap/css/reset.css">-->
-        
+
     </head>
 
     <body>
@@ -12,46 +12,59 @@
         <div id="bg"></div>
         <div class="col-lg-offset-2 col-xs-offset-0  col-lg-8 col-xs-12">
             <div class="form-head">
-            
-            <form action="<?= $this->hotel_form->getAction() ?>" method="<?= $this->hotel_form->getMethod() ?>">
-                <h1  class="text-center" style="text-decoration: underline; font-size: 46; font-weight: bolder;">Hotel Reservation</h1>
-                <div style="height:50px"></div>
-                <?= $this->hotel_form->name ?>
-                <?= $this->hotel_form->number ?>
+
+                <form action="<?= $this->hotel_form->getAction() ?>" method="<?= $this->hotel_form->getMethod() ?>">
+                    <h1  class="text-center" style="text-decoration: underline; font-size: 46; font-weight: bolder;">Hotel Reservation</h1>
+                    <div style="height:50px"></div>
+                    <?= $this->hotel_form->name ?>
+                    <?= $this->hotel_form->number ?>
 
 
-                <label for="from"></label>
-                <input size="16" type="text" class="form-control" name="from" id="date_field1" readonly >
-                <label for="to"></label>
-                <input size="16" type="text" class="form-control" name="to" id="date_field2" readonly >
-                <div class="row">
-                    <div class="col-md-offset-2 col-xs-12 col-md-5">
-                        <?= $this->hotel_form->Submit ?>
+                    <label for="from"></label>
+                    <input size="16" type="text" class="form-control" name="from" id="date_field1" readonly >
+                    <label for="to"></label>
+                    <input size="16" type="text" class="form-control" name="to" id="date_field2" readonly >
+                    <div class="row">
+                        <div class="col-md-offset-2 col-xs-12 col-md-5">
+                            <?= $this->hotel_form->Submit ?>
+                        </div>
+                        <div class=" col-xs-12 col-md-5">
+                            <?= $this->hotel_form->Reset ?>
+                        </div>
                     </div>
-                    <div class=" col-xs-12 col-md-5">
-                        <?= $this->hotel_form->Reset ?>
-                    </div>
-                </div>
 
 
 
-            </form
+                </form>
+            </div>
         </div>
-        <script src='/bootstrap/js/jquery.min.js'></script>
+            <script src='/bootstrap/js/jquery.min.js'></script>
 
-        <script src="/bootstrap/js/bootstrap-datepicker.js"></script>
-        <script>
-            $('#date_field1').datepicker();
-            $('#date_field2').datepicker();
-        </script> 
-        <link rel="stylesheet" href="/bootstrap/css/hotel.css">
-        <script src="/bootstrap/js/prefixfree.min.js"></script>
-        <style>
-            form{
-                background-color: rgba(255,255,255,0.5);
-            }
-            
-        </style>
+            <script src="/bootstrap/js/bootstrap-datepicker.js"></script>
+            <script>
+                $('#date_field1').datepicker();
+                $('#date_field2').datepicker();
+            </script> 
+            <link rel="stylesheet" href="/bootstrap/css/hotel.css">
+            <script src="/bootstrap/js/prefixfree.min.js"></script>
+            <style>
+
+               #bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: url(/uploads/iStock_000013601187Small.jpg) no-repeat center center fixed;
+  background-size: cover;
+  -webkit-filter: blur(5px);    
+}
+          
+                form{
+                    background-color: rgba(255,255,255,0.5);
+                }
+
+            </style>
 
 
     </body>

@@ -1,6 +1,6 @@
 <?php
-// require "twitteroauth/autoload.php";
-// use Abraham\TwitterOAuth\TwitterOAuth;
+ require "twitteroauth/autoload.php";
+ use Abraham\TwitterOAuth\TwitterOAuth;
 
 class UserController extends Zend_Controller_Action
 {
@@ -104,12 +104,12 @@ class UserController extends Zend_Controller_Action
         $this->view->facebook_url = $loginUrl;
         //*********************************************
         //twitter
-        // $connection = new TwitterOAuth('JvF10xTrO1s8WyYjPlB7zKzMi', 'vX4yfBj21tkF5NZQDomomUyTNKVieKPILl2QcGWN4ZeiQ1bIiR');
-        // $token = $connection->oauth('oauth/request_token', array('oauth_callback' => 'http://greentravel.com/user/twitterauth'));
-        // $_SESSION['oauth_token'] = $token['oauth_token'];
-        // $_SESSION['oauth_token_secret'] = $token['oauth_token_secret'];
-        // $url = $connection->url('oauth/authorize', array('oauth_token' => $token['oauth_token']));
-        // $this->view->twitter=$url;
+         $connection = new TwitterOAuth('JvF10xTrO1s8WyYjPlB7zKzMi', 'vX4yfBj21tkF5NZQDomomUyTNKVieKPILl2QcGWN4ZeiQ1bIiR');
+         $token = $connection->oauth('oauth/request_token', array('oauth_callback' => 'http://greentravel.com/user/twitterauth'));
+         $_SESSION['oauth_token'] = $token['oauth_token'];
+         $_SESSION['oauth_token_secret'] = $token['oauth_token_secret'];
+         $url = $connection->url('oauth/authorize', array('oauth_token' => $token['oauth_token']));
+         $this->view->twitter=$url;
     }
 
     public function logoutAction()
@@ -123,8 +123,8 @@ class UserController extends Zend_Controller_Action
     {  
         //instance from FB
         $fb = new Facebook\Facebook([
-        'app_id' => '201509036905791', 
-        'app_secret' => '533ade11ef8a751159b61a4293a3dfc8',
+        'app_id' => '8kl6Hpm6GSu86ghRdGFQGoNE7', 
+        'app_secret' => 'XVh4oAaqsTrTRA1jCyVnM3pDNSOal7s7b7vLM5q7nggXnUmAGR',
         'default_graph_version' => 'v2.5'
         ]);
 
@@ -350,9 +350,29 @@ class UserController extends Zend_Controller_Action
         print_r($access_token);
         $connection = new TwitterOAuth($app_id,$app_secret , $access_token['oauth_token'], $access_token['oauth_token_secret']);
         $content = $connection->get("account/verify_credentials");
-        $this->view->tweet = $content;
-        $this->redirect();
-        
+        $username=$content->name;
+        $user_model = new Application_Model_User ();
+        $res = $user_model->findUser($content->name);
+        //if user is not in database, save his data
+        if(!$res){
+
+            $user_model->fbRegister( $content->name , $content->user_id);
+        }
+         if($res['is_active'] == 1){
+            //create new session
+            $twsession = new Zend_Session_Namespace('facebook');
+            // write in session username & id 
+            $twsession->username = $content->name;
+            $twsession->id = $content->user_id;
+            $twsession->type = 0 ;
+            $this->redirect();
+        }
+        else{
+            $this->redirect('/user/login');
+        }
+//        $this->view->tweet = $content;
+//        $this->redirect();
+//        
     }
 
 

@@ -222,8 +222,9 @@
             <viewScriptFile forActionName="deletepost"/>
           <viewControllerScriptsDirectory forControllerName="User">
             <viewScriptFile forActionName="twitterauth"/>
-	  </viewControllerScriptsDirectory>
 
+        <viewFiltersDirectory enabled="false"/>
+      </viewsDirectory>
       <bootstrapFile filesystemName="Bootstrap.php"/>
     </applicationDirectory>
     <dataDirectory enabled="false">
