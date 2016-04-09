@@ -6,8 +6,6 @@
 </div>
 <div style="height:50px;"></div>
 <?php if (isset($this->country) && !empty($this->cities)) { ?>
-
-    <p class="text-uppercase"><?= $this->country['name'] ?> hrrrrrrrrrrrrrrrrrrrrrrrrr</p>
     <?php foreach ($this->cities as $key => $value): ?>
         <ul class="list-group">
             <!--<td><\?= $value['id']?></td>-->
@@ -22,7 +20,7 @@ else {
 <?php } ?> 
 <style>
     div.bkground {
-        background: url(<?= $this->baseUrl() . $this->country['image'] ?>) no-repeat;
+        background: url(<?= $this->baseUrl().$this->country['image'] ?>) no-repeat;
         background-size: 100% 100%;
         height:300px;
         border: 2px solid black;

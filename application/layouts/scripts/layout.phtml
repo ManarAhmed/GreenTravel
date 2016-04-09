@@ -42,12 +42,15 @@
         $uri = $this->serverUrl(true);
         $path = explode('/', $uri);
         $fbsession = new Zend_Session_Namespace('facebook');
+        $twsession = new Zend_Session_Namespace('twitter');
         $auth = Zend_Auth::getInstance();
         $storage = $auth->getStorage();
         $sessionRead = $storage->read();
+        
         if (!isset($path[4]) or ( !empty($path[4]) and strpos($path[4], 'add') !== 0 and strpos($path[4], 'login') !== 0 and strpos($path[4], 'update') !== 0 and strpos($path[4], 'carreservation') !== 0 and strpos($path[4], 'hotelreserve') !== 0)) {
             ?>
-
+        
+<div class="col-xs-12">
             <nav class="navbar navbar-fixed-top" >
                 <div class="navbar-header">
                     <a class=" btn navbar-brand page-scroll" href="http://greentravel.com#page-top">Green Travel</a>
@@ -76,7 +79,14 @@
                         echo '<li><a href="#"> Welcome' . " " . $name . '</a>' . '</li>';
                         ?>
                               
-                        <li><a href="<?php echo $this->baseUrl() ?>/user/logout"><span class="glyphicon glyphicon-log-in"></span> Logout </a>
+                        <li><a href="<?php echo $this->baseUrl() ?>/user/fplogout"><span class="glyphicon glyphicon-log-in"></span> Logout </a>
+                        </li> 
+                    <?php }elseif (isset($twsession->username) && !empty(isset($twsession->username))) {
+                        $name = $twsession->username;
+                        echo '<li><a href="#"> Welcome' . " " . $name . '</a>' . '</li>';
+                        ?>
+                              
+                        <li><a href="<?php echo $this->baseUrl() ?>/user/twlogout"><span class="glyphicon glyphicon-log-in"></span> Logout </a>
                         </li> 
                     <?php } else {
                         ?>
@@ -113,6 +123,7 @@
 
 
             </nav>
+</div>
 
 
 <?php } echo $this->layout()->content; ?>

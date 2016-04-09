@@ -1,6 +1,8 @@
 <?php
  require "twitteroauth/autoload.php";
  use Abraham\TwitterOAuth\TwitterOAuth;
+// include_once "google-api-php-client/examples/templates/base.php";
+// require_once ('google-api-php-client/src/Google/autoload.php');
 
 class UserController extends Zend_Controller_Action
 {
@@ -93,8 +95,8 @@ class UserController extends Zend_Controller_Action
 
         //**********facebook url***********************
         $fb = new Facebook\Facebook([
-        'app_id' => '201509036905791', 
-        'app_secret' => '533ade11ef8a751159b61a4293a3dfc8',
+        'app_id' => '260248527643697', 
+        'app_secret' => '78055aeb6d86e3a72794e59e11eeeeed',
         'default_graph_version' => 'v2.5'
         ]);
 
@@ -123,8 +125,8 @@ class UserController extends Zend_Controller_Action
     {  
         //instance from FB
         $fb = new Facebook\Facebook([
-        'app_id' => '8kl6Hpm6GSu86ghRdGFQGoNE7', 
-        'app_secret' => 'XVh4oAaqsTrTRA1jCyVnM3pDNSOal7s7b7vLM5q7nggXnUmAGR',
+        'app_id' => '260248527643697', 
+        'app_secret' => '78055aeb6d86e3a72794e59e11eeeeed',
         'default_graph_version' => 'v2.5'
         ]);
 
@@ -360,7 +362,7 @@ class UserController extends Zend_Controller_Action
         }
          if($res['is_active'] == 1){
             //create new session
-            $twsession = new Zend_Session_Namespace('facebook');
+            $twsession = new Zend_Session_Namespace('twitter');
             // write in session username & id 
             $twsession->username = $content->name;
             $twsession->id = $content->user_id;
@@ -373,6 +375,11 @@ class UserController extends Zend_Controller_Action
 //        $this->view->tweet = $content;
 //        $this->redirect();
 //        
+    }
+    public function twlogoutAction()
+    {
+        Zend_Session::namespaceUnset('twitter');
+        $this->redirect();
     }
 
 
