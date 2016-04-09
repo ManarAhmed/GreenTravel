@@ -21,8 +21,14 @@ class UserController extends Zend_Controller_Action
                     $this->redirect();
             }
         }
-        else if($authorization->hasIdentity() || isset($fbsession->username)) {
-            if ($sessionRead->type == 0 || $fbsession->type == 0){
+        else if($authorization->hasIdentity() ) {
+            if ($sessionRead->type == 0){
+                if($this->_request->getActionName() == 'admin' || $this->_request->getActionName() == 'list' || $this->_request->getActionName() == 'block' || $this->_request->getActionName() == 'unblock'){
+                    $this->redirect();
+                }
+            }
+        }else if (isset($fbsession->username)){
+            if($fbsession->type == 0){
                 if($this->_request->getActionName() == 'admin' || $this->_request->getActionName() == 'list' || $this->_request->getActionName() == 'block' || $this->_request->getActionName() == 'unblock'){
                     $this->redirect();
                 }
@@ -125,8 +131,10 @@ class UserController extends Zend_Controller_Action
     {  
         //instance from FB
         $fb = new Facebook\Facebook([
-        'app_id' => '260248527643697', 
-        'app_secret' => '78055aeb6d86e3a72794e59e11eeeeed',
+//        'app_id' => '260248527643697', 
+//        'app_secret' => '78055aeb6d86e3a72794e59e11eeeeed',
+        'app_id' => '201509036905791', 
+        'app_secret' => '533ade11ef8a751159b61a4293a3dfc8',
         'default_graph_version' => 'v2.5'
         ]);
 
