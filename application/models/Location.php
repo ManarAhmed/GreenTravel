@@ -5,13 +5,6 @@ class Application_Model_Location extends Zend_DB_Table_Abstract
 	protected $_name = "location";
 
 	function listLocations(){
-<<<<<<< HEAD
-=======
-		//returns all Locations from db
-		return $this->fetchAll()->toArray();
-	}
-	function listLocation($cid){
->>>>>>> e2b074f0222ea2f0fbf1f1aa70c371e35ac5eafd
 		//returns all Locations from db
 		return $this->fetchAll()->toArray();
 	}

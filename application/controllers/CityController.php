@@ -2,7 +2,6 @@
 
 class CityController extends Zend_Controller_Action
 {
-
     public function init()
     {
         /* Initialize action controller here */
@@ -39,6 +38,7 @@ class CityController extends Zend_Controller_Action
         // get city id 
         $hotel_obj=new Application_Model_Hotel();
         $city_id = $this->_request->getParam("id");
+//        Zend_Form::getMvcInstance()->assign('city_id', $city_id);;
 //      $hotels=$hotel_obj->listHotels($ci_id);
 //      $this->views->hotels = $hotels;
 //       
@@ -47,16 +47,25 @@ class CityController extends Zend_Controller_Action
         $storage = $auth->getStorage();
         $sessionRead = $storage->read();
         $uid = $sessionRead->id;
+        
+        //get hotels located in certain city
+        $hotel_form = new  Application_Form_HotelRequest();
+        $hotelreq_obj = new Application_Model_Hotel();
+        $all_hotels = $hotelreq_obj->listHotelsByCityId($city_id);
+        foreach($all_hotels as $key=>$value){
+        	$hotel_form->name->addMultiOption($value['id'],$value['name']);
+        }
 
         //add hotel reservation data and redirect for city page
-        $hotel_form = new  Application_Form_HotelRequest();
         $request = $this->getRequest();
         if($request->isPost()){
             if($hotel_form->isValid($request->getPost())){
                 $hotelres_obj = new Application_Model_Hotalrequest();
                 $hotel_obj = new Application_Model_Hotel();
+                
                 $hotel = $hotel_obj->getHotelByName($request->getParam('name'));
-                $hotelres_obj-> addHotelRes($request->getParams(),$uid,$hotel[0]['id']);
+
+                $hotelres_obj-> addHotelRes($request->getParams(),$uid);
                 $this->redirect("/city/display?id=".$city_id);
             }
         }
@@ -178,13 +187,11 @@ class CityController extends Zend_Controller_Action
         $this->view->locations = $all_locations;
 
         $this->view->car_form = $car_form;
-//var_dump($city_id);exit();
         $auth = Zend_Auth::getInstance();
         $storage = $auth->getStorage();
 
         $sessionRead = $storage->read();
         $uid = $sessionRead->id;
-       //var_dump($uid);exit(); 
         $request = $this->getRequest();
         if($request->isPost()){
            // if($car_form->isValid($request->getPost())){

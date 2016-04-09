@@ -15,15 +15,14 @@ class Application_Model_Hotalrequest extends Zend_Db_Table_Abstract
     }   
 
 //add hotel reservation request  
-function addHotelRes($hotel_data,$uid,$hid){
+function addHotelRes($hotel_data,$uid){
         $row = $this->createRow();
-        $row->hotel_id = $hid;
+        $row->hotel_id = $hotel_data['name'];
         $row->user_id = $uid;
         $row->number = $hotel_data['number'];
         $row->date_from = $hotel_data['from'];
         $row->date_to = $hotel_data['to'];
-        $row->hotel_name = $hotel_data['name'];
-        $row->city_id = $hotel_data['cid'];
+        $row->city_id = $hotel_data['id'];
         $row->save();   
     }
 
