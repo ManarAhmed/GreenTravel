@@ -1,12 +1,19 @@
 ======================== the project on apache2 ==========================
 
 sudo gedit /etc/apache2/apache2.conf
+
 Add these:
+
 <Directory /var/www/html/greentravel >
+
 DirectoryIndex index.php
+
 AllowOverride All
+
 </Directory>
+
 sudo a2enmod rewrite #a2enmod: apache2 enable mode rewrite
+
 sudo service apache2 restart # restart the server
 
 
