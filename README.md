@@ -39,7 +39,6 @@ sudo a2ensite project_name.conf
 sudo service apache2 reload
 
 
-
 ======================== connection the database ========================
 
 zf configure db-adapter "adapter=PDO_MYSQL&dbname=greentravel&host=localhost&username=iti&password=iti" 
