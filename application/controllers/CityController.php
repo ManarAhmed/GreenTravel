@@ -22,8 +22,7 @@ class CityController extends Zend_Controller_Action
                     $this->redirect();
                 }
             }
-        }
-        else if (isset($fbsession->username)){
+        }else if (isset($fbsession->username)){
             
             if($fbsession->type == 0){
                 if($this->_request->getActionName() == 'list' || $this->_request->getActionName() == 'add' || $this->_request->getActionName() == 'edit' || $this->_request->getActionName() == 'delete'){

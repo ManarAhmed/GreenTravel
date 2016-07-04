@@ -111,7 +111,7 @@ class UserController extends Zend_Controller_Action
         $loginUrl = $helper->getLoginUrl($this->view->serverUrl() . $this->view->baseUrl() . '/user/fpauth');
         $this->view->facebook_url = $loginUrl;
         //*********************************************
-        //twitter
+//        twitter
 //         $connection = new TwitterOAuth('JvF10xTrO1s8WyYjPlB7zKzMi', 'vX4yfBj21tkF5NZQDomomUyTNKVieKPILl2QcGWN4ZeiQ1bIiR');
 //         $token = $connection->oauth('oauth/request_token', array('oauth_callback' => 'http://greentravel.com/user/twitterauth'));
 //         $_SESSION['oauth_token'] = $token['oauth_token'];
@@ -274,7 +274,7 @@ class UserController extends Zend_Controller_Action
         $user_model = new Application_Model_User();
         //$name = $this->_request->getParam('name');
         //var_dump($id);exit();
-                     $auth = Zend_Auth::getInstance();
+        $auth = Zend_Auth::getInstance();
         $storage = $auth->getStorage();
         $sessionRead = $storage->read();
         if (!empty($sessionRead)) {
@@ -288,11 +288,22 @@ class UserController extends Zend_Controller_Action
         $carrequest_model = new Application_Model_Carrequest();
         $data=$carrequest_model-> carinfo($id);
         $this->view->data = $data;
+        //list countries
+        $country_obj=new Application_Model_Country();
+        $countries=$country_obj->listCountries();
+        Zend_Layout::getMvcInstance()->assign('countries', $countries);
+        $this->view->countries = $countries;
       
     }
 
     public function hotalinfoAction()
     {
+        //list countries
+        $country_obj=new Application_Model_Country();
+        $countries=$country_obj->listCountries();
+        Zend_Layout::getMvcInstance()->assign('countries', $countries);
+        $this->view->countries = $countries;
+        
            // action body
         $user_model = new Application_Model_User();
         //$name = $this->_request->getParam('name');
