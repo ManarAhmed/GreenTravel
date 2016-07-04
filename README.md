@@ -7,7 +7,7 @@ AllowOverride All
 </Directory>
 sudo a2enmod rewrite #a2enmod: apache2 enable mode rewrite
 sudo service apache2 restart # restart the server
-=========================================================== the virual host
+======================== the virual host  ======================== 
 sudo gedit /etc/apache2/sites-available/greentravel.conf
 Add these:
 <VirtualHost *:80>
@@ -26,10 +26,9 @@ sudo gedit /etc/hosts
 And add this line:
 127.0.0.1     greentravel.com
 
-● Enable the site on apache server
+- Enable the site on apache server
 sudo a2ensite project_name.conf
-● Reload the server
+- Reload the server
 sudo service apache2 reload
-===================================================================== connection the database
- zf configure db-adapter "adapter=PDO_MYSQL&dbname=greentravel&host=localhost&username=iti&password=iti" 
-================================================================
+======================== connection the database ======================== 
+zf configure db-adapter "adapter=PDO_MYSQL&dbname=greentravel&host=localhost&username=iti&password=iti" 
