@@ -4,13 +4,13 @@ sudo gedit /etc/apache2/apache2.conf
 
 Add these:
 
-<Directory /var/www/html/greentravel >
+ <Directory /var/www/html/greentravel >
 
 DirectoryIndex index.php
 
 AllowOverride All
 
-</Directory>
+ </Directory>
 
 sudo a2enmod rewrite #a2enmod: apache2 enable mode rewrite
 
